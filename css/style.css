@@ -47,7 +47,7 @@ TEXT SELECTION STYLES
  color:#fff;
 }
 a {
-	color: #E095B4;
+	color: #CC2200;
 	outline: none;
 }
 /******************************************************************
@@ -239,7 +239,7 @@ blockquote {
 	margin-top: 0px;
 }
 a:hover {
-	color: #E35A88;
+	color: #0645AD;
 }
 .spacer {
 	height: 1px;
