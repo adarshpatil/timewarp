@@ -103,10 +103,10 @@ h5 {
 }
 h6 {
 	font-family: 'Droid Serif', Verdana, Arial, sans-serif;
-	line-height: 50%;
+	line-height: 1.6em;
 	color: #454544;
 	text-decoration: none;
-	font-size: 8pt;
+	font-size: 10pt;
 }
 strong {
 	font-family: 'Courier New', Lucida Console;
