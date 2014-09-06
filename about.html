@@ -27,6 +27,35 @@
 <script type="text/javascript" src="scripts/jquery.mousewheel-3.0.4.pack.js"></script>
 <link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
+<script>
+//We are using $(window).load here because we want to wait until the images are loaded  
+$(window).load(function(){  
+    //for each description div...  
+    $('div.description').each(function(){  
+        //...set the opacity to 0...  
+        $(this).css('opacity', 0.5);  
+        //..set width same as the image...  
+        $(this).css('width', $(this).siblings('img').width());  
+        //...get the parent (the aboutimage) and set it's width same as the image width... '  
+        $(this).parent().css('width', $(this).siblings('img').width());  
+        //...set the display to block  
+        $(this).css('display', 'block');  
+    });  
+  
+    $('div.aboutimage').hover(function(){  
+        //when mouse hover over the aboutimage div  
+        //get it's children elements with class description '  
+        //and show it using fadeTo  
+        $(this).children('.description').stop().fadeTo(500, 0.8);  
+    },function(){  
+        //when mouse out of the aboutimage div  
+        //use fadeTo to hide the div  
+        $(this).children('.description').stop().fadeTo(500, 0.5);  
+    });  
+  
+});  
+</script>
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,34 +112,33 @@
 <!--END of menu-->
 <!--This is the START of the content-->
 <div id="content">
-  <div class="about">
-    <h5>I am a Techie at heart,</h5>
-    <table>
-    <tr>
-        <td> <img src="images/about/techie.jpg" width="550" height="366" /> </td>
-        <td style="vertical-align:middle"> <p>I do what I love and I love what I do. I have been fascinated by computers since I was 15 and still continue to purse my interests in this field. I currently am pursing my M.Sc(Engg) research degree in the Computer Systems domain at IISc, Bangalore. Previously I worked at an investment bank and do some hobby projects alongside. For more details visit my portfolio page.</p> </td>
-    </tr>
-    </table>
-	  <div class="spacer"></div>
-    <h5>I like to inspire and be inspired,</h5>
-    <table>
-    <tr>
-        <td> <img src="images/about/ted-blr.jpg" width="550" height="366"/> </td>
-        <td style="vertical-align:middle"> <p>I am a technology evangelist </p> </td>
-    </tr>
-    </table>
-         <div class="spacer"></div>
-    <h5>I like to travel and see places</h5>
-    <table>
-    <tr>
-        <td> <img src="images/about/travel.jpg" width="550" height="366"/> </td>
-        <td style="vertical-align:middle"> <p>Been to places all over the world. Thailand, Singapore, Malaysia, Italy, Germany, Austria, Netherlands, Vatican City, London, Frace, Swiss, Qatar, Dubai, South Afria, Kenya, Maldives, USA and more... I would like to keep travelling all my life if possible</p> </td>
-    </tr>
-    </table>
+  <div class="about">  
+	
+	<h5>I am a Techie at heart,</h5>
+	<div class='aboutimage'>  
+		<img src="images/about/techie.jpg" width="550" height="366" />  
+		<div class='description'>  
+			<div class='description_content'>I do what I love and I love what I do. I have been fascinated by computers since I was 15 and still continue to purse my interests in this field. I am avidly pursuing research in Computer Architecture and High Performance Computing in IISc.  For more details visit my portfolio page.</div>  
+        </div>  
+    </div>  
+	<br/> <br/>
+	<h5>I like to inspire and be inspired,</h5>
+	<div class='aboutimage'>  
+		<img src="images/about/ted-blr.jpg" width="550" height="366" />  
+		<div class='description'>  
+			<div class='description_content'>I am a technology evangelist and firmly believe technology can be used for greater good of mandkind</div>  
+        </div>  
+    </div> 
+	<br/> <br/>
+	<h5>I like to travel, visit places and experience different cultures,</h5>
+	<div class='aboutimage'>  
+		<img src="images/about/travel.jpg" width="550" height="366" />  
+		<div class='description'>  
+			<div class='description_content'>Been to places all over the world. Thailand, Singapore, Malaysia, Italy, Germany, Austria, Netherlands, Vatican City, London, Frace, Swiss, Qatar, Dubai, South Afria, Kenya, Maldives, USA and more... I would like to keep exploring all my life if possible</div>  
+        </div>  
+    </div> 
+
   </div>
-
-
-
   <div class="spacer"></div>
 </div>
 

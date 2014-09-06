@@ -1168,3 +1168,26 @@ This is the CSS for the social links
 	background-position: 0 -17px;
 	color: #444444;
 }
+
+div.aboutimage{  
+    position:relative; /* important(so we can absolutely position the description div */  
+}  
+div.description{  
+    position:absolute; /* absolute position (so we can position it where we want)*/  
+    bottom:0px; /* position will be on bottom */  
+    left:0px;  
+    display:none; /* hide it */  
+    /* styling bellow */  
+    background-color:black;  
+    font-family: 'tahoma';  
+    font-size:15px;  
+    color:white;  
+}  
+div.description_content{  
+    padding:10px;  
+	margin:0px;
+	color:white;
+	font-family:Arial;
+	line-height: 130%;
+	font-size:15px;
+} 
