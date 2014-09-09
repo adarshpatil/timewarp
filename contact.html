@@ -121,6 +121,20 @@ function MM_validateForm() { //v4.0
         <div class="msgbox">
           <textarea name="cf_message" rows="50" cols="30" class="message" id="cf_message"></textarea>
         </div>
+
+
+	<p>✢ Please prove you are not a bot! </p>
+	<!-- CAPTCHA stuff -->
+	  <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5">
+          </script>
+    	  <noscript>
+       		<iframe src="http://www.google.com/recaptcha/api/noscript?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5"
+           		height="300" width="500" frameborder="0"></iframe><br>
+       		<textarea name="recaptcha_challenge_field" rows="3" cols="40">
+       		</textarea>
+       		<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+	  </noscript>
+
         <div class="submitbtn">
           <input type="submit" class="button btncolor" onClick="MM_validateForm('sender_name','','R');MM_validateForm('sender_email','','RisEmail');return document.MM_returnValue" value="Send Message" />
         </div>

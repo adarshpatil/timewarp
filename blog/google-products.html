@@ -123,6 +123,7 @@
       <div class="response">
         <h3>Leave a Comment</h3>
         <h6 class="required-comment">* required</h6>
+	<form name="comment" action="../scripts/comment.php" id="commentform" method="post">
         <div id="comment-form" class="form">
           <div class="input-block">
             <h6 class="short-label">Name*</h6>
@@ -140,9 +141,22 @@
             <h6>Comments*</h6>
             <textarea id="comment" rows="10" cols="70" name="comment"></textarea>
           </div>
+
+	  <!-- CAPTCHA stuff -->
+	  <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5">
+          </script>
+    	  <noscript>
+       		<iframe src="http://www.google.com/recaptcha/api/noscript?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5"
+           		height="300" width="500" frameborder="0"></iframe><br>
+       		<textarea name="recaptcha_challenge_field" rows="3" cols="40">
+       		</textarea>
+       		<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+	  </noscript>
+
           <div class="clear"></div>
           <input id="comment-button" type="submit" value="Submit" name="submit" />
         </div>
+	</form>
         <div class="spacer"></div>
       </div>
     </div>
