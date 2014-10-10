@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Timewarp - Projects - Spoken Language Detection</title>
+<title>Timewarp - Projects - Error Prone Predicates</title>
 <link rel="shortcut icon" href="../favicon.ico" />
 <!-- Load CSS -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -47,8 +47,8 @@
   <div id="header">
     <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
     <div id="header-text">
-      <h4>TimeWarp - Projects - Spoken Language Identification</h4>
-      <h6><a href="index.html">Home</a> → Projects</h6>
+      <h4>Timewarp - Projects - Identifying Error-prone Predicates of SQL Quries</h4>
+      <h6><a href="index.html">Home</a> → Sample Project</h6>
     </div>
   </div>
 </div>
@@ -87,8 +87,8 @@
   <!--This is the START of the NIVO slider-->
   <div class="slider-wrapper theme-effe">
     <div id="slider" class="nivoSlider"> 
-       <img src="../images/projects/spoken-lang/3.jpg" alt="" title="#img1" /> 
-       <img src="../images/projects/spoken-lang/2.jpg" alt="" title="#img2" /> 
+       <img src="../images/projects/error-prone-predicates/1.jpg" alt="" title="#img1" /> 
+       <img src="../images/projects/error-prone-predicates/2.jpg" alt="" title="#img2" />
     </div>
     <div id="slider-shadow"></div>
   </div>
@@ -96,16 +96,21 @@
   <!--This is the START of the project-->
   <div class="project">
     <div id="description">
-      <h3>Spoken Language Identification (LiD) Using Machine Learning</h3>
-      <p>Spoken Language Identification is the process of detecting the language of an utterance by an anonymous speaker, irrespective of gender, accent and pronunciations. Implementation of an acoustic model for Spoken Language Identification is to be carried out in this project. The major task is to identify those features or parameters which could be used to clearly distinguish between languages. This acoustic model makes use of mean values of Mel Frequency Cepstral Coefficients (MFCC). The system uses Support Vector Machine (SVM) to the handle the problem of multi class classification.The project aims at detecting English, Japanese, French, Hindi, and Kannada.
+      <h3>Identification of possible error-prone selectivities in Predicates of SQL Quries</h3> 
+      <p>
 
-</p>
+In SQL Query language we define an error-prone predicate as that whose estimation of selectivity is different from that returned by the query. Selectivity is the measure of percentage of columns returned for that predicate from the base relation. This selectivity is used by Database optimizers to choose effective plans to execute queries. If the selectivity estimation is incorrect sometimes the plan execution cost (time taken to execute query) can grow in terms of order of magnitude greater than the optimal query plan <br/> <br/>
+Selectivity of predicates in an SQL query can be done in several statistical ways (for example maintaining histograms, sampling, sketches, wavelets, parametric curve fitting etc.) and has been a well reserached field for the last decade. The DSL lab in IISc recently produced a paper <a href="http://dsl.serc.iisc.ernet.in/publications/conference/bouquet.pdf">Plan Bouquet</a> which eschews compile time estimation process and the actual selectivity is discovered incrementally at run time by executing a series of cost limited plans.
+This requires the accurate identification of error prone predicates and thier impact on the cost of the plan. We propose and implement some methods to achieve this. <br/>
+This project is underway. I will post the report here after we reach an effective conclusion. Stay tuned.
+ 	
+      </p>
     </div>
     <ul id="work">
-      <li>Machine Learning & Classification</li>
-      <li>Data Mining and Modelling</li>
-      <li>Math representation acousti prop</li>
-      <li>Spoken Language Identification</li>
+      <li>Database Management Systems</li>
+      <li>Plan Bouquet</li>
+      <li>DSL, IISc</li>
+      <li>Course Project</li>
     </ul>
   </div>
   <!--END of project-->
@@ -113,19 +118,19 @@
   <div class="spacer"></div>
   <div class="project-summary">
     <div class="one-third"> 
-      <a href="line-birds.html">
-      <img src="../images/projects/line-birds/line-birds.jpg" width="220" height="132" alt="project1" />
+      <a href="micro-arch-scale-out.html">
+      <img src="../images/projects/scale-out-arch/scale-out-thumb.jpg" width="220" height="132" alt="project1" />
       </a>
-      <h6>2011</h6>
-      <p>Line Birds Using OpenGL<a class="readmore" href="line-birds.html">read more →</a></p>
+      <h6>10th Oct 2014</h6>
+      <p>µ-Architecture Scale-out applications<a class="readmore" href="micro-arch-scale-out.html">read more →</a></p>
     </div>
    
     <div class="one-third-last"> 
-      <a href="datascience.html">
-      <img src="../images/projects/data-science/collage.png" width="220" height="132" alt="sample-project2" />
+      <a href="line-birds.html">
+      <img src="../images/projects/line-birds/line-birds.jpg" width="220" height="132" alt="project2" />
       </a>
-      <h6>22th April 2014</h6>
-      <p>Data Science Coursera<a class="readmore" href="datascience.html">read more →</a></p>
+      <h6>2011</h6>
+      <p>Line Birds Using OpenGL<a class="readmore" href="line-birds.html">read more →</a></p>
     </div>
   </div>
   <!--END of gallery-->

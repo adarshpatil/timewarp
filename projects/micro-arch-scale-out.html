@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Timewarp - Projects - Spoken Language Detection</title>
+<title>Timewarp - Projects -  µ-Architecture of Scale-out applications</title>
 <link rel="shortcut icon" href="../favicon.ico" />
 <!-- Load CSS -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -47,7 +47,7 @@
   <div id="header">
     <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
     <div id="header-text">
-      <h4>TimeWarp - Projects - Spoken Language Identification</h4>
+      <h4>Timewarp - Projects - µ-Architecture of Scale-out applications</h4>
       <h6><a href="index.html">Home</a> → Projects</h6>
     </div>
   </div>
@@ -87,8 +87,8 @@
   <!--This is the START of the NIVO slider-->
   <div class="slider-wrapper theme-effe">
     <div id="slider" class="nivoSlider"> 
-       <img src="../images/projects/spoken-lang/3.jpg" alt="" title="#img1" /> 
-       <img src="../images/projects/spoken-lang/2.jpg" alt="" title="#img2" /> 
+       <img src="../images/projects/scale-out-arch/1.jpg" alt="" title="#img1" /> 
+       <img src="../images/projects/scale-out-arch/2.jpg" alt="" title="#img2" /> 
     </div>
     <div id="slider-shadow"></div>
   </div>
@@ -96,16 +96,36 @@
   <!--This is the START of the project-->
   <div class="project">
     <div id="description">
-      <h3>Spoken Language Identification (LiD) Using Machine Learning</h3>
-      <p>Spoken Language Identification is the process of detecting the language of an utterance by an anonymous speaker, irrespective of gender, accent and pronunciations. Implementation of an acoustic model for Spoken Language Identification is to be carried out in this project. The major task is to identify those features or parameters which could be used to clearly distinguish between languages. This acoustic model makes use of mean values of Mel Frequency Cepstral Coefficients (MFCC). The system uses Support Vector Machine (SVM) to the handle the problem of multi class classification.The project aims at detecting English, Japanese, French, Hindi, and Kannada.
+      <h3>Study of Micro-Architectural characteristrics of Scale-out applications </h3> </br> 
+      <p>
 
-</p>
+Emerging scale-out workloads are of the paradigm where: <br/>
+	1. They operate on large data sets typically split into shards, <br/>
+	2. Serve a large number of completely independent requests, <br/>
+	3. Not reliant on underlying hardware; fault tolerant by design for deployment into cloud infra where machines are unreliable, <br/>
+	4. Use inter-node connectivity for co-ordination and task management <br/> <br/>
+
+A few examples of this class of applications are: <br/>
+1. Unstructured data stores (NoSQL, Redis) <br/>
+2. MapReduce (Hadoop) <br/>
+3. Web Search (data harvesting ISN's)<br/>
+4. Web Frontend <br/> 
+5. Streaming Media (YouTube, Netflix) <br/>
+6. SAT Solvers <br/> <br/>
+I am attempting to study the micro architectural properties of these class of applications in terms of the degree of ILP / MLP parallelism, working set size, degree of memory sharing between cores. This we hope will unearth interesting properties so we can design effecient processors that suite this class of applications. <br/> <br/> 
+This project is currently underway. I will post the report here when I reach an tangible conclusion stay tuned.
+	
+
+
+	
+      </p>
     </div>
     <ul id="work">
-      <li>Machine Learning & Classification</li>
-      <li>Data Mining and Modelling</li>
-      <li>Math representation acousti prop</li>
-      <li>Spoken Language Identification</li>
+      <li>Computer Architecure</li>
+      <li>Systems Design</li>
+      <li>Hadoop</li>
+      <li>Scale out applications</li>
+      <li>Course Project</li>
     </ul>
   </div>
   <!--END of project-->
@@ -113,19 +133,19 @@
   <div class="spacer"></div>
   <div class="project-summary">
     <div class="one-third"> 
-      <a href="line-birds.html">
-      <img src="../images/projects/line-birds/line-birds.jpg" width="220" height="132" alt="project1" />
+      <a href="spoken-language-detection.html">
+      <img src="../images/projects/spoken-lang/spoken-lang.jpg" width="220" height="132" alt="project1" />
       </a>
-      <h6>2011</h6>
-      <p>Line Birds Using OpenGL<a class="readmore" href="line-birds.html">read more →</a></p>
+      <h6>24th May 2012</h6>
+      <p>Spoken Language Detection<a class="readmore" href="spoken-language-detection.html">read more →</a></p>
     </div>
    
     <div class="one-third-last"> 
-      <a href="datascience.html">
-      <img src="../images/projects/data-science/collage.png" width="220" height="132" alt="sample-project2" />
+      <a href="error-prone-predicates.html">
+      <img src="../images/projects/error-prone-predicates/thumb.jpg" width="220" height="132" alt="project2" />
       </a>
-      <h6>22th April 2014</h6>
-      <p>Data Science Coursera<a class="readmore" href="datascience.html">read more →</a></p>
+      <h6>10th Oct 2014</h6>
+      <p>Error Prone Predicates in SQL<a class="readmore" href="error-prone-predicates.html">read more →</a></p>
     </div>
   </div>
   <!--END of gallery-->
