@@ -48,7 +48,7 @@
     <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
     <div id="header-text">
       <h4>Timewarp - Projects - Hardware Branch Prediction in Android</h4>
-      <h6><a href="index.html">Home</a> → Projects</h6>
+      <h6><a href="../index.html">Home</a> → Projects</h6>
     </div>
   </div>
 </div>
@@ -100,14 +100,6 @@
       <h3>Branch Prediction in Android applications </h3> </br> 
       <p>
 
-The worldwide popularity of inexpensive smart phones,tablets and low power pocket devices has caused a major
-shift in computing paradigms. Reliability, availability, connectivity,as well as performance related concerns has become
-paramount. Mobile platforms have different types of application physiognomies than those of traditional desktop
-applications and pose unique challenges to the architecture community. 
-Modern mobile OS are much more capable and allow for multi-tasking between applications and background application refreshes. 
-This results is increased number of context switches between the user and kernel mode.<br/> <br/>
-
-
 In this work I have attempted to study the hardware branch prediction accuracy of ARM processor in mobile devices (specifically the <a target="_blank" href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0344k/DDI0344K_cortex_a8_r3p2_trm.pdf">Cortex A8</a>) running Android.
 We simulate the processor using full system cycle accurate simulation mode of <a target="_blank" href="http://www.gem5.org/Main_Page">gem5</a> and run the <a target="_blank" href="http://asg.ict.ac.cn/projects/moby/">Moby application benchmark suite</a> to study the micro-architectural characteristics.
 We account for context switches made while running these applications and separate the branches into user mode and kernel mode branches. 
@@ -119,6 +111,8 @@ The number of context switches in Android applications is quite few (between 0.5
 This leads us to the second result. As a consequence of the few and far spaced kerel mode executions, we find that although the overall branch prediction accuracy is pretty high (between 88% to 93%) the number of incorrect predictions in in user and kernel mode is disproportionate.
 The user mode doesn't suffer from too much from these incorrect predictions (1.53% to 6.83%) while the kernel mode suffers from a not only a high percentage of mis-predictions but also a wide range of mis-predictions rates (48.46 to 78.46%).
 The instructions squashed in the pipeline due to execution on mis-predicted path represents wasted cycles and power being a first rate design concern for mobile processors this worrisome. <br/> <br/>
+
+Modern mobile OS are much more capable and allow for multi-tasking between applications and background application refreshes. This results is increased number of context switches between the user and kernel mode. However the decrease in mis-prediction rate with increase in kernel mode burst length and number of context switches is only linear which is insufficient for handling these modern OS. <br/> <br/>
 
 We hope that future hardware designers take into account these findings and use OS aware branch prediction techniques as proposed in ”Understanding and improving operating
 system effects in control flow prediction.” by Sivasubramaniam, Li et al. in ASPLOS 2002 <a target="_blank" href="http://csl.cse.psu.edu/publications/asplos02.pdf"> here </a>. <br/> <br/>
