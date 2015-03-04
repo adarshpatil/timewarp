@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Timewarp - Projects -  Dynamic Scoping for Clang Compiler</title>
+<title>Timewarp - Projects -  Dynamic Scoping for C using Clang Compiler</title>
 <link rel="shortcut icon" href="../favicon.ico" />
 <!-- Load CSS -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -47,7 +47,7 @@
   <div id="header">
     <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
     <div id="header-text">
-      <h4>Timewarp - Projects - Dynamic Scoping for LLVM C-Compiler (Clang)</h4>
+      <h4>Timewarp - Projects - Dynamic Scoping for C language using LLVM C-Compiler (Clang)</h4>
       <h6><a href="../index.html">Home</a> → Projects</h6>
     </div>
   </div>
@@ -99,8 +99,10 @@
       <h3>Implementation of Dynamic Scoping for C Programs</h3> </br> 
       <p>
 
-In this work I modified the LLVM C compiler (Clang) source code to produce a C compiler that supports dynamic scoping. In other words, the new C Compiler takes C programs that follow dynamic scoping rules as input. This can be done in two ways. In both approaches are required to add passes to Clang to traverse the Abstract Syntax Tree(AST) produced by Clang and so that a modified AST is generated. The new AST must include all the modifications and extra nodes to handle dynamic scoping. In the first approach, the new AST can be handed over to the internal compilation pipeline for further processing. The second approach is to produce new C source code from the AST with support for dynamic scoping that can be compiled with any C compiler. Input programs will be required to support only int, float ,array, and structure type variables. <br/>
-This project is currently underway. I will post the complete report with results and procedure once I finish this. Stay tuned <br/>
+In this work I modified the LLVM C compiler (Clang) source code to produce a C compiler that supports dynamic scoping. In other words, the new C Compiler takes C programs that follow dynamic scoping rules as input. This can be done in two ways. In both approaches are required to add passes to Clang to traverse the Abstract Syntax Tree(AST) produced by Clang and so that a modified AST is generated. The new AST must include all the modifications and extra nodes to handle dynamic scoping. In the first approach, the new AST can be handed over to the internal compilation pipeline for further processing. The second approach is to produce new C source code from the AST with support for dynamic scoping that can be compiled with any C compiler. Input programs will be required to support only int, float and structure type variables. <br/> 
+For solving the above eluded problem we use the second method of parsing the AST and generating new source code. The libtooling tool chain of clang is used to instantiate the compiler instance and parse the AST. <br/>
+This project has concluded. The detailed <a href="../misc/dynamicScopingForC.pdf">report</a> is available on the links indicated. <br/>
+The code is available for inspection on my github repo <a href="https://github.com/adarshpatil/dynamicScopingForC">https://github.com/adarshpatil/dynamicScopingForC</a> <br/>
 
       </p>
     </div>
@@ -108,6 +110,7 @@ This project is currently underway. I will post the complete report with results
       <li>Compiler Design</li>
       <li>LLVM</li>
       <li>Clang Compiler</li>
+	  <li>libtooling</li>
       <li>Dynamic Scoping</li>
       <li>Course Project</li>
     </ul>
