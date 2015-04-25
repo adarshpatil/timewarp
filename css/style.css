@@ -361,6 +361,11 @@ Header & Menu CSS
 #main-menu .selected {
 	color: #121212;
 }
+#main-menu .subitem{
+	color: #707070;
+	padding: 5px 0 5px 20px;
+	font-size: 15px;
+}
 #footer h6 {
 	font-size: 10px;
 	position: fixed;
