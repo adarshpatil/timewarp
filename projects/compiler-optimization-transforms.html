@@ -47,7 +47,7 @@
   <div id="header">
     <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
     <div id="header-text">
-      <h4>Timewarp - Projects - Compiler Optimization Transforms</h4>
+      <h4>Timewarp - Projects - Compiler Optimization Transforms / Tuning for Performance</h4>
       <h6><a href="../index.html">Home</a> → Projects</h6>
     </div>
   </div>
@@ -95,19 +95,93 @@
   <!--This is the START of the project-->
   <div class="project">
     <div id="description">
-      <h3>Run-time Compiler Optimization Transforms</h3> </br> 
+      <h3>Compiler Optimization Transforms <br/> Tuning for performance on SIMD and Multicore architecture</h3> </br> 
       <p>
 
-The objective of the project is to optimize the Harris corner detection algorithm using transformations, in particular, locality optimizations, vectorization, and parallelization to improve running time on multi-core processor. Here is the github repo <a href="https://github.com/adarshpatil/e0255-opt-asst">https://github.com/adarshpatil/e0255-opt-asst</a><br/> 
-This project is under progress and will be updated with further resources and report soon. <br/>
+The objective of the assignment is to optimize and tune the Harris corner detection algorithm for performance using locality, SIMD and multicore parallelism transformations. We tune the <br/>
+Using suitable compiler flags, transforms and optimizations we obtain a speed up of <strong>11.5X</strong> over unparallelized reference implementation and <strong>13.5X</strong> over OpenCV <strong>using GCC 4.9.2</strong> compiler and <strong>11.3X</strong> over unparallelized reference implementation and <strong>14.6X</strong> over OpenCV <strong>using ICC 15.0</strong> compiler. All experiments were performaned on Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz [Haswell μarch, 4 core, 64 KB L1 private / 256 KB L2 private / 8 MB L3 shared cache]. <br/>
 
-      </p>
+Detailed performance speedup comparison of ICC vs GCC and vectorization, parallelism etc. available in the below report. <br/>
+The complete code for the project is available on github here <a href="https://github.com/adarshpatil/e0255-opt-asst"> https://github.com/adarshpatil/e0255-opt-asst </a><br/> <br/> <br/>
+
+Speedup and Execution time (in ms) by vectorization and locality transforms </p>
+<table style="width:120%">
+<tr>
+<td> </td><td>OpenCV</td> <td>Reference</td> <td>Optimized</td>	<td>Speedup by locality transforms</td>
+</tr>
+<tr>
+<td>No Vectorize</td>  <td>3515.29</td> <td>3767.32</td> <td>2442.4</td> <td>1.54</td>
+</tr>
+<tr>
+<td>Vectorize</td> <td>3566.35</td> <td>3035.41</td> <td>930.90</td> <td>3.26</td> 
+</tr>
+<tr>
+<td>Vectorization </td> <td>-</td> <td>1.24x</td>	<td>2.62x</td> 
+</tr>
+<tr>
+<td> Speedup </td>
+</tr>
+</table>
+
+<p>
+<br/>
+Speedup and Execution time (in ms) using ICC 15.0 
+</p>
+<table style="width:120%">
+<tr>
+<td> </td><td>OpenCV</td> <td>Reference</td> <td>Optimized</td>	<td>Speedup w.r.t Reference</td>
+</tr>
+<tr>
+<td>1 core</td>  <td>3567.95</td> <td>2755.83</td> <td>904.61</td> <td>3.04x</td>
+</tr>
+<tr>
+<td>2 core</td> <td>-</td> <td>1617.88</td> <td>355.724</td> <td>4.54x</td> 
+</tr>
+<tr>
+<td>4 core</td> <td>-</td> <td>1444.89</td> <td>243.19</td> <td>5.94x</td> 
+</tr>
+<tr>
+<td>Speedup by </td> <td>-</td> <td>1.90x</td>	<td>3.72x</td> 
+</tr>
+<tr>
+<td> Parallelism </td>
+</tr>
+</table>
+
+<p>
+<br/>
+Speedup and Execution time (in ms) using GCC 4.9.2 
+</p>
+<table style="width:120%">
+<tr>
+<td> </td><td>OpenCV</td> <td>Reference</td> <td>Optimized</td>	<td>Speedup w.r.t Reference</td>
+</tr>
+<tr>
+<td>1 core</td>  <td>3566.35</td> <td>3035.41</td> <td>930.90</td> <td>3.26x</td>
+</tr>
+<tr>
+<td>2 core</td> <td>-</td> <td>1990.6</td> <td>422.54</td> <td>4.71x</td> 
+</tr>
+<tr>
+<td>4 core</td> <td>-</td> <td>1940.92</td> <td>264.73</td> <td>7.34x</td> 
+</tr>
+<tr>
+<td>Speedup by </td> <td>-</td> <td>1.56x</td>	<td>3.52x</td> 
+</tr>
+<tr>
+<td> Parallelism </td>
+</tr>
+</table>
+<br/> <br/>
+<iframe class="scribd_iframe_embed" src="https://www.scribd.com/embeds/264172020/content?start_page=1&view_mode=scroll&show_recommendations=true" data-auto-height="false" data-aspect-ratio="undefined" scrolling="no" id="doc_18962" width="100%" height="600" frameborder="0"></iframe>
+
     </div>
     <ul id="work">
-      <li>Compiler Design</li>
+      <li>Compiler Optimizations</li>
       <li>SIMD Vectorization</li>
       <li>AVX / SSE2</li>
-	  <li>Parallelization</li>
+	 		<li>Parallelization / OpenMP</li>
+	 		<li>Tuning algorithm behaviour</li>
       <li>Course Project</li>
     </ul>
   </div>
