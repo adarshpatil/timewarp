@@ -24,7 +24,7 @@ else {
 	// Your code here to handle a successful verification
 	$EmailFrom = "timewarp-auto@adarshpatil.in";
 	$EmailTo = "me@adarshpatil.in";
-	$subject = "COMMENT on your BLOG";
+	$subject = "COMMENT on adarshpatil.in BLOG";
 	$name = Trim(stripslashes($_POST['name'])); 
 	$email = Trim(stripslashes($_POST['email']));
 	$url = Trim(stripslashes($_POST['url'])); 
