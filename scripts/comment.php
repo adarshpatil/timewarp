@@ -23,7 +23,7 @@ if (!$resp->is_valid) {
 else {
 	// Your code here to handle a successful verification
 	$EmailFrom = "timewarp-auto@adarshpatil.in";
-	$EmailTo = "adarshpatil123@yahoo.com";
+	$EmailTo = "me@adarshpatil.in";
 	$subject = "COMMENT on your BLOG";
 	$name = Trim(stripslashes($_POST['name'])); 
 	$email = Trim(stripslashes($_POST['email']));

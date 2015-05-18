@@ -22,7 +22,7 @@ if (!$resp->is_valid) {
 }
 else {
 	$EmailFrom = "timewarp-auto@adarshpatil.in";
-	$EmailTo = "adarshpatil123@yahoo.com";
+	$EmailTo = "me@adarshpatil.in";
 	$subject = "You've been CONTACTED from your site";
 	$name = Trim(stripslashes($_POST['name'])); 
 	$email = Trim(stripslashes($_POST['email'])); 
