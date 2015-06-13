@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TimeWarp - ExaScale Computing - The exigent need for FLOPS</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<!-- Load CSS -->
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<!-- Load Fonts -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
+<!-- Load jQuery library -->
+<script type="text/javascript" src="../scripts/jquery-1.6.2.min.js"></script>
+<!-- Load custom js
+<script type="text/javascript" src="../scripts/panelslide.js"></script>
+<script type="text/javascript" src="../scripts/custom.js"></script> -->
+<!-- Load topcontrol js -->
+<script type="text/javascript" src="../scripts/scrolltopcontrol.js"></script>
+<!-- Load NIVO Slider -->
+<link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/nivo-theme.css" type="text/css" media="screen" />
+<script src="../scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+<script src="../scripts/nivo-options.js" type="text/javascript"></script> 
+<!-- Load fancybox -->
+<script type="../text/javascript" src="../scripts/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="../text/javascript" src="../scripts/jquery.easing-1.3.pack.js"></script>
+<script type="../text/javascript" src="../scripts/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="../stylesheet" href="../css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /> 
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50522218-1', 'adarshpatil.in');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<!--This is the START of the header-->
+<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
+<div id="header-wrapper">
+  <div id="header">
+    <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
+    <div id="header-text">
+      <h4>TimeWarp - Blogpost</h4>
+      <h6><a href="../index.html">Home</a> → Blog Post</h6>
+    </div>
+  </div>
+</div>
+<!--END of header-->
+<!--This is the START of the menu-->
+<div id="menu-wrapper">
+  <div id="main-menu">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../portfolio.html">Portfolio</a></li>
+      <li><a class="selected" href="../blog.html">Blog  →</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </div>
+	<!--This is the START of the footer-->
+	<div id="footer">
+		<div id="social-box">
+			<ul>
+				<li>
+					<div class="facebook"><a href="http://facebook.com/adarsh.patil" target="_blank"></a></div>
+				</li>
+				<li>
+					<div class="twitter"><a href="http://twitter.com/adarsh_patil" target="_blank"></a></div>
+				</li>
+			</ul>
+		</div>
+		<h6>Copyright © 2014 - adarshpatil</h6>
+	</div>
+	<!--END of footer-->
+</div>
+<!--END of menu-->
+<!--This is the START of the content-->
+<div id="content">
+  <h6> <a href="../blog.html"> ← Back to Blogs</a> </h6>
+  <!--This is the START of the blog section-->
+  <div id="blog">
+    <div class="blog-item-single">
+      <h3>ExaScale Computing - The exigent need for FLOPS <br/> Challenges and Opportunities</h3>
+      <div class="blog-item-single-info">
+        <div class="user">adarshpatil</div>
+        <div class="comments">22nd April 2015</div>
+        <div class="tags">IISc; CSA; SERC; IIT Madras; Masters; Interview</div>
+      </div>
+<div class="blog-item-single-content"> <a class="single_image"><img src="../images/blog/post-gate-admissions-2015/iit-madras-iisc-gate.png" width="740" height="230" alt="blog1" /></a>
+	<br/>
+	<p>
+If you're doing research in a particular area you really need to be at the bleeding edge of the innovation in that field. The other thing I have always found useful is that if you're designing a system always know your users, understand the way they think, what they want and walk in their shoes. To this effect, firstly I have been attending the HPC users conferences and forums (courtesy: SERC, IISc) and secondly I have been doing some background on trends of innovation in computing - in particular for the next generation EXASCALE computing. Later in this blog I will elucidate it's challenges and what innovations are needed - both in hardware and software programming paradigms. <br/>
+Who better to listen to than <a taget="_blank" href="http://timmattson.com/">Tim Mattson</a> from Intel. He gives you the best of both worlds - users and the system designers. He has a background of in programming the molecular scattering software for HPC Systems and is on the front row of systems design at Intel Research and I was very fortunate to listen to 2 of this talks at IISc and then at <a taget="_blank" href="http://ipdps.org/">IPDPS 2015</a>. (Credits: Some parts of this blog are from his talk). <br/> <br/>
+First a low down on what is ExaScale Computing - Today's fastest supercomputer in the world is China's Tianhe-2 at 33.86 petaFLOPS. ExaScale computing is just the next logical step i.e. building a exaFLOPS machine. After this usually people throw back 2 questions at me - <br/>
+<font color="red">1.</font> At every step on the way we went from gigaScale to teraScale to petaScale, what's new in exaScalecale. Simply cram a few more transistors probably a few nanometers smaller giving you better density on chip.
+<br/> <font color="red">2.</font> Do we really need exaScale machines? (Tim calls them ExaSkeptic!!) Is this the computer scientists adrenaline rush to take on new useless problems? I mean most scientists and users are still trying to figure our what to do with petaScale. <br/><br/>
+<font color="red">1.</font> This is a two part answer. 
+Various research institutes and multi national corporations - NVIDIA, Intel, IBM are working on these problems.
+
+	</p>
+      </div>
+      <div class="social-blog-buttons"> <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="adarsh_patil">Tweet</a>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        
+      </div>
+      <div class="comments-block">
+        <h3 class="comments-title">Comments (1)</h3>
+        <div class="spacer"></div>
+        <div class="comment"> <img class="avatar" alt="" src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm" width="50" height="35" />
+          <div class="comment-info"> <a class="post-author">Anusha</a>
+            <p>April 22, 2015</p>
+          </div>
+          <div class="comment-body">
+            <p>Thanks for the info Adarsh. This really helps us understand the admissions process at IISc. I wish your friend all the best the interviews.</p>
+        </div>
+        <div class="spacer"></div>
+
+
+      <div class="response">
+        <h3>Leave a Comment</h3>
+        <h6 class="required-comment">* required</h6>
+	<form name="comment" action="../scripts/comment.php" id="commentform" method="post">
+        <div id="comment-form" class="form">
+          <div class="input-block">
+            <h6 class="short-label">Name*</h6>
+            <input class="short-field" id="name" type="text" name="name" value="" />
+          </div>
+          <div class="input-block">
+            <h6 class="short-label">Email*</h6>
+            <input class="short-field" id="email" type="text" name="email" value="" />
+          </div>
+          <div class="input-block-long">
+            <h6 class="short-label">Web</h6>
+            <input class="long-field" id="url" type="text" placeholder="http://" name="url" value="" />
+          </div>
+          <div class="textarea-block">
+            <h6>Comments*</h6>
+            <textarea id="comment" rows="10" cols="70" name="comment"></textarea>
+          </div>
+	
+	  <!-- CAPTCHA stuff -->
+	  <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5">
+          </script>
+    	  <noscript>
+       		<iframe src="http://www.google.com/recaptcha/api/noscript?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5"
+           		height="300" width="500" frameborder="0"></iframe><br>
+       		<textarea name="recaptcha_challenge_field" rows="3" cols="40">
+       		</textarea>
+       		<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+	  </noscript>
+
+	  <input type="hidden" name="blog" value="iisc-csa-ms-interview" />
+          <div class="clear"></div>
+          <input id="comment-button" type="submit" value="Submit" name="submit" />
+        </div>
+	</form>
+        <div class="spacer"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--END of blog section-->
+</div>
+<!--END of content-->
+
+</body>
+</html>
