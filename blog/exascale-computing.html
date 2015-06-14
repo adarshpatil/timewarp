@@ -90,19 +90,57 @@
       <h3>ExaScale Computing - The exigent need for FLOPS <br/> Challenges and Opportunities</h3>
       <div class="blog-item-single-info">
         <div class="user">adarshpatil</div>
-        <div class="comments">22nd April 2015</div>
-        <div class="tags">IISc; CSA; SERC; IIT Madras; Masters; Interview</div>
+        <div class="comments">13th June 2015</div>
+        <div class="tags">ExaScale; SuperComputer; Computer Architecture; Trends</div>
       </div>
-<div class="blog-item-single-content"> <a class="single_image"><img src="../images/blog/post-gate-admissions-2015/iit-madras-iisc-gate.png" width="740" height="230" alt="blog1" /></a>
+<div class="blog-item-single-content"> <a class="single_image"><img src="../images/blog/exascale/exascale.jpg" width="700" height="230" alt="blog1" /></a>
 	<br/>
 	<p>
-If you're doing research in a particular area you really need to be at the bleeding edge of the innovation in that field. The other thing I have always found useful is that if you're designing a system always know your users, understand the way they think, what they want and walk in their shoes. To this effect, firstly I have been attending the HPC users conferences and forums (courtesy: SERC, IISc) and secondly I have been doing some background on trends of innovation in computing - in particular for the next generation EXASCALE computing. Later in this blog I will elucidate it's challenges and what innovations are needed - both in hardware and software programming paradigms. <br/>
+If you're doing research in a particular area you really need to be at the bleeding edge of the innovation in that field. The other thing I have always found useful is that if you're designing a system always know your users, understand the way they think, what they want and walk in their shoes. To this effect, firstly I have been attending the HPC users conferences and forums (courtesy: SERC, IISc) and secondly I have been doing some background on trends of innovation in computing - in particular for the next generation EXASCALE computing. The advancements in supercomputer design are about 5 years ahead of servers and servers are about 2-3 years ahead of desktops. So watching the supercomputer technology space gives us a good idea of what to expect in commodity technology about 5-7 years from now. <br/>
 Who better to listen to than <a taget="_blank" href="http://timmattson.com/">Tim Mattson</a> from Intel. He gives you the best of both worlds - users and the system designers. He has a background of in programming the molecular scattering software for HPC Systems and is on the front row of systems design at Intel Research and I was very fortunate to listen to 2 of this talks at IISc and then at <a taget="_blank" href="http://ipdps.org/">IPDPS 2015</a>. (Credits: Some parts of this blog are from his talk). <br/> <br/>
 First a low down on what is ExaScale Computing - Today's fastest supercomputer in the world is China's Tianhe-2 at 33.86 petaFLOPS. ExaScale computing is just the next logical step i.e. building a exaFLOPS machine. After this usually people throw back 2 questions at me - <br/>
 <font color="red">1.</font> At every step on the way we went from gigaScale to teraScale to petaScale, what's new in exaScalecale. Simply cram a few more transistors probably a few nanometers smaller giving you better density on chip.
 <br/> <font color="red">2.</font> Do we really need exaScale machines? (Tim calls them ExaSkeptic!!) Is this the computer scientists adrenaline rush to take on new useless problems? I mean most scientists and users are still trying to figure our what to do with petaScale. <br/><br/>
-<font color="red">1.</font> This is a two part answer. 
-Various research institutes and multi national corporations - NVIDIA, Intel, IBM are working on these problems.
+<font color="red">1.</font> The answer to this is many-fold. <br/>
+<span style="font-weight: bold;color: #0000ff">• Power.....??</span> <br/>
+If we look at the graph of how we have been scaling in terms of FLOPS over the past few decades (picture below) we see that we have been fairly linear and as promised every decade we have increased processing a thousand fold. By that logic if we extrapolate we should be getting our first exaFLOPS machine somewhere in the year 2020. Alongside if we take a look at the power consumed by these systems. Right now, the most efficient system the K supercomputer needs one to two megawatts per petaflop/s. Multiply that by 1,000 to get to exascale and the power (2000 megawatts)is simply unaffordable. There have been discussions on these lines and the maximum promised power for a permissible exascale machine would be 20 megawatts, which means we need a 100 fold reduction in power consumption. This is a HUGE challenge by itself for computer architects and electrical engineers. We are already at our power budget with the fastest supercomputer Tianhe-2 using 17.3MWatt. By contrast, the human brain takes about 20 to 40 watts which reminds me of my old article on <a target="_blank" href="nature-vs-computer-architecture.html">Nature inspired Computer Arch</a>.
+</p>
+
+<table>
+<tr>
+<td> <img src="../images/blog/exascale/Exascaling.png" height="250px" width="320px">  </td>
+<td> <img src="../images/blog/exascale/exascale-power.jpg" height="250px" width="320px">  </td>
+</tr>
+</table>
+
+<p>
+Saving power is all about managing your data movement well. Accordingly a lot of research and development has gone into developing better Memory Systems hierarchies. Electrically speaking, the new kid on the block that is fast maturing is <span style="font-weight: bold">3D die-stacking</span>, which allows vertically stacking multiple integrated chips. It's exactly what is sounds like - You take a completed computer chip (DRAM, say), and then place it on top of another chip (a CPU). As a result, two chips that used to be centimeters apart on a circuit board are now less than a millimeter apart. This reduces power consumption and also improves bandwidth by a huge amount. Obviously, though, you can’t just take a DRAM chip and whack it on top of a CPU. The chips need to be designed with chip stacking in mind, and it takes specialized technology which comes with it's own pro's and cons or as we computer scientists call it trade off's.
+<img align="left" src="../images/blog/exascale/3d-stacking.jpg"> There are three main ways of stacking chips. The most basic one is Bump + RDL which involves stacking two chips together, and then connecting them both to a flip chip at the bottom of the stack; the chips are physically close, which is a good step forward, but they can’t communicate directly with each other. Second technology which seems most mature in terms of fab is called through-silicon via (TSV). With TSV, vertical copper channels are built into each die, so that when they’re placed on top of each other the TSVs connect the chips together. This will used soon to stack DRAMs vertically providing either another level or caching or part of physical memory (under heavy reserach). The third technique uses a silicon transposer. A transposer is effectively a piece of silicon that acts like a “mini motherboard,” connecting two or more chips together (similar to a breadboard). The advantage of this technique is that you can reap the benefits of shorter wiring but the existing chips fab process does not have to be changed at all. Transposers are expected to be used in upcoming multi-GPU Nvidia and AMD graphics cards. One or more of these 3D stacking technology will mature and be part of the next gen exascale machine. The easiest to stack electically and most in demand would be raw DRAM memory chips which would be used to quell the divide between the fast CPU and slower main memory. [and fortunately for me I have been focussing my work on this area ;-)].
+
+<br/><br/>
+
+<span style="font-weight: bold;color: #0000ff">• Architecture race!</span> <br/>
+<span style="font-weight: bold">Heterogeneous architectures</span> with GPU/accelerators-based machines will be common place soon and I would go so far to say that heterogeneous machines will dominate the top 10 machines in the next 3 years. Also expect further specialization in hardware (FPGAs/ASICs) - for example the Anton 2 supercomputer built by D. E. Shaw Research (New York) is a special-purpose system for molecular dynamics simulations. <br/>
+As <a target="_blank" href="http://www2.lbl.gov/Publications/Deputy-Director/bio.html">Horst Simon</a> appropriately puts it, One way to look at the race to exascale is a swim meet where all are leading towards the same goal. We are currently following three different swim lanes in terms of architectures, each of which claims one of the top four slots in the Top500 list. The multicore path is built around high-end CPUs, such at Intel’s x86, SPARC and IBM’s Power 7. The Manycore/embedded approach uses many simpler, low power cores from embedded systems. Finally, there is the GPU/accelerator path using highly specialized processors from the gaming/graphics market space, such as NVIDIA’s Fermi, the Cell processor and Intel’s Xeon Phi (MIC). Accordingly, Tianhe-2 (Xeon Phi accelerator based) and Titan (GPU accelerator based) taken No. 1 and 2 spot. The manycore embedded processor path has led to Blue Gene in the third spot and the K computer, using SPARC CPUs, is at No. 4. <br/> 
+There is an indication that multicore with complex cores is nearing the end of the line? In the embedded lane, Blue Gene is the last of the line. Will there be any more large-scale embedded multicore machines? And with GPU/accelerators, Intel bought Cray’s interconnect technology and WhamCloud. Will Intel develop complete systems? Is this the end of the road for Von Neumann architecture that we all have come to know and love. I think it's not, but check out the wonderful debate on this at <a target="_blank" href="http://www.eecs.umich.edu/eecs/about/articles/2015/End-of-Road.html">MICRO 2014</a>.<br/> <br/>
+</p>
+<center><img src="../images/blog/exascale/top4-supercomputers.jpg" height="250px" width="600px"> </center><br/>
+<p>
+<span style="font-weight: bold;color: #0000ff">• Software / Programming paradigms</span> <br/>
+The first and obvious challenge we see is <span style="font-weight: bold">programming the heterogeneous machines</span> transparently. For this we have somewhat a decent solution albeit more work is required around standards. The vendors of accelerators have usually kept hardware and programming models compatible with "OpenCL". (Shame on you if you use CUDA! - you are egging NVIDIA ego to not use standards. This will come back to bite users when hardware changes and your programs will not run on other accelerators). Thanks to OpenCL we are now all familiar with the model of offloading computation to accelerators and launching kernels. <br/>
+</p>
+<center><img src="../images/blog/exascale/opencl-hardware.png" height="250px" width="550px"> </center><br/>
+<p>
+We should keep in mind Amdahl’s law kicking in - speedup of a program using multiple processors in parallel computing is limited by the sequential fraction of the program (amended to include) "plus the parallel book-keeping overhead". The second programming paradigm research goes into <span style="font-weight: bold">exascale Runtime Parallelism</span> where we are limited by systemic challenges of utilization, data movement cost, load imbalance, fault tolerance, scalability. There are 2 schools of thought to address this problem - <span style="font-weight: bold">Evolutionary and Revolutionary</span> (Courtesy Intel). Up until today we have programmed massively parallel programs using OpenMP pragmas + MPI for message passing (popularly referred to as MPI+X). The model worked very well despite some MPI complexity. However there is a fundamental problem with MPI when moving to exascale - it assumes the node to which the message has been passed to is available and the underlying interface is resilient and fault tolerant. At exascale the number of cores are going to be in the order of millions and the number/frequency of soft errors would be tremendous making the model of availability of a node assumed by MPI null and void. Programming with MPI at extreme scale would also be tedious given its programming model (more on this <a target="_blank" href="http://computing.ornl.gov/workshops/scidac2010/presentations/r_thakur.pdf">here</a>). There have been various attempts at solving this using revolutionary programming models, most mature of which is <a target="_blank" href="http://charm.cs.uiuc.edu/">CHARM++</a> from Sanjay Kale's research group at UIUC. CHARM++ is a message-driven execution model supporting an actors programming model. Charm++ uses over-decomposition with concurrent schedulers that exploit parallel slackness to keep the load balanced (and hide latency) and relocatable data-block and objects plus local checkpointing and message logging to support resilience. Tim himself is at the front of one of the other revolutionary efforts called <a target="_blank" href="https://01.org/open-community-runtime">Open Community Runtime(OCR)</a>. Notable mentions include PGAS, Grappa, Legion, etc. <br/>
+</p>
+<center><img src="../images/blog/exascale/evolutionary-revolutionary-exascale-paradigms.png" height="250px" width="550px"> </center><br/>
+<p>
+We should also warn the revolutionary brigade about MPI and OpenMP being moving targets. The evolutionary company are releasing OpenMP 4.0 and MPI3 which are supposed to bring a sea of changes targeted to fix their weakness. These will see easy adoption in the user community due to its programming familiarity and proven stability. <br/> <br/>
+
+
+Various government (U.S. Dept Of Energy FastForward project), private research institutes and multinational corporations (NVIDIA, Intel, IBM) are working on these problems. I have just merely scratched the surface of the problems in systems design and engineering in computers. There is a whole lot more action going on out there that I have left out intentionally (due to the article length constraint) or unintentionally (that I may not be aware of). Do leave your comments here or on hacker news about your take on this. But one this is for certain, there needs to be radical innovations in hardware and software for exascale. <br/> <br/>
+
+<font color="red">2.</font> This question of do we HAVE applications that will use exascale deserves a separate article by itself and it has many challenges and opportunities by itself. We have always used the MP-LINPACK ideal scaling benchmark but most real applications don’t look anything like MP-LINPACK. I will reserve this for a part 2 of this article.
 
 	</p>
       </div>
@@ -111,17 +149,25 @@ Various research institutes and multi national corporations - NVIDIA, Intel, IBM
         
       </div>
       <div class="comments-block">
-        <h3 class="comments-title">Comments (1)</h3>
+        <h3 class="comments-title">Comments (2)</h3>
         <div class="spacer"></div>
         <div class="comment"> <img class="avatar" alt="" src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm" width="50" height="35" />
-          <div class="comment-info"> <a class="post-author">Anusha</a>
-            <p>April 22, 2015</p>
+          <div class="comment-info"> <a class="post-author">Tejas</a>
+            <p>June 14, 2015</p>
           </div>
           <div class="comment-body">
-            <p>Thanks for the info Adarsh. This really helps us understand the admissions process at IISc. I wish your friend all the best the interviews.</p>
+            <p>Naaaice! Good article man, enjoyed reading it!! Although would have liked to go deeper into some parts of it.</p>
         </div>
         <div class="spacer"></div>
-
+        <div class="comment"> <img class="avatar" alt="" src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm" width="50" height="35" />
+          <div class="comment-info"> <a class="post-author">Adarsh Patil</a>
+            <p>June 14, 2015</p>
+          </div>
+          <div class="comment-body">
+            <p>Glad you enjoyed it Tejas. You can take pretty much any term in the blog, google it and get thousands of models that have proposed. The intention was to provide a general idea of the opportunities and the changes driving these innovations. I hope I accomplished that to some degree.
+			</p>
+        </div>
+        <div class="spacer"></div>
 
       <div class="response">
         <h3>Leave a Comment</h3>
