@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
 <!-- Load jQuery library -->
 <script type="text/javascript" src="scripts/jquery-1.6.2.min.js"></script>
+<!-- Load jscroll library -->
+<script type="text/javascript" src="scripts/jquery.jscroll.min.js"></script>
 <!-- Load custom js -->
 <script type="text/javascript" src="scripts/panelslide.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
@@ -36,7 +38,6 @@
 
   ga('create', 'UA-50522218-1', 'adarshpatil.in');
   ga('send', 'pageview');
-
 </script>
 
 
@@ -85,7 +86,7 @@
 <!--This is the START of the content-->
 <div id="content">
   <!--This is the START of the blog section-->
-  <div id="blog">
+  <div id="blog" class="jscroller">
   
 <!-- ExaScale Computing  -->
     <div class="blog-item"> <a href="blog/exascale-computing.html"><img class="single_image" src="images/blog/exascale/thumb.jpg" width="250" height="180" alt="blog1" /></a>
@@ -101,6 +102,8 @@
         <a class="readmore" href="blog/exascale-computing.html">read more →</a> <br />
       </div>
     </div>
+    
+    
 <!-- SERC CRAY XC-40 inaguration  -->
     <div class="blog-item"> <a href="blog/iisc-serc-cray-supercomputer-sahasrat.html"><img class="single_image" src="images/blog/iisc-serc-cray/serc-cray-thumb.png" width="250" height="180" alt="blog1" /></a>
       <div class="blog-item-info">
@@ -290,9 +293,15 @@
     </div>
 
 
-
-
-    <div id="pagination"> <a class="active" href="#">1</a> &nbsp <a href="blog-pg2.html">2</a> &nbsp <a href="blog-pg3.html">3</a> <a href="#">...</a> <a href="#">→</a> </div>
+    <a href="blog-pg2.html" class="jscroll-next">Page 2</a>
+    <!-- For dynamic Content loading -->
+    <script type="text/javascript">
+        $('.jscroller').jscroll({
+            loadingHtml: '<img src="images/ajax-load.gif" alt="Loading" /> Loading Page 2...',
+            nextSelector: 'a.jscroll-next',
+            autoTriggerUntil: 10
+        });
+    </script>
   </div>
   <!--END of blog section-->
 </div>
