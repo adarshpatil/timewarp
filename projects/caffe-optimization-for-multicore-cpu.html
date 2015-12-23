@@ -87,7 +87,8 @@
   <!--This is the START of the NIVO slider-->
   <div class="slider-wrapper theme-effe">
     <div id="slider" class="nivoSlider"> 
-	   <img src="../images/projects/compiler-optimizations/c++vector-parallel.png" alt="" title="#img2"/>
+       <img src="../images/projects/caffe-optimization/speedup-caffe.png"  alt="" title="#img1"/>
+	   <img src="../images/projects/caffe-optimization/dnn.png" alt="" width="600px" title="#img2"/>
     </div>
     <div id="slider-shadow"></div>
   </div>
@@ -97,16 +98,39 @@
     <div id="description">
 		<p>
 		<a href="http://caffe.berkeleyvision.org/">Caffe</a> is a deep learning framework made with expression, speed, and modularity in mind. It is developed by the Berkeley Vision and Learning Center (BVLC) and by community contributors.<br/>
-		There has been efforts to use GPU to speedup computation in the Caffe framework due to the Neural network operations being repetitive and compute intensive, <a href="http://devblogs.nvidia.com/parallelforall/deep-learning-computer-vision-caffe-cudnn/">cuDNN</a>. We believe there is scope for optimization to tune performance of Caffe on multicore CPU by using parallelism, smart locality and loop transforms.
-		This is an first step to show that there is still opportunity for better using the resources on CPUs to make Caffe run faster on modern multicore CPUs <br/> <br/>
-		We focus on 2 applications on Caffe - MNIST and CIFAR10. Each application was run for 10,000 iterations using a batch size of 64. We did not see significant improvement in performance by increasing batch size on our machines.
+		There has been efforts to use GPU to speedup computation in the Caffe framework due to the Neural network operations being repetitive and compute intensive, <a href="http://devblogs.nvidia.com/parallelforall/deep-learning-computer-vision-caffe-cudnn/">cuDNN</a>. There is scope for optimization to tune performance of Caffe on multicore CPU by using parallelism, smart data locality and loop transforms.
+		This is an first step to show that there is still opportunity for better using the resources on CPUs to make Caffe run faster on modern multicore CPUs. Since Intel Xeon processors are binary compatible with XeonPhi, these optimizations can also help accelerate the program when run on a XeonPhi Knights Corner and upcoming Knights Landing processors. <br/> <br/>
+		We focus on 2 applications on Caffe - MNIST and CIFAR10. Each application was run for 10,000 iterations using a batch size of 64. We did not see significant improvement in performance by increasing batch size on our machines. <br/>
 		We use <a href="https://software.intel.com/en-us/intel-mkl">Intel MKL</a> for accelerating math routines within Caffe as we observed OpenBLAS and ATLAS donot perform as well as MKL. Using the best performaning BLAS library allows us to show the tuning that can be done outside that which can be achieved by just tuning the BLAS calls. <br/> <br/>	
 		Our machine configuration was as below: <br/>
+		Software <br/>
+		&nbsp &nbsp• CentOS 7.1 <br/>
+		&nbsp &nbsp• gcc 4.8.3 <br/>
+		&nbsp &nbsp• Intel MKL 15.02<br/>
 		Intel Processor <br/>
+		&nbsp &nbsp• 2 Sockets, 12 core/socket, 2-way Hyperthreaded <br/>
+		&nbsp &nbsp• 48 core Intel Xeon E5-2690 v3 @ 2.60GHz (Haswell)<br/>
+		&nbsp &nbsp• 95 GB memory<br/>
 		AMD Processor <br/>
+		&nbsp &nbsp• 4 socket, 8 core/socket, 2-way Hyperthreaded <br/>
+		&nbsp &nbsp• 64 core AMD Opteron 6386 SE <br/>
+		&nbsp &nbsp• 95 GB memory <br/>
 		NVIDIA GPU <br/>
-		
-		
+		&nbsp &nbsp• NVIDIA GK110BGL Tesla K40c (Kepler) <br/>
+		&nbsp &nbsp• 12GB DDR5 <br/>
+		For our purposed we only study scaling of performance upto 16 cores on each multi-core machine. We are currently in the process of collecting results for higher core counts.<br/> <br/>
+		After applying our loop parallelization transforms within each layer and to an extent some data locality transforms, we analysed the distribution of time across the layers of MNIST and CIFAR applications. We find that the Convolution layer (conv2) in both the applications took the majority of time. In CIFAR however the pool1 layer took the maximum time. These are still potential regions for optimizations. <br/>
+
+		<img src="../images/projects/caffe-optimization/by-layer.png" height="200" width="520"/> <br/> <br/>
+		The figure below shows the execution time speedup obtained over baseline code on both Intel and AMD processors. Our optimized version of the code gets speedup of 2.7X on Intel and 2.6X on AMD for MNIST and 1.3X on AMD and 1.8X on Intel for CIFAR over baseline unoptimized implementation for 16 cores. <br/> <br/>
+		<img src="../images/projects/caffe-optimization/over-baseline.png" height="220" width="520"/> <br/> <br/>
+		Figure below shows the strong scaling characteristic of CIFAR and MNIST over increasing core counts. The graph shows the speedup w.r.t single threaded execution. Blue line indicates unoptimized code and red line indicates our optimized code. The graphs show the behavious on Intel processors followed by AMD processors.<br/> <br/>
+				<img src="../images/projects/caffe-optimization/scaling-intel.png" height="200" width="500"/> <br/> <br/>	
+		<img src="../images/projects/caffe-optimization/scaling-amd.png" height="170" width="480"/> <br/>
+		Finally we compare our best runtime on CPU (16 core) with that on the NVIDIA GPU using cuDNN calls to accelerate functions. Unfortunately there is about a 30X slow down of CPU for CIFAR and 7.5X slowdown of CPU for MNIST for GPU. This shows that the code for neural network scales well with increasing number of cores.
+		<img src="../images/projects/caffe-optimization/cpu-vs-gpu.png"/> <br/> <br/> <br/>
+		FUTURE WORK: There are still several optimizations possible for neural network and this work merely scratches the surface. We would like to further test this optimized code on a XeonPhi coprocessor given that the code can still scale over increasing core count and also given that the code performs well on a simplistic core like the GPU. <br/> <br/>
+		UPDATE: In a recent Intel High Performance Computing conference held in Bangalore on 14th Dec 2015, Intel revealed that they have been able to obtain a speed up of 13X on XeonPhi Knights Landing processor using MKL over a baseline run of the code using BLAS on a CPU. They also see a speedup of about 2X over the best known GPU implementation.
 		</p>
     </div>
     <ul id="work">
