@@ -894,7 +894,7 @@ p.thick {font-weight:bold;}
 .social-blog-buttons {
 	display: inline;
 	float: left;
-	height: 20px;
+    padding: 10px;
 }
 .comments-block {
 	width: 720px;
