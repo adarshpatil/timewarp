@@ -53,7 +53,7 @@ a {
 /******************************************************************
 General CSS
 ******************************************************************/
-									
+
 #content {
 	width: 720px;
 	padding-top: 140px;
@@ -114,7 +114,7 @@ strong {
 	color: #000000;
 	font-size: 11pt;
 	font-weight: bold;
-}	
+}
 /***************************************************
 COLUMNS and FEATURES
 ***************************************************/
@@ -611,8 +611,8 @@ About us CSS
 
 .about {
 	padding-top: 25px;
-	width: 720px;
-	padding-bottom: 50px;
+	width: 810px;
+    padding-bottom: 50px;
 }
 .about p {
 	text-align: center;
@@ -1174,25 +1174,29 @@ This is the CSS for the social links
 	color: #444444;
 }
 
-div.aboutimage{  
-    position:relative; /* important(so we can absolutely position the description div */  
-}  
-div.description{  
-    position:absolute; /* absolute position (so we can position it where we want)*/  
-    bottom:0px; /* position will be on bottom */  
-    left:0px;  
-    display:none; /* hide it */  
-    /* styling bellow */  
-    background-color:black;  
-    font-family: 'tahoma';  
-    font-size:15px;  
-    color:white;  
-}  
-div.description_content{  
-    padding:10px;  
+div.aboutimage{
+    position:relative; /* important(so we can absolutely position the description div */
+    float: left;
+    margin-left: 3px;
+    margin-bottom: 15px;
+    border: 1.5px dotted blue;
+}
+div.description{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    bottom:0px; /* position will be on bottom */
+    left:0px;
+    display:none; /* hide it */
+    /* styling bellow */
+    background-color:black;
+    font-family: 'tahoma';
+    font-size:15px;
+    color:white;
+}
+div.description_content{
+    padding:10px;
 	margin:0px;
 	color:white;
 	font-family:Arial;
 	line-height: 130%;
 	font-size:15px;
-} 
+}
