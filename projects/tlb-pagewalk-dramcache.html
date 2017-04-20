@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Timewarp - Projects -  Compiler Optimization Transforms</title>
+<title>Timewarp - Projects -  TLB and Pagewalk performance with stacked DRAM</title>
 <link rel="shortcut icon" href="../favicon.ico" />
 <!-- Load CSS -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -47,7 +47,7 @@
   <div id="header">
     <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
     <div id="header-text">
-      <h4>Timewarp - Projects - Optimizing Image/Video processing algorithms for multicore / SIMD CPUs</h4>
+      <h4>Timewarp - Projects - TLB & Pagewalk performance in Multicores with die-stacked DRAMCache</h4>
       <h6><a href="../index.html">Home</a> → Projects</h6>
     </div>
   </div>
@@ -87,7 +87,8 @@
   <!--This is the START of the NIVO slider-->
   <div class="slider-wrapper theme-effe">
     <div id="slider" class="nivoSlider"> 
-	   <img src="../images/projects/compiler-optimizations/c++vector-parallel.png" alt="" title="#img2"/>
+       <img src="../images/projects/tlb-pagewalk-dramcache/arch1.jpg" alt="" title="#img2"/>
+       <img src="../images/projects/tlb-pagewalk-dramcache/pagewalk-virtualized1.jpg" alt="" title="#img1"/>
     </div>
     <div id="slider-shadow"></div>
   </div>
@@ -95,94 +96,27 @@
   <!--This is the START of the project-->
   <div class="project">
     <div id="description">
-      <h3>Compiler optimizations for improving performance of Harris Corner Detection Algorithm on multicore/SIMD CPUs</h3> </br> 
+      <h3>TLB and Pagewalk performance in Multicore architectures with Die-Stacked DRAMCache </h3> </br> 
       <p>
-
-The objective of the assignment is to optimize and tune the Harris corner detection algorithm for performance using locality, SIMD and multicore parallelism transformations. We tune the <br/>
-Using suitable compiler flags, transforms and optimizations we obtain a speed up of <strong>11.5X</strong> over unparallelized reference implementation and <strong>13.5X</strong> over OpenCV <strong>using GCC 4.9.2</strong> compiler and <strong>11.3X</strong> over unparallelized reference implementation and <strong>14.6X</strong> over OpenCV <strong>using ICC 15.0</strong> compiler. All experiments were performaned on Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz [Haswell μarch, 4 core, 64 KB L1 private / 256 KB L2 private / 8 MB L3 shared cache]. <br/>
-
-Detailed performance speedup comparison of ICC vs GCC and vectorization, parallelism etc. available in the below report. <br/>
-The complete code for the project is available on github here <a href="https://github.com/adarshpatil/e0255-opt-asst"> https://github.com/adarshpatil/e0255-opt-asst </a><br/> <br/> <br/>
-
-Speedup and Execution time (in ms) by vectorization and locality transforms </p>
-<table style="width:120%">
-<tr>
-<td> </td><td>OpenCV</td> <td>Reference</td> <td>Optimized</td>	<td>Speedup by locality transforms</td>
-</tr>
-<tr>
-<td>No Vectorize</td>  <td>3515.29</td> <td>3767.32</td> <td>2442.4</td> <td>1.54</td>
-</tr>
-<tr>
-<td>Vectorize</td> <td>3566.35</td> <td>3035.41</td> <td>930.90</td> <td>3.26</td> 
-</tr>
-<tr>
-<td>Vectorization </td> <td>-</td> <td>1.24x</td>	<td>2.62x</td> 
-</tr>
-<tr>
-<td> Speedup </td>
-</tr>
-</table>
-
-<p>
-<br/>
-Speedup and Execution time (in ms) using ICC 15.0 
-</p>
-<table style="width:120%">
-<tr>
-<td> </td><td>OpenCV</td> <td>Reference</td> <td>Optimized</td>	<td>Speedup w.r.t Reference</td>
-</tr>
-<tr>
-<td>1 core</td>  <td>3567.95</td> <td>2755.83</td> <td>904.61</td> <td>3.04x</td>
-</tr>
-<tr>
-<td>2 core</td> <td>-</td> <td>1617.88</td> <td>355.724</td> <td>4.54x</td> 
-</tr>
-<tr>
-<td>4 core</td> <td>-</td> <td>1444.89</td> <td>243.19</td> <td>5.94x</td> 
-</tr>
-<tr>
-<td>Speedup by </td> <td>-</td> <td>1.90x</td>	<td>3.72x</td> 
-</tr>
-<tr>
-<td> Parallelism </td>
-</tr>
-</table>
-
-<p>
-<br/>
-Speedup and Execution time (in ms) using GCC 4.9.2 
-</p>
-<table style="width:120%">
-<tr>
-<td> </td><td>OpenCV</td> <td>Reference</td> <td>Optimized</td>	<td>Speedup w.r.t Reference</td>
-</tr>
-<tr>
-<td>1 core</td>  <td>3566.35</td> <td>3035.41</td> <td>930.90</td> <td>3.26x</td>
-</tr>
-<tr>
-<td>2 core</td> <td>-</td> <td>1990.6</td> <td>422.54</td> <td>4.71x</td> 
-</tr>
-<tr>
-<td>4 core</td> <td>-</td> <td>1940.92</td> <td>264.73</td> <td>7.34x</td> 
-</tr>
-<tr>
-<td>Speedup by </td> <td>-</td> <td>1.56x</td>	<td>3.52x</td> 
-</tr>
-<tr>
-<td> Parallelism </td>
-</tr>
-</table>
+<strong>Abstract: </strong>
+In this work we study the overheads of virtual-to-physical address translation in processor architectures, like x86-64, that implement paged virtual memory using a radix tree which are walked in hardware. <br/>
+Translation Lookaside Buffers are critical to system performance, particularly as applications demand larger memory footprints and with the adoption of virtualization; however the cost of a TLB miss potentially results in multiple memory accesses to retrieve the translation. Architectural support for superpages has been introduced to increase TLB hits but are limited by the operating systems ability to find contiguous memory. Numerous prior studies have proposed TLB designs to lower miss rates and reduce page walk overhead; however, these studies have modeled
+the behavior analytically. Further, to eschew the paging overhead for big-memory workloads and virtualization, Direct Segment maps part of a process' linear virtual address space with segment registers albeit requiring a few application and operating system modifications.
+The recently evolved die-stacked DRAM technology promises a high bandwidth and large last-level cache, in the order of Gigabytes, closer to the processors. With such large caches the amount of data that can be accessed without causing a TLB fault - the reach of a TLB, is inadequate. TLBs are on the critical path for data accesses and incurring an expensive page walk can hinder system performance, especially when the data being accessed is a
+cache hit in the LLC. <br/>
+Hence, we are interested in exploring novel address translation mechanisms, commensurate to the size and latency of stacked DRAM. By accurately simulating the multitude of multi-level address translation structures using the QEMU based MARSSx86 full system simulator, we perform de-
+tailed study of TLBs in conjunction with the large LLCs using multi-programmed and multi-threaded workloads.
 <br/> <br/>
-<iframe class="scribd_iframe_embed" src="https://www.scribd.com/embeds/264172020/content?start_page=1&view_mode=scroll&show_recommendations=true" data-auto-height="false" data-aspect-ratio="undefined" scrolling="no" id="doc_18962" width="100%" height="600" frameborder="0"></iframe>
-
+The complete report with results and simulation procedure is available <a target="_blank" href="../misc/tlb-pagewalk-dramcache.pdf"> here</a>
+      </p>
     </div>
     <ul id="work">
-      <li>Compiler Optimizations</li>
-      <li>SIMD Vectorization</li>
-      <li>AVX / SSE2</li>
-      <li>Parallelization / OpenMP</li>
-      <li>Image/Video processing algo</li>
-      <li>Course Project</li>
+      <li>Computer Architecure</li>
+      <li>x86 Address Translation</li>
+      <li>TLB, pagewalk</li>
+      <li>3D Die Stacked DRAMCache</li>
+      <li>MARSSx86, QEMU</li>
+      <li>Research Report</li>
     </ul>
   </div>
   <!--END of project-->
@@ -194,7 +128,7 @@ Speedup and Execution time (in ms) using GCC 4.9.2
       <img src="../images/projects/branch-pred-android/thumb.jpg" width="220" height="132" alt="project1" />
       </a>
       <h6>10th Oct 2014</h6>
-      <p>Comp µ-Architecure Project<a class="readmore" href="branch-pred-android.html">read more →</a></p>
+      <p>Branch Prediction for Android<a class="readmore" href="branch-pred-android.html">read more →</a></p>
     </div>
    
     <div class="one-third-last"> 
@@ -209,9 +143,11 @@ Speedup and Execution time (in ms) using GCC 4.9.2
   <div class="spacer"></div>
 </div>
 <!--END of content-->
+
 <p class="slide"><a href="#" class="btn-slide"></a></p>
-<div id="slide-panel">
 	<!--This is the START of the follow section-->
+<!--
+<div id="slide-panel">
 	<div id="follow">
 		<h3>Get Notified About My Newest Freebies & Upcoming Themes!</h3>
 		<h5>
@@ -229,7 +165,9 @@ Speedup and Execution time (in ms) using GCC 4.9.2
 		</a>
 		<h1>Thanks for that!</h1>
 	</div>
-	<!--END of follow section-->
 </div>
+-->
+	<!--END of follow section-->
+
 </body>
 </html>
