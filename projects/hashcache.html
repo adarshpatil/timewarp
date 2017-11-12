@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Timewarp - Projects -  TLB and Pagewalk performance with stacked DRAM</title>
+<title>Timewarp - Projects - Heterogeneity Aware Shared DRAMCache for IHS</title>
 <link rel="shortcut icon" href="../favicon.ico" />
 <!-- Load CSS -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -66,7 +66,7 @@
   <div id="header">
     <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
     <div id="header-text">
-      <h4>Timewarp - Projects - TLB & Pagewalk performance in Multicores with die-stacked DRAMCache</h4>
+      <h4>Timewarp - Projects - HAShCache: Heterogeneity Aware Shared DRAMCache for IHS</h4>
       <h6><a href="../index.html">Home</a> → Projects</h6>
     </div>
   </div>
@@ -106,9 +106,8 @@
   <!--This is the START of the NIVO slider-->
   <div class="slider-wrapper theme-effe">
     <div id="slider" class="nivoSlider"> 
-       <img src="../images/projects/tlb-pagewalk-dramcache/arch1.jpg" alt="" title="#img1"/>
-       <img src="../images/projects/tlb-pagewalk-dramcache/pagewalk-virtualized1.jpg" alt="" title="#img2"/>
-       <img src="../images/projects/tlb-pagewalk-dramcache/dramstacking.jpg" alt="" title="#img3"/>
+       <img src="../images/projects/hashcache/ihs-stacked-DRAM.jpg" alt="" title="#img1"/>       
+       <img src="../images/projects/hashcache/ihs-arch.jpg" alt="" title="#img2"/>
     </div>
     <div id="slider-shadow"></div>
   </div>
@@ -116,13 +115,14 @@
   <!--This is the START of the project-->
   <div class="project">
     <div id="description">
-      <h3>HAShCache: Heterogeneity Aware Shared DRAMCache for Integrated Heterogeneous Systems</h3> </br> 
+      <h3>HAShCache: Heterogeneity Aware Shared DRAMCache for Integrated Heterogeneous Systems (IHS)</h3> </br> 
 <p>
-<a href class="button">EECS 2017 Poster (Best Poster Award)</a> <br/>
-<a href class="button button-red">ACM TACO paper</a> <br/>
-<a href class="button button-black">HiPEAC 2018 slides</a> <br/>
-<a href class="button button-blue">Source on Github</a> 
+<a target="_blank" href="../misc/HAShCache-EECS_2017.pdf" class="button">IISc EECS 2017 Poster (Best Poster Award)</a> <br/>
+<a target="_blank" href="http://taco.acm.org/" class="button button-red">ACM Trans. on Arch. & Code Opt. (TACO) paper <br/> (To Appear)</a> 
+<a target="_blank" href="https://www.hipeac.net/2018/manchester/" class="button button-blue">HiPEAC 2018 slides</a> 
+<a target="_blank" href="https://github.com/adarshpatil/gem5gpu" class="button button-black">Source on Github</a> 
 </p>
+<br/>
 <strong>Abstract: </strong>
 <p>Integrated Heterogeneous System (IHS) processors pack throughput oriented GPGPUs alongside latency
 oriented CPUs on the same die sharing certain resources, e.g., shared last level cache, network-on-chip (NoC),
@@ -148,12 +148,13 @@ imental evaluation of the proposed HAShCache results in an average system perfor
     </div>
     <ul id="work">
       <li>Computer Architecure</li>
-      <li>x86 Address Translation</li>
-      <li>TLB, pagewalk</li>
+      <li>Intergrated CPU+GPU arch</li>
       <li>3D Die Stacked DRAMCache</li>
       <li>gem5-gpu, gem5, gpgpu-sim</li>
       <li>Research Paper</li>
+      <li>EECS 2017 Best Poster</li>
       <li>ACM TACO</li>
+      <li>HiPEAC 2018</li>
     </ul>
   </div>
   <!--END of project-->
@@ -161,19 +162,19 @@ imental evaluation of the proposed HAShCache results in an average system perfor
   <div class="spacer"></div>
   <div class="project-summary">
     <div class="one-third"> 
-      <a href="branch-pred-android.html">
-      <img src="../images/projects/branch-pred-android/thumb.jpg" width="220" height="132" alt="project1" />
+      <a href="tlb-pagewalk-dramcache.html">
+      <img src="../images/projects/tlb-pagewalk-dramcache/thumb.jpg" width="220" height="132" alt="project1" />
       </a>
-      <h6>10th Oct 2014</h6>
-      <p>Branch Prediction for Android<a class="readmore" href="branch-pred-android.html">read more →</a></p>
+      <h6>20th April 2017</h6>
+      <p>TLB & pagewalk performance<a class="readmore" href="tlb-pagewalk-dramcache.html">read more →</a></p>
     </div>
    
     <div class="one-third-last"> 
-      <a href="dynamic-scoping-for-clang-compiler.html">
-      <img src="../images/projects/dynamic-scoping-clang/thumb.png" width="220" height="132" alt="project2" />
+      <a href="caffe-optimization-for-multicore-cpu.html">
+      <img src="../images/projects/caffe-optimization/thumb.png" width="220" height="132" alt="project2" />
       </a>
-      <h6>10th Oct 2014</h6>
-      <p>Implement Dynamic Scoping for LLVM Clang<a class="readmore" href="dynamic-scoping-for-clang-compiler.html">read more →</a></p>
+      <h6>23th Dec 2015</h6>
+      <p>Optimizing Caffe for Multicore CPUs<a class="readmore" href="caffe-optimization-for-multicore-cpu.html">read more →</a></p>
     </div>
   </div>
   <!--END of gallery-->
