@@ -27,6 +27,26 @@
 <script type="text/javascript" src="../scripts/jquery.mousewheel-3.0.4.pack.js"></script>
 <link rel="stylesheet" href="../css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
+<!-- Style for button -->
+<style type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-red {background-color: #f44336;} /* Red */
+.button-black {background-color: #555555;} /* Black */
+</style>
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -99,6 +119,9 @@
     <div id="description">
       <h3>TLB and Pagewalk performance in Multicore architectures with Die-Stacked DRAMCache </h3> </br> 
       <p>
+<a target="_blank" href="../misc/tlb-pagewalk-dramcache.pdf" class="button button-red">Tech Report pdf<br/></a>
+<a target="_blank" href="../misc/csa-perspective-2015-slides.pdf" class="button">Slides</a> <br/> <br/>
+The complete report with results and simulation procedure was presented as a peer reviewed paper at the annual <a target="_blank" href="https://sites.google.com/site/csaperspectives2015/">CSA Perspective Seminar 2015</a>. <br/> <br/>
 <strong>Abstract: </strong>
 In this work we study the overheads of virtual-to-physical address translation in processor architectures, like x86-64, that implement paged virtual memory using a radix tree which are walked in hardware. <br/>
 Translation Lookaside Buffers are critical to system performance, particularly as applications demand larger memory footprints and with the adoption of virtualization; however the cost of a TLB miss potentially results in multiple memory accesses to retrieve the translation. Architectural support for superpages has been introduced to increase TLB hits but are limited by the operating systems ability to find contiguous memory. Numerous prior studies have proposed TLB designs to lower miss rates and reduce page walk overhead; however, these studies have modeled
@@ -108,7 +131,6 @@ cache hit in the LLC. <br/>
 Hence, we are interested in exploring novel address translation mechanisms, commensurate to the size and latency of stacked DRAM. By accurately simulating the multitude of multi-level address translation structures using the QEMU based MARSSx86 full system simulator, we perform de-
 tailed study of TLBs in conjunction with the large LLCs using multi-programmed and multi-threaded workloads.
 <br/> <br/>
-The complete report with results and simulation procedure is available <a target="_blank" href="../misc/tlb-pagewalk-dramcache.pdf"> here</a>
       </p>
     </div>
     <ul id="work">
