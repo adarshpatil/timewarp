@@ -55,9 +55,9 @@ General CSS
 ******************************************************************/
 
 #content {
-	width: 720px;
+	width: 750px;
 	padding-top: 140px;
-	margin-left: 240px;
+	margin: 0 auto;
 	z-index: 1;
 }
 p {
