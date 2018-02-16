@@ -27,6 +27,9 @@
 <script type="../text/javascript" src="../scripts/jquery.mousewheel-3.0.4.pack.js"></script>
 <link rel="../stylesheet" href="../css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /> 
 
+<!-- Google ReCaptcha v2 -->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -182,15 +185,7 @@ At the time of writing this article here are some useful links for GATE 2015 <br
           </div>
 
 	  <!-- CAPTCHA stuff -->
-	  <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5">
-          </script>
-    	  <noscript>
-       		<iframe src="http://www.google.com/recaptcha/api/noscript?k=6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5"
-           		height="300" width="500" frameborder="0"></iframe><br>
-       		<textarea name="recaptcha_challenge_field" rows="3" cols="40">
-       		</textarea>
-       		<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
-	  </noscript>
+	  <div class="g-recaptcha" data-sitekey="6Lfe_PkSAAAAAJjUUeq_1lI6BowHz4ZqjAen-T_5"></div>
 
 	  <input type="hidden" name="blog" value="how-to-prepare-for-gate" />
           <div class="clear"></div>
