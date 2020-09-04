@@ -323,11 +323,21 @@ Header & Menu CSS
 	text-decoration: none;
 	font-size: 7pt;
 }
+.pic a {
+	background-image: url(../images/pic.png);
+	background-position: 0 0px;
+	display: block;
+	height: 100px;
+	width: 100px;
+	background-repeat: no-repeat;
+	margin-left: 91%;
+	margin-top: -45px;
+}
 #social-box {
-	width: 96px;
+	width: 120px;
 	height: 22px;
 	position: fixed;
-	bottom: 40px;
+	top: 450px;
 	left: 30px;
 }
 #social-box li {
@@ -385,16 +395,24 @@ Header & Menu CSS
 	color: #444444;
 }
 .twitter a {
-	background-image: url(../images/twitter.png);
+	background-image: url(../images/twitterr.png);
 	background-position: 0 0px;
 	display: block;
-	height: 22px;
+	height: 24px;
 	padding-left: 24px;
 	background-repeat: no-repeat
 }
-.twitter a:hover {
+/*.twitter a:hover {
 	background-position: 0 -26px;
 	color: #444444;
+}*/
+.scholar a {
+	background-image: url(../images/scholar.png);
+	background-position: 0 0px;
+	display: block;
+	height: 24px;
+	padding-left: 24px;
+	background-repeat: no-repeat
 }
 .rss a {
 	background-image: url(../images/rss.png);
@@ -408,7 +426,22 @@ Header & Menu CSS
 	background-position: 0 -26px;
 	color: #444444;
 }
-
+.github a {
+	background-image: url(../images/github.png);
+	background-position: 0 0px;
+	display: block;
+	height: 24px;
+	padding-left: 24px;
+	background-repeat: no-repeat
+}
+.linkedin a {
+	background-image: url(../images/linkedin.png);
+	background-position: 0 0px;
+	display: block;
+	height: 24px;
+	padding-left: 24px;
+	background-repeat: no-repeat
+}
 /******************************************************************
 Some Nivo Customization CSS
 For easy editing (the main Nivo CSS is in nivo-theme.css)
@@ -930,7 +963,7 @@ Contact CSS
 #contact {
 	display: inline;
 	position: relative;
-	width: 450px;
+	width: 420px;
 	float: left;
 	margin: 0px;
 	margin-top: 20px;
