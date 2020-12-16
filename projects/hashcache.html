@@ -104,18 +104,16 @@
 <a target="_blank" href="https://github.com/adarshpatil/gem5gpu" class="button button-black">Source on Github</a> 
 </p>
 <br/>
-<strong>Abstract: </strong>
-<p>Integrated Heterogeneous System (IHS) processors pack throughput oriented GPGPUs alongside latency
-oriented CPUs on the same die sharing certain resources, e.g., shared last level cache, network-on-chip (NoC), and the main memory. The demands for memory accesses and other shared resources from GPU cores can
-exceed that of CPU cores by 2 to 3 orders of magnitude. This disparity poses significant problems in exploiting the full potential of these architectures.</p> <br/>
-<p>In this paper, we propose adding a large capacity stacked DRAM, used as a shared last level cache, for
-the IHS processors. However, adding the DRAMCache naively, leaves significant performance on the table
-due to the disparate demands from CPU and GPU cores for DRAMCache and memory accesses. In particular,
-the imbalance can significantly reduce the performance benefits that the CPU cores would have otherwise
-enjoyed with the introduction of the DRAMCache, necessitating a heterogeneity aware management of this
-shared resource for improved performance.</p> <br/>
-<p>In this paper, we propose three simple techniques to enhance the performance of CPU application while ensuring very little to no performance impact to the GPU. Specifically, we propose (i) PrIS, a prioritization scheme for scheduling CPU requests at the DRAMCache controller (ii) ByE, a selective and temporal bypassing scheme for CPU requests at the DRAMCache (iii) Chaining, an occupancy controlling mechanism for GPU lines in the DRAMCache through pseudo-associativity. </p>
-<p>The resulting cache, HAShCache, is heterogeneity-aware and can adapt dynamically to address the inherent disparity of demands in an IHS architecture. Experimental evaluation of the proposed HAShCache results in an average system performance improvement of 41% over a naive DRAMCache and over 200% improvement over a baseline system with no stacked DRAMCache</p>
+<strong>What is HAShCache? </strong>
+<p> It is a shared last-level die-stacked DRAM cache for a integrated heterogeneous CPU-GPU processor. HAShCache is heterogeneity-aware and can adapt dynamically to address the inherent disparity of demands in such an architecture. It combines an intelligent DRAM request scheduler (PrIS), a selective temporal bypass scheme (ByE) and an cache-line occupancy controlling mechanism (Chaining).</p>
+<strong>Features and Properties </strong>
+<p> (a) Provides low average memory access latency for CPU requests <br/>
+(b) Ability to utilize aggregate bandwidth of stacked DRAM and off-chip DRAM <br/>
+(c) Intelligent DRAM request Scheduling: prioritization scheme for scheduling CPU requests at the DRAMCache controller; <br/>
+(d) selective and temporal bypassing scheme for CPU requests<br/>
+(e) working set aware occupancy controlling mechanism for GPU lines in the DRAMCache through pseudo-associativity
+<p> 
+ </p>
 <br/> <br/>
 
     </div>
