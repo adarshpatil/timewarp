@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Timewarp - Projects - Dve: Improving DRAM Reliability and Performance</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<!-- Load CSS -->
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<!-- Load Fonts -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
+<!-- Load jQuery library -->
+<script type="text/javascript" src="../scripts/jquery-1.6.2.min.js"></script>
+<!-- Load custom js -->
+<script type="text/javascript" src="../scripts/panelslide.js"></script>
+<script type="text/javascript" src="../scripts/custom.js"></script>
+<!-- Load topcontrol js -->
+<script type="text/javascript" src="../scripts/scrolltopcontrol.js"></script>
+<!-- Load NIVO Slider -->
+<link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/nivo-theme.css" type="text/css" media="screen" />
+<script src="../scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+<script src="../scripts/nivo-options.js" type="text/javascript"></script>
+<!-- Load fancybox -->
+<script type="text/javascript" src="../scripts/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="../scripts/jquery.easing-1.3.pack.js"></script>
+<script type="text/javascript" src="../scripts/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" href="../css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+<!-- for html include -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
+<!-- Style for button -->
+<style type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-red {background-color: #f44336;} /* Red */
+.button-black {background-color: #555555;} /* Black */
+</style>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50522218-1', 'adarshpatil.in');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<!--This is the START of the header-->
+<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
+<div id="header-wrapper">
+  <div id="header">
+    <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
+    <div id="header-text">
+      <h4>Timewarp - Projects - Dvé: Improving DRAM Reliability and Performance</h4>
+      <h6><a href="../index.html">Home</a> → Projects</h6>
+    </div>
+  </div>
+</div>
+<!--END of header-->
+
+<!--This is the START of the menu-->
+<div w3-include-html="1projects-main-menu.html"></div>
+<script>w3.includeHTML();</script>
+<!--END of menu-->
+
+<!--This is the START of the content-->
+<div id="content">
+  <h6> <a href="../portfolio.html"> ← Back to Projects</a> </h6>
+  <!--This is the START of the NIVO slider-->
+  <div class="slider-wrapper theme-effe">
+    <div id="slider" class="nivoSlider"> 
+       <img src="../images/projects/dve/radar-plot.jpg" alt="radar plot for comparison" title="#img1"/>
+       <img src="../images/projects/dve/numa-replication.jpg" alt="NUMA replication schematic" title="#img2"/>
+       <img src="../images/projects/dve/coherent-replication.jpg" alt="coherence communication" title="#img3"/>
+    </div>
+    <div id="slider-shadow"></div>
+  </div>
+  <!--END of NIVO Slider-->
+  <!--This is the START of the project-->
+  <div class="project">
+    <div id="description">
+      <h3>Dvé: Improving DRAM Reliability and Performance On-Demand via Coherent Replication</h3> </br> 
+      <h4>*To appear in ISCA 2021</h4> </br/>
+<p>
+<a href="" class="button">Paper*</a>
+<a href="" class="button button-red">Slides*<br/></a>
+<a href="" class="button button-blue">Video*</a> 
+<a target="_blank" href="https://github.com/adarshpatil/dve" class="button button-black">Source on Github</a>
+<a target="_blank" href="https://github.com/adarshpatil/dve/raw/master/Dve-ISCA21-Appendix.pdf" class="button button-black">Appendix</a> 
+</p>
+<br/>
+<strong>What is Dvé? </strong>
+<p>Dvé is a memory system architecture to improve the reliability and performance of DRAM main memory.</p>
+<strong>Features and Properties: </strong> <br/>
+<strong>What does it provide? </strong> <br/>
+<p> (a) higher memory reliability than Chipkill, <a href="https://software.intel.com/content/www/us/en/develop/articles/address-range-partial-memory-mirroring.html">Intel Partial Address Space Mirroring</a> and <a href="https://ieeexplore.ieee.org/document/6136239/">IBM RAIM</a> <br/>
+(b) improves memory performance (lower memory access latency and higher bandwidth) in a multi-socket NUMA architecture<br/>
+(c) replication for programs on-demand at runtime, using the idle memory present in systems. <br/>
+<strong>How does it provide? </strong> <br/>
+(a) Replicates memory on two different sockets of a multi socket NUMA system <br/>
+(b) Uses cache coherence protocols (allow-based and deny-based) to provide "Coherent Replication" <br/>
+(c) Builds on existing reliability mechanisms and coherence protocols for graceful degradation and fallback on failure <br/>
+(d) Maps data in DRAM between replicas in a thermal risk aware manner to reduce failures <br/>
+(e) Sets out the application interface and OS mechanisms required for replicating memory at runtime <br/>
+<br/>
+<strong>Dve is best summarized as:</strong> <br/>
+<img src="../images/projects/dve/replicate-dram.jpg" alt="replicate dram" title="#img4"/> <br/>
+* Inspired by gov.uk COVID-19 campaign <br/> "Stay Home->Protect the NHS->Save Lives"
+<p> 
+ </p>
+<br/> <br/>
+
+    </div>
+    <ul id="work">
+      <li>Computer Architecure</li>
+      <li>Multi socket NUMA system arch</li>
+      <li>Improved memory reliability</li>
+      <li>Lower memory access latency</li>
+      <li>gem5</li>
+      <li>Research Paper</li>
+      <li>ISCA 2021</li>
+    </ul>
+  </div>
+  <!--END of project-->
+  <!--This is the START of the gallery-->
+  <div class="spacer"></div>
+  <center>Other projects similar to this:</center>
+  <div class="project-summary">
+    <div class="one-third"> 
+      <a href="tlb-pagewalk-dramcache.html">
+      <img src="../images/projects/hashcache/hashcache-thumb.png" width="220" height="132" alt="project1" />
+      </a>
+      <h6>December 2017</h6>
+      <p>HAShCache: DRAM Cache for IHS processors<a class="readmore" href="hashcache.html">read more →</a></p>
+    </div>
+   
+    <div class="one-third-last"> 
+       <a href="tlb-pagewalk-dramcache.html">
+      <img src="../images/projects/tlb-pagewalk-dramcache/thumb.jpg" width="220" height="132" alt="project1" />
+      </a>
+      <h6>20th April 2017</h6>
+      <p>TLB & pagewalk performance<a class="readmore" href="tlb-pagewalk-dramcache.html">read more →</a></p>
+    </div>
+  </div>
+  <!--END of gallery-->
+  <div class="spacer"></div>
+</div>
+<!--END of content-->
+
+<p class="slide"><a href="#" class="btn-slide"></a></p>
+
+</body>
+</html>
