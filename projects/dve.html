@@ -111,15 +111,15 @@
 <p>Dvé is a memory system architecture to improve the reliability and performance of DRAM main memory.</p>
 <strong>Features and Properties: </strong> <br/>
 <strong>What does it provide? </strong> <br/>
-<p> (a) higher memory reliability than Chipkill, <a href="https://software.intel.com/content/www/us/en/develop/articles/address-range-partial-memory-mirroring.html">Intel Partial Address Space Mirroring</a> and <a href="https://ieeexplore.ieee.org/document/6136239/">IBM RAIM</a> <br/>
-(b) improves memory performance (lower memory access latency and higher bandwidth) in a multi-socket NUMA architecture<br/>
-(c) replication for programs on-demand at runtime, using the idle memory present in systems. <br/>
-<strong>How does it provide? </strong> <br/>
+<p> (a) higher memory reliability than any commercially-available, high memory reliability products like <a href="https://en.wikipedia.org/wiki/Chipkill">Chipkill ECC</a>, <a href="https://software.intel.com/content/www/us/en/develop/articles/address-range-partial-memory-mirroring.html">Intel Partial Address Space Mirroring</a>, <a href="https://ieeexplore.ieee.org/document/6136239/">IBM RAIM</a> <br/>
+(b) improves memory performance in a multi-socket NUMA architecture (lower memory access latency and higher bandwidth)<br/>
+(c) provides on-demand replication for programs at runtime by using the idle memory present in systems.<br/>
+<strong>How does it achieve it? </strong> <br/>
 (a) Replicates memory on two different sockets of a multi socket NUMA system <br/>
 (b) Uses cache coherence protocols (allow-based and deny-based) to provide "Coherent Replication" <br/>
 (c) Builds on existing reliability mechanisms and coherence protocols for graceful degradation and fallback on failure <br/>
 (d) Maps data in DRAM between replicas in a thermal risk aware manner to reduce failures <br/>
-(e) Sets out the application interface and OS mechanisms required for replicating memory at runtime <br/>
+(e) Sets out the application interface and OS mechanisms required for providing replicating memory at runtime <br/>
 <br/>
 <strong>Dve is best summarized as:</strong> <br/>
 <img src="../images/projects/dve/replicate-dram.jpg" alt="replicate dram" title="#img4"/> <br/>
