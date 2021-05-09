@@ -107,35 +107,42 @@
 <a target="_blank" href="https://github.com/adarshpatil/dve/raw/master/Dve-ISCA21-Appendix.pdf" class="button button-black">Protocol Specification</a>
 </p>
 <br/>
-<strong>What is Dvé? </strong>
+<strong>What is Dvé?</strong>
 <p>Dvé is a memory system architecture to improve the reliability and performance of DRAM main memory.</p>
+<br/>
 <strong>Features and Properties: </strong> <br/>
 <strong>What does it provide? </strong> <br/>
-<p> (a) higher memory reliability than any commercially-available, high memory reliability products like <a href="https://en.wikipedia.org/wiki/Chipkill">Chipkill ECC</a>, <a href="https://software.intel.com/content/www/us/en/develop/articles/address-range-partial-memory-mirroring.html">Intel Partial Address Space Mirroring</a>, <a href="https://ieeexplore.ieee.org/document/6136239/">IBM RAIM</a> <br/>
-(b) improves memory performance in a multi-socket NUMA architecture (lower memory access latency and higher bandwidth)<br/>
-(c) provides on-demand replication for programs at runtime by using the idle memory present in systems<br/>
-(d) strict recovery semantics and strongly consistent replication<br/>
-<strong>How does it achieve it? </strong> <br/>
-(a) Replicates memory on two different sockets of a multi socket NUMA system <br/>
-(b) Uses cache coherence protocols (allow-based and deny-based) to provide "Coherent Replication" <br/>
-(c) Builds on existing reliability mechanisms and coherence protocols for graceful degradation and fallback on failure <br/>
-(d) Maps data in DRAM between replicas in a thermal risk aware manner to reduce failures <br/>
-(e) Sets out the application interface and OS mechanisms required for providing replicating memory at runtime <br/>
+<p> &#x25C9; higher memory reliability than any commercially-available, high memory reliability products like <a href="https://en.wikipedia.org/wiki/Chipkill">Chipkill ECC</a>, <a href="https://software.intel.com/content/www/us/en/develop/articles/address-range-partial-memory-mirroring.html">Intel Partial Address Space Mirroring</a>, <a href="https://ieeexplore.ieee.org/document/6136239/">IBM RAIM</a> <br/>
+&#x25C9; improves memory performance in a multi-socket NUMA architecture (lower memory access latency and higher bandwidth)<br/>
+&#x25C9; provides on-demand replication for programs at runtime by using the idle memory present in systems<br/>
+&#x25C9; strict recovery semantics and strongly consistent replication<br/>
 <br/>
-<strong>Dve is best summarized as:</strong> <br/>
+<strong>How does it achieve it? </strong> <br/>
+&#x25A3; Replicates memory on two different sockets of a multi socket NUMA system <br/>
+&#x25A3; Uses cache coherence protocols (allow-based and deny-based) to provide "Coherent Replication" <br/>
+&#x25A3; Builds on existing reliability mechanisms and coherence protocols for graceful degradation and fallback on failure <br/>
+&#x25A3; Maps data in DRAM between replicas in a thermal risk aware manner to reduce failures <br/>
+&#x25A3; Sets out the application interface and OS mechanisms required for providing replicating memory at runtime <br/>
+<br/>
+<strong>Dvé Trivia:</strong> <br/>
+&#x25C8; Dvé is inspired by distributed system deployments where replication is frequently employed for fault tolerance and performance. We bring this insight into shared memory architecture.<br/>
+&#x25C8; Dvé's philosophy is rooted in the holistic design approach, leveraging the time-tested "end-to-end argument". We advocate exposing faults in DRAM memory to the highest-level end point of memory (i.e., the memory controller level), thereby subsuming all other types of errors. <br/>
+&#x25C8; The title of the project - Dvé - is derived from the Sankrit word (द्वे) which means "the two", referring here to the dual benefits of replication<br/>
+&#x25C8; Dvé can be simply summarized as <br/>
 <img src="../images/projects/dve/replicate-dram.jpg" alt="replicate dram" title="#img4"/> <br/>
-* Inspired by gov.uk COVID-19 campaign <br/> "Stay Home->Protect the NHS->Save Lives"
+* (Dvé was almost entirely done in the COVID-19 lockdowns; this is a homage to gov.uk 3-word campaigns like "Stay Home->Protect the NHS->Save Lives")
 <p> 
  </p>
 <br/> <br/>
 
     </div>
     <ul id="work">
+      <img src="../images/projects/dve/dve-thumb.png"/>
       <li>Computer Architecure</li>
       <li>Multi socket NUMA system arch</li>
-      <li>Improved memory reliability</li>
-      <li>Lower memory access latency</li>
-      <li>gem5</li>
+      <li>Memory Reliability</li>
+      <li>Memory Coherence</li>
+      <li>gem5; SLICC</li>
       <li>Research Paper</li>
       <li>ISCA 2021</li>
     </ul>
@@ -146,7 +153,7 @@
   <center>Other projects similar to this:</center>
   <div class="project-summary">
     <div class="one-third"> 
-      <a href="tlb-pagewalk-dramcache.html">
+      <a href=" hashcache.html">
       <img src="../images/projects/hashcache/hashcache-thumb.png" width="220" height="132" alt="project1" />
       </a>
       <h6>December 2017</h6>
