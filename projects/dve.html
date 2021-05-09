@@ -113,7 +113,8 @@
 <strong>What does it provide? </strong> <br/>
 <p> (a) higher memory reliability than any commercially-available, high memory reliability products like <a href="https://en.wikipedia.org/wiki/Chipkill">Chipkill ECC</a>, <a href="https://software.intel.com/content/www/us/en/develop/articles/address-range-partial-memory-mirroring.html">Intel Partial Address Space Mirroring</a>, <a href="https://ieeexplore.ieee.org/document/6136239/">IBM RAIM</a> <br/>
 (b) improves memory performance in a multi-socket NUMA architecture (lower memory access latency and higher bandwidth)<br/>
-(c) provides on-demand replication for programs at runtime by using the idle memory present in systems.<br/>
+(c) provides on-demand replication for programs at runtime by using the idle memory present in systems<br/>
+(d) strict recovery semantics and strongly consistent replication<br/>
 <strong>How does it achieve it? </strong> <br/>
 (a) Replicates memory on two different sockets of a multi socket NUMA system <br/>
 (b) Uses cache coherence protocols (allow-based and deny-based) to provide "Coherent Replication" <br/>
