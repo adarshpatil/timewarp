@@ -7,8 +7,8 @@
 <!-- Load CSS -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <!-- Load Fonts -->
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
 <!-- Load jQuery library -->
 <script type="text/javascript" src="../scripts/jquery-1.6.2.min.js"></script>
 <!-- Load custom js -->
@@ -82,7 +82,7 @@
       <p>
 
 In this work I have attempted to study the hardware branch prediction accuracy of ARM processor in mobile devices (specifically the <a target="_blank" href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0344k/DDI0344K_cortex_a8_r3p2_trm.pdf">Cortex A8</a>) running Android.
-We simulate the processor using full system cycle accurate simulation mode of <a target="_blank" href="http://www.gem5.org/Main_Page">gem5</a> and run the <a target="_blank" href="http://asg.ict.ac.cn/projects/moby/">Moby application benchmark suite</a> to study the micro-architectural characteristics.
+We simulate the processor using full system cycle accurate simulation mode of <a target="_blank" href="http://www.gem5.org/Main_Page">gem5</a> and run the <a target="_blank" href="https://ieeexplore.ieee.org/document/6844460">Moby application benchmark suite</a> to study the micro-architectural characteristics.
 We account for context switches made while running these applications and separate the branches into user mode and kernel mode branches. 
 We also study the number of instructions squashed from the pipeline due to the incorrect branch prediction and speculative execution along the incorrect path.
 The processor consists of a 2-level tournament predictor with a 2048 entry local and 8192 entry global predictor tables and a 2048 branch table buffer (BTB). <br/> <br/>
