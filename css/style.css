@@ -299,7 +299,7 @@ Header & Menu CSS
 	z-index: 5000;
 }
 #header {
-	width: 960px;
+	width: 70%;
 }
 #logo {
 	float: left;
