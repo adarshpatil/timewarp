@@ -130,7 +130,8 @@ Thirdly, the OS can use balloon drivers to steal memory and create space for rep
 A: Dve's main purpose is to to gurantee reliability. It maintains both replicas in sync for ensuring recovery from errors. The performance aspect of comes from the coherent replication which is workload dependent and best effort. Prior DRAM reliability techniques caused performance degradation whereas Dve actually improves performance while providing reliability. <br/> <br/>
 
 &#x25C8; How does Dve work if its a single socket machine?<br/>
-A: Even modern single socket machines have chiplet architecture (like in AMD Ryzen)  or quadrant mode (like in Xeon Phi) and also have multiple memory controllers. Dve can be employed even in such systems.<br/><br/>
+A: Even modern single socket machines have chiplet architecture (like in AMD Ryzen)  or quadrant mode (like in Xeon Phi) and also have multiple memory controllers. Dve can be employed even in such systems.<br/>
+Upcoming CXL-based memories are also exposed as a remote NUMA node. Dve's design can be applied in such systems to provide a high-availability remote memory.<br/><br/>
 
 &#x25C8; How are the power/energy metrics affected because of the additional DRAMs needed for the replica?<br/>
 A: Firstly, Dve uses under-utilized memory that is already provisioned but idle in the system. But even if we actually add additional memory, Dve actually ends up saving energy (counter intuitively). This is because memory is in the order of 20% of the total system power and Dve speedup reduces execution times and therefore over all system EDP is actually lower for Dve.<br/><br/>
