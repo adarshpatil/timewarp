@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Timewarp - Projects - Dve: Improving DRAM Reliability and Performance</title>
+<title>Timewarp - Projects - Dvé: Improving DRAM Reliability and Performance</title>
 <link rel="shortcut icon" href="../favicon.ico" />
 <!-- Load CSS -->
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -122,36 +122,36 @@
 <br/>
 <strong>Frequently asked questions (FAQs):</strong> <br/>
 &#x25C8; Is it practical to sacrifice 50% of the memory capacity? How do you ensure enough memory capacity is available for replication (say if a workload is already using >50% memory)?<br/>
-A: Firstly, Dve can be deployed on-demand at finer granularity (per application, per VM, per container) so its not always static 50% capacity overhead.
+A: Firstly, Dvé can be deployed on-demand at finer granularity (per application, per VM, per container) so its not always static 50% capacity overhead.
 Secondly, we allow the control place (like the workload placement infrastructure) to make the smart decision of enabling/disabling replication depending on the needs of the workload.
-Thirdly, the OS can use balloon drivers to steal memory and create space for replication. It then monitors the page fault rate to decide if replication should be disabled when there is high memory pressure. Even if replication is disabled, Dve will still fall back to baseline reliability provided by the underlying system.<br/><br/>
+Thirdly, the OS can use balloon drivers to steal memory and create space for replication. It then monitors the page fault rate to decide if replication should be disabled when there is high memory pressure. Even if replication is disabled, Dvé will still fall back to baseline reliability provided by the underlying system.<br/><br/>
 
-&#x25C8; What is the main purpose of Dve. Is it reliability or performance? <br/>
-A: Dve's main purpose is to to gurantee reliability. It maintains both replicas in sync for ensuring recovery from errors. The performance aspect of comes from the coherent replication which is workload dependent and best effort. Prior DRAM reliability techniques caused performance degradation whereas Dve actually improves performance while providing reliability. <br/> <br/>
+&#x25C8; What is the main purpose of Dvé. Is it reliability or performance? <br/>
+A: Dvé's main purpose is to to gurantee reliability. It maintains both replicas in sync for ensuring recovery from errors. The performance aspect of comes from the coherent replication which is workload dependent and best effort. Prior DRAM reliability techniques caused performance degradation whereas Dvé actually improves performance while providing reliability. <br/> <br/>
 
-&#x25C8; How does Dve work if its a single socket machine?<br/>
-A: Even modern single socket machines have chiplet architecture (like in AMD Ryzen)  or quadrant mode (like in Xeon Phi) and also have multiple memory controllers. Dve can be employed even in such systems.<br/>
-Upcoming CXL-based memories are also exposed as a remote NUMA node. Dve's design can be applied in such systems to provide a high-availability remote memory.<br/><br/>
+&#x25C8; How does Dvé work if its a single socket machine?<br/>
+A: Even modern single socket machines have chiplet architecture (like in AMD Ryzen)  or quadrant mode (like in Xeon Phi) and also have multiple memory controllers. Dvé can be employed even in such systems.<br/>
+Upcoming CXL-based memories are also exposed as a remote NUMA node. Dvé's design can be applied in such systems to provide a high-availability remote memory.<br/><br/>
 
 &#x25C8; How are the power/energy metrics affected because of the additional DRAMs needed for the replica?<br/>
-A: Firstly, Dve uses under-utilized memory that is already provisioned but idle in the system. But even if we actually add additional memory, Dve actually ends up saving energy (counter intuitively). This is because memory is in the order of 20% of the total system power and Dve speedup reduces execution times and therefore over all system EDP is actually lower for Dve.<br/><br/>
+A: Firstly, Dvé uses under-utilized memory that is already provisioned but idle in the system. But even if we actually add additional memory, Dvé actually ends up saving energy (counter intuitively). This is because memory is in the order of 20% of the total system power and Dvé speedup reduces execution times and therefore over all system EDP is actually lower for Dvé.<br/><br/>
 
 &#x25C8; Can you comment on the performance overheads due to additional writes (because all memory writes have to be replicated to both NUMA nodes)? Does this cause any performance degradation? How is the inter-socket interconnect affected by this additional traffic?<br/>
-A: Yes correct, Dve does have to replicate all writes to both NUMA nodes and this does add some extra requests to the interconnect. But if we look at the overall interconnect traffic, Dve reduces the total number of requests over the interconnect. This is because many of the reads that would have crossed the interconnect are now serviced from the local memory. This is one of the reasons for Dve's improved performance.<br/><br/>
+A: Yes correct, Dvé does have to replicate all writes to both NUMA nodes and this does add some extra requests to the interconnect. But if we look at the overall interconnect traffic, Dvé reduces the total number of requests over the interconnect. This is because many of the reads that would have crossed the interconnect are now serviced from the local memory. This is one of the reasons for Dvé's improved performance.<br/><br/>
 
-&#x25C8; Specifically, what differentiates Dve from Intel memory mirroring scheme which also does replication for reliability?<br/>
+&#x25C8; Specifically, what differentiates Dvé from Intel memory mirroring scheme which also does replication for reliability?<br/>
 A: Intel mirroring is different in all 3 regards. Reliability, Performance and on-demandness of the scheme.
-Intel replicates data in 2 channels of the same memory controller while Dve replicates on 2 different memory controllers. Therefore its able to keep replias farther apart and in a completely dijoint subsystem and hence provides better reliability.
-In the Intel scheme, the replica is passive. Replica is not used to service reads/write. Even we hypothetically allow for such active / load balaced replication it can only provide 2-3% performance. Dve provides performance by mitigating the inter-socke interconnect latency and provides much higher performance.
-Finally, the amount of memory replicated is fixed at boot-time and can only be used for kernel allocations. However, Dve can provide replicated memory on-demand at runtime and allows applications to allocate data in the high reliability region of memory.
+Intel replicates data in 2 channels of the same memory controller while Dvé replicates on 2 different memory controllers. Therefore its able to keep replias farther apart and in a completely dijoint subsystem and hence provides better reliability.
+In the Intel scheme, the replica is passive. Replica is not used to service reads/write. Even we hypothetically allow for such active / load balaced replication it can only provide 2-3% performance. Dvé provides performance by mitigating the inter-socke interconnect latency and provides much higher performance.
+Finally, the amount of memory replicated is fixed at boot-time and can only be used for kernel allocations. However, Dvé can provide replicated memory on-demand at runtime and allows applications to allocate data in the high reliability region of memory.
 
 &#x25C8; What are the area overheads for the replica directory and how is this structure architected?<br/>
 A: In our simulations we use a 2k entry SRAM structure backed by a reserved area of memory to spill overflows. But the replica directory structure has similar design points as a traditional directory like invalidations can be sent to owner/sharers when evicting entries from replica directory.<br/><br/>
 
-&#x25C8; How does Dve compare to the NUMA latency mitigation line of works like Carrefour/Shoal?<br/>
+&#x25C8; How does Dvé compare to the NUMA latency mitigation line of works like Carrefour/Shoal?<br/>
 A: Carrefour/Shoal do not provide any reliability gurantees. They replicate read-only pages between NUMA nodes for performance in software (using OS support). While has to replicate all pages irrespective of its sharing characteristics to gurantee reliability and it maintains the replicas in sync using hardware cache coherence.<br/><br/>
 
-&#x25C8; Can you clarify precisely what OS support is required for Dve's replication to work?<br/>
+&#x25C8; Can you clarify precisely what OS support is required for Dvé's replication to work?<br/>
 A: OS needs to create space for replication. <br/>
 OS needs to map replica page pairs. <br/>
 OS decides when replication should be enabled/disabled. <br/>
