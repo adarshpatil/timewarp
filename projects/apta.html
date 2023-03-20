@@ -103,63 +103,48 @@
       </h4>
 <br/>
 <strong>What is Āpta?</strong>
-<p>Āpta is a memory system architecture that improves the reliability of CXL-based shared disaggregated memory. Āpta is specialized to accelerate and improve performance of the function-as-a-service (FaaS) applications.</p>
+<p>Āpta is a fault-tolerant CXL-based, shared disaggregated memory system that is specialized as an object-store to improve performance of function-as-a-service (FaaS) applications.</p>
 <br/>
 <strong>Features and Properties: </strong> <br/>
 <strong>What does it provide? </strong> <br/>
-<p> &#x25C9; higher memory performance than RDMA based <br/>
-&#x25C9; improves memory performance in a multi-socket NUMA architecture (lower memory access latency and higher bandwidth)<br/>
-&#x25C9; provides on-demand replication for programs at runtime by using the idle memory present in systems<br/>
-&#x25C9; strict recovery semantics and strongly consistent replication<br/>
+<p> &#x25C9; higher performance than Amazon S3-based and RDMA-based in-memory object store. <br/>
+&#x25C9; highest compute-server fault-tolerance, similar to as Amazon S3<br/>
+&#x25C9; strongly consistent object store and strict recovery semantics<br/>
+&#x25C9; flexible, dynamic schedulability of individual functions<br/>
+&#x25C9; lowers tail latency for function executions<br/>
 <br/>
 <strong>How does it achieve it? </strong> <br/>
-&#x25A3; Replicates memory on two different sockets of a multi socket NUMA system <br/>
-&#x25A3; Uses cache coherence protocols (allow-based and deny-based) to provide "Coherent Replication" <br/>
-&#x25A3; Builds on existing reliability mechanisms and coherence protocols for graceful degradation and fallback on failure <br/>
-&#x25A3; Maps data in DRAM between replicas in a thermal risk aware manner to reduce failures <br/>
-&#x25A3; Sets out the application interface and OS mechanisms required for providing replicating memory at runtime <br/>
+&#x25A3; uses CXL 3.0 shared disaggregated memory architecture and creates an object-granular memory interface<br/>
+&#x25A3; builds over existing CXL.mem protocol to create object granularity read and write semantics <br/>
+&#x25A3; transforms the strongly consistent, SWMR-enforcing coherence protocol into a high-available one using lazy (asynchronous) invalidations and coherence-aware scheduling <br/>
+&#x25A3; architects the memory server, data plane controllers<br/>
+&#x25A3; Sets out the control-plane software components and the application object-store interface<br/>
 <br/>
 <strong>Frequently asked questions (FAQs):</strong> <br/>
-&#x25C8; Is it practical to sacrifice 50% of the memory capacity? How do you ensure enough memory capacity is available for replication (say if a workload is already using >50% memory)?<br/>
-A: Firstly, Dve can be deployed on-demand at finer granularity (per application, per VM, per container) so its not always static 50% capacity overhead.
-Secondly, we allow the control place (like the workload placement infrastructure) to make the smart decision of enabling/disabling replication depending on the needs of the workload.
-Thirdly, the OS can use balloon drivers to steal memory and create space for replication. It then monitors the page fault rate to decide if replication should be disabled when there is high memory pressure. Even if replication is disabled, Dve will still fall back to baseline reliability provided by the underlying system.<br/><br/>
+&#x25C8; What is the motivation for designing a new fault-tolerant coherence protocol?<br/>
+A: There is no existing coherence protocol that satisfies strong consistency (SWMR) and is fault tolerant in the presence of compute-server failures. Āpta’s novelty is a simple, straightforward transformation to the CXL.mem protocol to provide fault-tolerance, which increases the chance of it being adopted by CXL. <br/><br/>
 
-&#x25C8; What is the main purpose of Dve. Is it reliability or performance? <br/>
-A: Dve's main purpose is to to gurantee reliability. It maintains both replicas in sync for ensuring recovery from errors. The performance aspect of comes from the coherent replication which is workload dependent and best effort. Prior DRAM reliability techniques caused performance degradation whereas Dve actually improves performance while providing reliability. <br/> <br/>
+&#x25C8; Can these architecture design components can be adapted to broader application requirements and characteristics?<br/>
+A: The architecture design components we introduce – specifically, the Object Serving Con-troller (OSC) and the Object Persistency Controller (OPC) – are also applicable to otherapplications currently being investigated for CXL. The OPC is relevant for CXL-supportedpersistent memory, and the OSC is relevant for address translation support required inmemory capacity expansion, near memory accelerators on CXL, and dynamic tiered memory. <br/><br/>
 
-&#x25C8; How does Dve work if its a single socket machine?<br/>
-A: Even modern single socket machines have chiplet architecture (like in AMD Ryzen)  or quadrant mode (like in Xeon Phi) and also have multiple memory controllers. Dve can be employed even in such systems.<br/>
-Upcoming CXL-based memories are also exposed as a remote NUMA node. Dve's design can be applied in such systems to provide a high-availability remote memory.<br/><br/>
+&#x25C8; Can the hardware components be implemented by software layers to help reduce implementation cost and improve flexibility?<br/>
+A: Whereas the final Āpta design represents the most efficient hardware design, Āpta’s controllers can be realized in software at the expense of reduced performance. Our analysis already shows that: <br/>
+(i) employing software layers in place of OPC+PUT and OSC+GET controllers will incur an average of 32% and 89% higher latency for get and put respectively. <br/>
+(ii) forgoing object caching and coherence, thereby eliminating OTC+OIC controllers, will incur on 2%-100% higher latency for function execution time.<br/> <br/>
 
-&#x25C8; How are the power/energy metrics affected because of the additional DRAMs needed for the replica?<br/>
-A: Firstly, Dve uses under-utilized memory that is already provisioned but idle in the system. But even if we actually add additional memory, Dve actually ends up saving energy (counter intuitively). This is because memory is in the order of 20% of the total system power and Dve speedup reduces execution times and therefore over all system EDP is actually lower for Dve.<br/><br/>
+&#x25C8; Does Āpta increase complexity of FaaS scheduling logic due to the asynchronous invalidation scheme?<br/>
+A: FaaS schedulers are complex frameworks that correctly andefficiently schedule functions on compute nodes. We see that Āpta’s scheduling objectives can easily fit into the existing stages of the Kubernetes scheduler. (Sec V-C has more details)<br/><br/>
 
-&#x25C8; Can you comment on the performance overheads due to additional writes (because all memory writes have to be replicated to both NUMA nodes)? Does this cause any performance degradation? How is the inter-socket interconnect affected by this additional traffic?<br/>
-A: Yes correct, Dve does have to replicate all writes to both NUMA nodes and this does add some extra requests to the interconnect. But if we look at the overall interconnect traffic, Dve reduces the total number of requests over the interconnect. This is because many of the reads that would have crossed the interconnect are now serviced from the local memory. This is one of the reasons for Dve's improved performance.<br/><br/>
+&#x25C8; Concerns over the use of write-through cache policy<br/>
+A: Not every write is written through. The writes in the compute phase of each function are retained in the cache. Only writes to cache lines that make up a put are written through at the end of each function. Note that the put write-through policy is inevitably necessary formaintaining availability and strong consistency in the presence of compute server failures. It is worth noting that existing works [ShardStore, Faa$t] have also employed a similar policy. <br/><br/>
 
-&#x25C8; Specifically, what differentiates Dve from Intel memory mirroring scheme which also does replication for reliability?<br/>
-A: Intel mirroring is different in all 3 regards. Reliability, Performance and on-demandness of the scheme.
-Intel replicates data in 2 channels of the same memory controller while Dve replicates on 2 different memory controllers. Therefore its able to keep replias farther apart and in a completely dijoint subsystem and hence provides better reliability.
-In the Intel scheme, the replica is passive. Replica is not used to service reads/write. Even we hypothetically allow for such active / load balaced replication it can only provide 2-3% performance. Dve provides performance by mitigating the inter-socke interconnect latency and provides much higher performance.
-Finally, the amount of memory replicated is fixed at boot-time and can only be used for kernel allocations. However, Dve can provide replicated memory on-demand at runtime and allows applications to allocate data in the high reliability region of memory.
+&#x25C8; Complexity/cost of the custom hardware features in the solution<br/>
+A baseline shared, pooled CXL DM configuration and several other proposed CXL configurations ([Pond-ASPLOS23, Beacon-MICRO22, MemVerge]) already require controllers for address translation, directory, invalidation and persistence. Āpta makes relatively small changes to these controllers for addingobject semantics and lazy invalidations. On the other hand, the introduced controllers arebroadly applicable to other applications currently being investigated for CXL. Specifically,the OPC is relevant for CXL-supported persistent memory [PAX-HotStorage17], and the OSC is relevant foraddress translation support required in memory capacity expansion [Pond-ASPLOS23], near memory ac-celerators on CXL [Beacon-MICRO22], and dynamic tiered memory [MemVerge]. So relatively minor cost for general benefit and wide applicability of the proposed hardware. <br/> <br/>
 
-&#x25C8; What are the area overheads for the replica directory and how is this structure architected?<br/>
-A: In our simulations we use a 2k entry SRAM structure backed by a reserved area of memory to spill overflows. But the replica directory structure has similar design points as a traditional directory like invalidations can be sent to owner/sharers when evicting entries from replica directory.<br/><br/>
-
-&#x25C8; How does Dve compare to the NUMA latency mitigation line of works like Carrefour/Shoal?<br/>
-A: Carrefour/Shoal do not provide any reliability gurantees. They replicate read-only pages between NUMA nodes for performance in software (using OS support). While has to replicate all pages irrespective of its sharing characteristics to gurantee reliability and it maintains the replicas in sync using hardware cache coherence.<br/><br/>
-
-&#x25C8; Can you clarify precisely what OS support is required for Dve's replication to work?<br/>
-A: OS needs to create space for replication. <br/>
-OS needs to map replica page pairs. <br/>
-OS decides when replication should be enabled/disabled. <br/>
-Full details are in the paper Section V.D<br/>
-<br/>
 <strong>Āpta Trivia:</strong> <br/>
 &#x25C8; Āpta is inspired by distributed system deployments where software often enforces consistency. We bring this insight into shared memory architecture and enable the software scheduler to enforce cache coherence and consistency.<br/>
 &#x25C8; Āpta's philosophy is rooted in the holistic design approach, leveraging the time-tested "end-to-end argument". We design the hardware architecture with the full understanding of the application and middleware. <br/>
-&#x25C8; The name of the project - Āpta - is derived from the Sankrit word (आप्त) which means "trustworthy" or "reliable", referring here to the enhanced reliability provided.<br/>
+&#x25C8; The name of the project - Āpta - is derived from the Sankrit word (आप्त) which means "trustworthy" or "reliable", referring here to the enhanced reliability.<br/>
 <p> 
  </p>
 <br/> <br/>
@@ -174,12 +159,12 @@ Full details are in the paper Section V.D<br/>
       <li>Memory Reliability</li>
       <li>CXL.mem coherence</li>
       <li>Function-as-a-service</li>
-      <li>Object / key-value store</li>      
+      <li>Object / key-value store</li>
       <li>Research Paper</li>
-      <a target="_blank" href="" class="button">Paper</a> <br/>
-      <a target="_blank" href="" class="button button-red">Slides</a> <br/>
-      <a target="_blank" href="" class="button button-blue">Talk</a> <br/>
-      <a target="_blank" href="" class="button button-black">Source <br/> (Github)</a><br/>
+      <a href="" class="button">Paper</a> <br/>
+      <a href="" class="button button-red">Slides</a> <br/>
+      <a href="" class="button button-blue">Talk</a> <br/>
+      <a href="" class="button button-black">Source <br/> (Github)</a><br/>
     </ul>
   </div>
   <!--END of project-->
