@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Timewarp - Projects - Dve: Improving DRAM Reliability and Performance</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<!-- Load CSS -->
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<!-- Load Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
+<!-- Load jQuery library -->
+<script type="text/javascript" src="../scripts/jquery-1.6.2.min.js"></script>
+<!-- Load custom js -->
+<script type="text/javascript" src="../scripts/panelslide.js"></script>
+<script type="text/javascript" src="../scripts/custom.js"></script>
+<!-- Load topcontrol js -->
+<script type="text/javascript" src="../scripts/scrolltopcontrol.js"></script>
+<!-- Load NIVO Slider -->
+<link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/nivo-theme.css" type="text/css" media="screen" />
+<script src="../scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+<script src="../scripts/nivo-options.js" type="text/javascript"></script>
+<!-- Load fancybox -->
+<script type="text/javascript" src="../scripts/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="../scripts/jquery.easing-1.3.pack.js"></script>
+<script type="text/javascript" src="../scripts/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" href="../css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+<!-- for html include -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
+<!-- Style for button -->
+<style type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-red {background-color: #f44336;} /* Red */
+.button-black {background-color: #555555;} /* Black */
+</style>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50522218-1', 'adarshpatil.in');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<!--This is the START of the header-->
+<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
+<div id="header-wrapper">
+  <div id="header">
+    <div id="logo"><a href="../index.html"><img src="../images/logo.png" width="100" height="80" alt="logo" /></a></div>
+    <div id="header-text">
+      <h4>Timewarp - Projects - Āpta: Fault-tolerant CXL disaggregated memory for accelerating FaaS</h4>
+      <h6><a href="../index.html">Home</a> → Projects</h6>
+    </div>
+  </div>
+</div>
+<!--END of header-->
+
+<!--This is the START of the menu-->
+<div w3-include-html="1projects-main-menu.html"></div>
+<script>w3.includeHTML();</script>
+<!--END of menu-->
+
+<!--This is the START of the content-->
+<div id="content">
+  <h6> <a href="../portfolio.html"> ← Back to Projects</a> </h6>
+  <!--This is the START of the NIVO slider-->
+  <div class="slider-wrapper theme-effe">
+    <div id="slider" class="nivoSlider"> 
+       <img src="../images/projects/apta/schematic.png" alt="System schematic" title="#img1"/>
+       <img src="../images/projects/apta/function-workflow.png" alt="application object store interaction" title="#img3"/>
+    </div>
+    <div id="slider-shadow"></div>
+  </div>
+  <!--END of NIVO Slider-->
+  <!--This is the START of the project-->
+  <div class="project">
+    <div id="description">
+      <h3>Āpta: Fault-tolerant object-granular CXL disaggregated memory for accelerating FaaS</h3> </br> 
+      <h4>
+&#x25BA; Appears in  International Conference on Dependable Systems and Networks (DSN) 2023 </br/>
+&#x25BA; Artifact available on github <br/>
+      </h4>
+<br/>
+<strong>What is Āpta?</strong>
+<p>Āpta is a memory system architecture that improves the reliability of CXL-based shared disaggregated memory. Āpta is specialized to accelerate and improve performance of the function-as-a-service (FaaS) applications.</p>
+<br/>
+<strong>Features and Properties: </strong> <br/>
+<strong>What does it provide? </strong> <br/>
+<p> &#x25C9; higher memory performance than RDMA based <br/>
+&#x25C9; improves memory performance in a multi-socket NUMA architecture (lower memory access latency and higher bandwidth)<br/>
+&#x25C9; provides on-demand replication for programs at runtime by using the idle memory present in systems<br/>
+&#x25C9; strict recovery semantics and strongly consistent replication<br/>
+<br/>
+<strong>How does it achieve it? </strong> <br/>
+&#x25A3; Replicates memory on two different sockets of a multi socket NUMA system <br/>
+&#x25A3; Uses cache coherence protocols (allow-based and deny-based) to provide "Coherent Replication" <br/>
+&#x25A3; Builds on existing reliability mechanisms and coherence protocols for graceful degradation and fallback on failure <br/>
+&#x25A3; Maps data in DRAM between replicas in a thermal risk aware manner to reduce failures <br/>
+&#x25A3; Sets out the application interface and OS mechanisms required for providing replicating memory at runtime <br/>
+<br/>
+<strong>Frequently asked questions (FAQs):</strong> <br/>
+&#x25C8; Is it practical to sacrifice 50% of the memory capacity? How do you ensure enough memory capacity is available for replication (say if a workload is already using >50% memory)?<br/>
+A: Firstly, Dve can be deployed on-demand at finer granularity (per application, per VM, per container) so its not always static 50% capacity overhead.
+Secondly, we allow the control place (like the workload placement infrastructure) to make the smart decision of enabling/disabling replication depending on the needs of the workload.
+Thirdly, the OS can use balloon drivers to steal memory and create space for replication. It then monitors the page fault rate to decide if replication should be disabled when there is high memory pressure. Even if replication is disabled, Dve will still fall back to baseline reliability provided by the underlying system.<br/><br/>
+
+&#x25C8; What is the main purpose of Dve. Is it reliability or performance? <br/>
+A: Dve's main purpose is to to gurantee reliability. It maintains both replicas in sync for ensuring recovery from errors. The performance aspect of comes from the coherent replication which is workload dependent and best effort. Prior DRAM reliability techniques caused performance degradation whereas Dve actually improves performance while providing reliability. <br/> <br/>
+
+&#x25C8; How does Dve work if its a single socket machine?<br/>
+A: Even modern single socket machines have chiplet architecture (like in AMD Ryzen)  or quadrant mode (like in Xeon Phi) and also have multiple memory controllers. Dve can be employed even in such systems.<br/>
+Upcoming CXL-based memories are also exposed as a remote NUMA node. Dve's design can be applied in such systems to provide a high-availability remote memory.<br/><br/>
+
+&#x25C8; How are the power/energy metrics affected because of the additional DRAMs needed for the replica?<br/>
+A: Firstly, Dve uses under-utilized memory that is already provisioned but idle in the system. But even if we actually add additional memory, Dve actually ends up saving energy (counter intuitively). This is because memory is in the order of 20% of the total system power and Dve speedup reduces execution times and therefore over all system EDP is actually lower for Dve.<br/><br/>
+
+&#x25C8; Can you comment on the performance overheads due to additional writes (because all memory writes have to be replicated to both NUMA nodes)? Does this cause any performance degradation? How is the inter-socket interconnect affected by this additional traffic?<br/>
+A: Yes correct, Dve does have to replicate all writes to both NUMA nodes and this does add some extra requests to the interconnect. But if we look at the overall interconnect traffic, Dve reduces the total number of requests over the interconnect. This is because many of the reads that would have crossed the interconnect are now serviced from the local memory. This is one of the reasons for Dve's improved performance.<br/><br/>
+
+&#x25C8; Specifically, what differentiates Dve from Intel memory mirroring scheme which also does replication for reliability?<br/>
+A: Intel mirroring is different in all 3 regards. Reliability, Performance and on-demandness of the scheme.
+Intel replicates data in 2 channels of the same memory controller while Dve replicates on 2 different memory controllers. Therefore its able to keep replias farther apart and in a completely dijoint subsystem and hence provides better reliability.
+In the Intel scheme, the replica is passive. Replica is not used to service reads/write. Even we hypothetically allow for such active / load balaced replication it can only provide 2-3% performance. Dve provides performance by mitigating the inter-socke interconnect latency and provides much higher performance.
+Finally, the amount of memory replicated is fixed at boot-time and can only be used for kernel allocations. However, Dve can provide replicated memory on-demand at runtime and allows applications to allocate data in the high reliability region of memory.
+
+&#x25C8; What are the area overheads for the replica directory and how is this structure architected?<br/>
+A: In our simulations we use a 2k entry SRAM structure backed by a reserved area of memory to spill overflows. But the replica directory structure has similar design points as a traditional directory like invalidations can be sent to owner/sharers when evicting entries from replica directory.<br/><br/>
+
+&#x25C8; How does Dve compare to the NUMA latency mitigation line of works like Carrefour/Shoal?<br/>
+A: Carrefour/Shoal do not provide any reliability gurantees. They replicate read-only pages between NUMA nodes for performance in software (using OS support). While has to replicate all pages irrespective of its sharing characteristics to gurantee reliability and it maintains the replicas in sync using hardware cache coherence.<br/><br/>
+
+&#x25C8; Can you clarify precisely what OS support is required for Dve's replication to work?<br/>
+A: OS needs to create space for replication. <br/>
+OS needs to map replica page pairs. <br/>
+OS decides when replication should be enabled/disabled. <br/>
+Full details are in the paper Section V.D<br/>
+<br/>
+<strong>Āpta Trivia:</strong> <br/>
+&#x25C8; Āpta is inspired by distributed system deployments where software often enforces consistency. We bring this insight into shared memory architecture and enable the software scheduler to enforce cache coherence and consistency.<br/>
+&#x25C8; Āpta's philosophy is rooted in the holistic design approach, leveraging the time-tested "end-to-end argument". We design the hardware architecture with the full understanding of the application and middleware. <br/>
+&#x25C8; The name of the project - Āpta - is derived from the Sankrit word (आप्त) which means "trustworthy" or "reliable", referring here to the enhanced reliability provided.<br/>
+<p> 
+ </p>
+<br/> <br/>
+
+    </div>
+    <ul id="work">
+      <img src="../images/projects/apta/apta-thumb.png"/>
+      <br/>
+      <br/>
+      <li>Computer Architecure</li>
+      <li>CXL 3.0 Disaggregated Mem</li>
+      <li>Memory Reliability</li>
+      <li>CXL.mem coherence</li>
+      <li>Function-as-a-service</li>
+      <li>Object / key-value store</li>      
+      <li>Research Paper</li>
+      <a target="_blank" href="" class="button">Paper</a> <br/>
+      <a target="_blank" href="" class="button button-red">Slides</a> <br/>
+      <a target="_blank" href="" class="button button-blue">Talk</a> <br/>
+      <a target="_blank" href="" class="button button-black">Source <br/> (Github)</a><br/>
+    </ul>
+  </div>
+  <!--END of project-->
+  <!--This is the START of the gallery-->
+  <div class="spacer"></div>
+  <center>Other projects similar to this:</center>
+  <div class="project-summary">
+    <div class="one-third"> 
+      <a href=" hashcache.html">
+      <img src="../images/projects/hashcache/hashcache-thumb.png" width="220" height="132" alt="project1" />
+      </a>
+      <h6>December 2017</h6>
+      <p>HAShCache: DRAM Cache for IHS processors (TACO '17)<a class="readmore" href="hashcache.html">read more →</a></p>
+    </div>
+   
+    <div class="one-third-last"> 
+       <a href="dve.html">
+      <img src="../images/projects/dve/dve-thumb.png" width="220" height="132" alt="project1" />
+      </a>
+      <h6>June 2021</h6>
+      <p>Dvé: Memory Replication for Reliability & Performance (ISCA '21)<a class="readmore" href="dve.html">read more →</a></p>
+    </div>
+  </div>
+  <!--END of gallery-->
+  <div class="spacer"></div>
+</div>
+<!--END of content-->
+
+<p class="slide"><a href="#" class="btn-slide"></a></p>
+
+</body>
+</html>
