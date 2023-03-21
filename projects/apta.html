@@ -107,18 +107,18 @@
 <br/>
 <strong>Features and Properties: </strong> <br/>
 <strong>What does it provide? </strong> <br/>
-<p> &#x25C9; higher performance than Amazon S3-based and RDMA-based in-memory object store. <br/>
-&#x25C9; highest compute-server fault-tolerance, similar to as Amazon S3<br/>
-&#x25C9; strongly consistent object store and strict recovery semantics<br/>
-&#x25C9; flexible, dynamic schedulability of individual functions<br/>
-&#x25C9; lowers tail latency for function executions<br/>
+<p> &#x25C9; Higher performance than Amazon S3-based and RDMA-based in-memory object store. <br/>
+&#x25C9; Highest compute-server fault-tolerance, similar to as Amazon S3<br/>
+&#x25C9; Strongly consistent object store and strict recovery semantics<br/>
+&#x25C9; Flexible, dynamic schedulability of individual functions<br/>
+&#x25C9; Lowers tail latency for function executions<br/>
 <br/>
 <strong>How does it achieve it? </strong> <br/>
-&#x25A3; uses CXL 3.0 shared disaggregated memory architecture and creates an object-granular memory interface<br/>
-&#x25A3; builds over existing CXL.mem protocol to create object granularity read and write semantics <br/>
-&#x25A3; transforms the strongly consistent, SWMR-enforcing coherence protocol into a high-available one using lazy (asynchronous) invalidations and coherence-aware scheduling <br/>
-&#x25A3; architects the memory server, data plane controllers<br/>
-&#x25A3; Sets out the control-plane software components and the application object-store interface<br/>
+&#x25A3; Uses CXL 3.0 shared disaggregated memory architecture to hold shared FaaS objects in a memory server<br/>
+&#x25A3; Builds over the CXL.mem protocol to create an object granularity read/write semantics and allow object caching in compute servers <br/>
+&#x25A3; Transforms the CXL.mem coherence protocol into a high-available one using lazy (asynchronous) invalidations and coherence-aware scheduling <br/>
+&#x25A3; Architects the memory server's data plane controllers and the application object store interface<br/>
+&#x25A3; Designs the control-plane software components<br/>
 <br/>
 <strong>Frequently asked questions (FAQs):</strong> <br/>
 &#x25C8; What is the motivation for designing a new fault-tolerant coherence protocol?<br/>
@@ -144,7 +144,7 @@ A baseline shared, pooled CXL DM configuration and several other proposed CXL co
 <strong>Āpta Trivia:</strong> <br/>
 &#x25C8; Āpta is inspired by distributed system deployments where software often enforces consistency. We bring this insight into shared memory architecture and enable the software scheduler to enforce cache coherence and consistency.<br/>
 &#x25C8; Āpta's philosophy is rooted in the holistic design approach, leveraging the time-tested "end-to-end argument". We design the hardware architecture with the full understanding of the application and middleware. <br/>
-&#x25C8; The name of the project - Āpta - is derived from the Sankrit word (आप्त) which means "trustworthy" or "reliable", referring here to the enhanced reliability.<br/>
+&#x25C8; The name of the project - Āpta - is derived from the Sankrit word (आप्त) which means "trustworthy" or "reliable", referring here to the enhanced reliability provided by our system.<br/>
 <p> 
  </p>
 <br/> <br/>
