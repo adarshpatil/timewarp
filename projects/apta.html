@@ -107,17 +107,17 @@
 <br/>
 <strong>Features and Properties: </strong> <br/>
 <strong>What does it provide? </strong> <br/>
-<p> &#x25C9; Higher performance than Amazon S3-based and RDMA-based in-memory object store. <br/>
+<p> &#x25C9; Higher performance than Amazon S3, Amazon ElastiCache and RDMA-based in-memory object store. <br/>
 &#x25C9; Highest compute-server fault-tolerance, similar to as Amazon S3<br/>
 &#x25C9; Strongly consistent object store and strict recovery semantics<br/>
 &#x25C9; Flexible, dynamic schedulability of individual functions<br/>
 &#x25C9; Lowers tail latency for function executions<br/>
 <br/>
 <strong>How does it achieve it? </strong> <br/>
-&#x25A3; Uses CXL 3.0 shared disaggregated memory architecture to hold shared FaaS objects in a memory server<br/>
+&#x25A3; Uses CXL 3.0 shared disaggregated memory to hold shared FaaS objects in a memory server<br/>
 &#x25A3; Builds over the CXL.mem protocol to create object granularity read/write semantics and allow object caching in compute servers <br/>
-&#x25A3; Transforms the CXL.mem coherence protocol into a high-available one using lazy (asynchronous) invalidations and coherence-aware scheduling <br/>
-&#x25A3; Architects the memory server's data plane controllers and the application object store interface<br/>
+&#x25A3; Transforms the CXL.mem coherence protocol into a highly-available one using lazy (asynchronous) invalidations and coherence-aware scheduling <br/>
+&#x25A3; Architects data plane controllers on the memory and compute servers<br/>
 &#x25A3; Designs the control-plane software components<br/>
 <br/>
 <strong>Frequently asked questions (FAQs):</strong> <br/>
@@ -161,10 +161,10 @@ A baseline shared, pooled CXL DM configuration and several other proposed CXL co
       <li>Function-as-a-service</li>
       <li>Object / key-value store</li>
       <li>Research Paper</li>
-      <a href="" class="button">Paper</a> <br/>
+      <a href="../misc/Apta-DSN23.pdf" class="button">Paper</a> <br/>
       <a href="" class="button button-red">Slides</a> <br/>
       <a href="" class="button button-blue">Talk</a> <br/>
-      <a href="" class="button button-black">Source <br/> (Github)</a><br/>
+      <a href="https://github.com/adarshpatil/apta" class="button button-black">Source <br/> (Github)</a><br/>
     </ul>
   </div>
   <!--END of project-->
