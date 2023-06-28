@@ -121,8 +121,8 @@
 &#x25A3; Designs the control-plane software components<br/>
 <br/>
 <strong>Frequently asked questions (FAQs):</strong> <br/>
-&#x25C8; What is the motivation for designing a new fault-tolerant coherence protocol?<br/>
-A: There is no existing coherence protocol that satisfies strong consistency (SWMR) and is fault tolerant in the presence of compute-server failures. Āpta’s novelty is a simple, straightforward transformation to the CXL.mem protocol to provide fault-tolerance, which increases the chance of it being adopted by CXL. <br/><br/>
+&#x25C8; What is the motivation for designing a new coherence protocol? What is CXL lacking? <br/>
+A: There is no existing coherence protocol that satisfies strong consistency (enforcing SWMR invariant) and is fault tolerant in the presence of compute-server failures. Similarly, the latest CXL 3.0 protocol is also not completely fault-tolerant and does not define sufficient RAS capabilities to deal with compute server failures. Āpta’s novelty is a simple, straightforward transformation to the CXL.mem protocol to provide fault-tolerance, which increases the chance of it being adopted by CXL. <br/><br/>
 
 &#x25C8; Can these architecture design components can be adapted to broader application requirements and characteristics?<br/>
 A: The architecture design components we introduce – specifically, the Object Serving Con-troller (OSC) and the Object Persistency Controller (OPC) – are also applicable to otherapplications currently being investigated for CXL. The OPC is relevant for CXL-supportedpersistent memory, and the OSC is relevant for address translation support required inmemory capacity expansion, near memory accelerators on CXL, and dynamic tiered memory. <br/><br/>
