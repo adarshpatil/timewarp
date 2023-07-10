@@ -53,12 +53,12 @@ else {
 	// redirect to success page 
 	if ($success){
 	echo '<script type="text/javascript">
-          	window.onload = function () { alert("Yipeee, I heard you! I will get back to you as soon as possible.."); history.back() }
+               window.onload = function () { alert("I heard you! I will get back to you as soon as possible.."); history.back() }
 	     </script>';
 	}
 	else{
 	echo '<script type="text/javascript">
-          	window.onload = function () { alert("Thanks! But something went wrong, try again later.."); history.back() }
+               window.onload = function () { alert("Thanks! But something went wrong, please try again.."); history.back() }
 	      </script>';
 	}
 }

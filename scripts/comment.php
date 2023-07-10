@@ -9,12 +9,17 @@ $fileHandle = fopen($file, "r") or die("Unable to captcha key open file!");
 $privatekey = fgets($fileHandle);
 fclose($fileHandle);
 
-$resp = recaptcha_check_answer ($privatekey,
-                                $_SERVER["REMOTE_ADDR"],
-                                $_POST["recaptcha_challenge_field"],
-                                $_POST["recaptcha_response_field"]);
 
-if (!$resp->is_valid) {
+$reCaptcha = new ReCaptcha($privatekey);
+
+$resp = $reCaptcha->verifyResponse($_SERVER['REMOTE_ADDR'], $_POST['g-recaptcha-response']);
+
+//$resp = recaptcha_check_answer ($privatekey,
+//                                $_SERVER["REMOTE_ADDR"],
+//                                $_POST["recaptcha_challenge_field"],
+//                                $_POST["recaptcha_response_field"]);
+
+if (!$resp->success) {
 	// What happens when the CAPTCHA was entered incorrectly
 	echo '<script type="text/javascript">
 		window.onload = function () { alert("Pssst..That CAPTCHA was incorrect. Try again"); history.back() }
