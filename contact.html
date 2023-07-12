@@ -119,7 +119,7 @@ function MM_validateForm() { //v4.0
   <div id="contact">
     <h4 style="margin-top:10px;">Get in touch</h4>
     <p>Use the form below to leave me a message.</p>
-    <form name="contact" action="scripts/contact.php" id="contactform" method="post">
+    <form name="contact" action="scripts/contact.php" id="contactform" method="post" onsubmit="this.submit(); this.reset(); return false;">
       <div class="boxes">
         <h6>name<span class="required">*</span></h6>
         <div class="box">
