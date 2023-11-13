@@ -345,7 +345,7 @@ Header & Menu CSS
 	width: 120px;
 	height: 22px;
 	position: fixed;
-	top: 470px;
+	top: 550px;
 	left: 30px;
 }
 #social-box li {
@@ -374,7 +374,7 @@ Header & Menu CSS
 	color: #121212;
 }
 #main-menu li {
-	padding: 5px 0 5px 0;
+	padding: 10px 0 10px 0;
 }
 #main-menu .selected {
 	color: #121212;
