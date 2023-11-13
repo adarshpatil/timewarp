@@ -1036,9 +1036,9 @@ Contact CSS
 	margin-bottom: 15px;
 }
 #contactinfo {
-	padding-right: 10px;
+	padding-left: 20px;
 	padding-top: 80px;
-	float: right;
+	float: left;
 }
 /******************************************************************
 This is the buttons and inputs CSS
