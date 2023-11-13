@@ -317,7 +317,7 @@ Header & Menu CSS
 #header-text {
 	width: 480px;
 	padding-top: 40px;
-	margin-left: 50%;
+	margin-left: 55%;
 	display: block;
 	height: 20px;
 }
@@ -338,7 +338,7 @@ Header & Menu CSS
 	height: 100px;
 	width: 100px;
 	background-repeat: no-repeat;
-	margin-left: 100%;
+	margin-left: 97%;
 	margin-top: -45px;
 }
 #social-box {
