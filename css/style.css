@@ -511,12 +511,12 @@ Home Page CSS
 #recent-posts-container {
 	width: 720px;
 	height: 200px;
-	margin-top: 60px;
+	margin-top: 20px;
 }
 #recent-projects-container {
 	width: 720px;
 	height: 200px;
-	margin-top: 60px;
+	margin-top: 20px;
 }
 .section-description {
 	float: left;
