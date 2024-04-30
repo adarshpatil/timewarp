@@ -193,6 +193,13 @@ blockquote {
 	background-repeat: no-repeat;
 	background-position: left top;
 }
+#news-updates li {
+    display:none;
+}
+
+#news-updates li:nth-child(-n+10) {
+    display:list-item;
+}
 .styled-list-check li {
 	font-family: Verdana, Arial, sans-serif;
 	line-height: 1.6em;

@@ -16,6 +16,13 @@ $(this).stop().fadeTo('slow',1);
 });
 						
 							
+$(".more-button").click(function () {
+        $("#news-updates").find("li:hidden:lt(3)").show();
+        if ($('ul#news-updates li:hidden').length == 0) {
+        	$(this).hide();
+        }
+        });
+
 							
 //This is basic - uses default settings
 $("a.single_image").fancybox();
