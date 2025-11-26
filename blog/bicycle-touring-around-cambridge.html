@@ -51,19 +51,25 @@
 <div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
 <div id="header-wrapper">
   <div id="header">
-    
     <div id="header-text">
-      <h4>TimeWarp - Blogpost</h4>
-      <h6><a href="../index.html">Home</a> → Blog Post</h6>
+      <h3>Blogpost</h3>
     </div>
   </div>
+  <!--This is the START of the menu-->
+  <div id="menu-wrapper">
+    <div id="main-menu">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../portfolio.html">Portfolio</a></li>
+      <li><a class="selected" href="../blog.html">Blogs →</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    </div>
+  </div>	
+  <!--END of menu-->
 </div>
 <!--END of header-->
-
-<!--This is the START of the menu-->
-<div w3-include-html="1blog-main-menu.html"></div>
-<script>w3.includeHTML();</script>
-<!--END of menu-->
 
 <!--This is the START of the content-->
 <div id="content">
@@ -357,10 +363,26 @@ P.S: I am using this blog post like a diary, updating it as I complete new route
     </div>
   </div>
 
-
   <!--END of blog section-->
 </div>
 <!--END of content-->
-
+<!--This is the START of the footer-->
+<div id="footer">
+	<div id="social-box">
+		<ul>
+			<li>
+				<div class="scholar"><a href="https://scholar.google.com/citations?user=5uOXdbwAAAAJ&hl=en" target="_blank"></a></div>
+			</li>
+			<li>
+				<div class="github"><a href="https://github.com/adarshpatil" target="_blank"></a></div>
+			</li>
+			<li>
+				<div class="linkedin"><a href="https://www.linkedin.com/in/adarshpatil/" target="_blank"></a></div>
+			</li>
+		</ul>
+	</div>
+	<h6>Copyright © 2025 - adarshpatil</h6>
+</div>
+<!--END of footer-->
 </body>
 </html>

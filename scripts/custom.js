@@ -7,6 +7,28 @@
  */
  $(document).ready(function(){
 							
+function resolvePortraitPath(){
+	var cssHref = $('link[href*="css/style.css"]').first().attr('href') || 'css/style.css';
+	var basePath = cssHref.split('css/style.css')[0];
+	return basePath + 'images/pic.png';
+}
+
+var portraitPath = resolvePortraitPath();
+$('#header').each(function(){
+	var $header = $(this);
+	if($header.find('.pic').length === 0){
+		var $pic = $('<div>',{'class':'pic'}).append(
+			$('<img>',{
+				src: portraitPath,
+				alt: 'Adarsh Patil portrait',
+				width: 100,
+				height: 100
+			})
+		);
+		$header.append($pic);
+	}
+});
+							
 $('.single_image').hover(
 function(){
 $(this).stop().fadeTo('slow',0.4);
