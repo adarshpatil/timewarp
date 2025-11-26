@@ -97,10 +97,10 @@ function MM_validateForm() { //v4.0
   <!--This is the START of the contact section-->
   <div id="contact">
     <h4 style="margin-top:10px;">Get in touch</h4>
-    <p>Use the form below to leave me a message.</p>
+    <p>Use the form below to leave me a message and I will get back.</p>
     <form name="contact" action="scripts/contact.php" id="contactform" method="post" onsubmit="this.submit(); this.reset(); return false;">
       <div class="boxes">
-        <h6>name<span class="required">*</span></h6>
+        <h6>Name<span class="required">*</span></h6>
         <div class="box">
           <input name="name" type="text" class="input" id="sender_name" />
         </div>
@@ -108,9 +108,9 @@ function MM_validateForm() { //v4.0
         <div class="box">
           <input name="email" type="text" class="input" id="sender_email" />
         </div>
-        <h6>message</h6>
+        <h6>Message</h6>
         <div class="msgbox">
-          <textarea name="cf_message" rows="50" cols="30" class="message" id="cf_message"></textarea>
+          <textarea name="cf_message" class="message" id="cf_message"></textarea>
         </div>
 
 
@@ -127,12 +127,9 @@ function MM_validateForm() { //v4.0
   <div id="contactinfo">
     <h5>My Contact info:</h5>
     <p>
-     I don't publish my full contact info<br/>
-     here because it very quickly enters<br/>
-     the world of spammers & scammers.<br/>
-     Some of socials are linked on the left.
+     I don't publish my full contact info here because it very quickly enters the world of spammers & scammers.
+     If you'd like to get in touch, some of socials are linked below.
     </p>
-    <br />
    </div>
   <!--END of contact section-->
 </div>
