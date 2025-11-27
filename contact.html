@@ -47,6 +47,9 @@ function MM_validateForm() { //v4.0
 } }
 </script>
 
+<!-- for html include -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
 <!-- Google ReCaptcha v2 -->
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
@@ -84,7 +87,7 @@ function MM_validateForm() { //v4.0
         <li><a class="subitem" href="portfolio.html#publications">Publications</a></li>
         <li><a class="subitem" href="portfolio.html#projects">Projects</a></li>
         <li><a class="subitem" href="portfolio.html#resume">Resume</a></li>
-        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a class="selected" href="contact.html">Contact  →</a></li>
       </ul>
     </div>
@@ -128,30 +131,17 @@ function MM_validateForm() { //v4.0
     <h5>My Contact info:</h5>
     <p>
      I don't publish my full contact info here because it very quickly enters the world of spammers & scammers.
-     If you'd like to get in touch, some of socials are linked below.
+     Some of socials are linked below.
     </p>
    </div>
   <!--END of contact section-->
 </div>
 <!--END of content-->
-<!--This is the START of the footer-->
-<div id="footer">
-  <div id="social-box">
-    <ul>
-      <li>
-        <div class="scholar"><a href="https://scholar.google.com/citations?user=5uOXdbwAAAAJ&hl=en" target="_blank"></a></div>
-      </li>
 
-      <li>
-        <div class="github"><a href="https://github.com/adarshpatil" target="_blank"></a></div>
-      </li>
-      <li>
-        <div class="linkedin"><a href="https://www.linkedin.com/in/adarshpatil/" target="_blank"></a></div>
-      </li>
-    </ul>
-  </div>
-  <h6>Copyright © 2025 - adarshpatil</h6>
-</div>
+<!--This is the START of the footer-->
+<div w3-include-html="footer.html"></div>
+<script>w3.includeHTML();</script>
 <!--END of footer-->
+
 </body>
 </html>

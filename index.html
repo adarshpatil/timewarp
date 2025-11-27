@@ -28,6 +28,9 @@
 <script type="text/javascript" src="scripts/jquery.mousewheel-3.0.4.pack.js"></script>
 <link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
+<!-- for html include -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,7 +63,7 @@
 				<li><a class="subitem" href="portfolio.html#publications">Publications</a></li>
 				<li><a class="subitem" href="portfolio.html#projects">Projects</a></li>
 				<li><a class="subitem" href="portfolio.html#resume">Resume</a></li>
-				<li><a href="blog.html">Blogs</a></li>
+				<li><a href="blog.html">Blog</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>
@@ -133,11 +136,11 @@ Currently, I am a member of the research group at Arm led by <a href="https://er
 			<h5>Projects & publications</h5>
 		</div>
 		<div class="recent-summary">
-			<div class="recent-item"> <a href="projects/apta.html"><img src="images/projects/apta/apta-thumb.png"/></a>
+			<div class="recent-item"> <a href="projects/apta.html"><img style="object-fit: contain;" src="images/projects/apta/apta-thumb.png"/></a>
 				<h6>Āpta: Fault-tolerant object-granular CXL disaggregated memory</h6>
 				<p>Research Paper (DSN '23) <a class="readmore" href="projects/dve.html">read more →</a></p>
 			</div>
-			<div class="recent-item-last"> <a href="projects/dve.html"><img src="images/projects/dve/dve-thumb.png"/></a>
+			<div class="recent-item-last"> <a href="projects/dve.html"><img style="object-fit: contain;" src="images/projects/dve/dve-thumb.png"/></a>
 				<h6>Dvé: Memory Replication for Reliability and Performance</h6>
 				<p>Research Paper (ISCA '21) <a class="readmore" href="projects/dve.html">read more →</a></p>
 			</div>
@@ -167,23 +170,11 @@ Currently, I am a member of the research group at Arm led by <a href="https://er
 	<div class="spacer"></div>
 </div>
 <!--END of content-->
+
 <!--This is the START of the footer-->
-<div id="footer">
-	<div id="social-box">
-		<ul>
-			<li>
-				<div class="scholar"><a href="https://scholar.google.com/citations?user=5uOXdbwAAAAJ&hl=en" target="_blank"></a></div>
-			</li>
-			<li>
-				<div class="github"><a href="https://github.com/adarshpatil" target="_blank"></a></div>
-			</li>
-			<li>
-				<div class="linkedin"><a href="https://www.linkedin.com/in/adarshpatil/" target="_blank"></a></div>
-			</li>
-		</ul>
-	</div>
-	<h6>Copyright © 2025 - adarshpatil</h6>
-</div>
+<div w3-include-html="footer.html"></div>
+<script>w3.includeHTML();</script>
 <!--END of footer-->
+
 </body>
 </html>

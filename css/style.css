@@ -379,7 +379,6 @@ blockquote::before {
 .blog-item,
 .recent-item,
 .recent-item-last,
-.project,
 .aboutimage {
   background: white;
   border-radius: var(--radius-lg);
@@ -435,14 +434,12 @@ blockquote::before {
 #container li:hover,
 .blog-item:hover,
 .recent-item:hover,
-.recent-item-last:hover,
-.project:hover {
+.recent-item-last:hover {
   transform: translateY(-12px);
   box-shadow: var(--shadow-accent), var(--glow);
 }
 
-.blog-item:hover::before,
-.project:hover::before {
+.blog-item:hover::before {
   opacity: 1;
 }
 
@@ -468,10 +465,11 @@ blockquote::before {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.25rem;
   padding: 0;
   margin: 0;
   justify-content: center;
+  align-items: flex-start;
 }
 
 #container #stage li {
@@ -480,7 +478,7 @@ blockquote::before {
 }
 
 #container #stage h6 { margin: 1rem 0 0.5rem; }
-#container #stage p { margin-bottom: 75rem; }
+#container #stage p { margin-bottom: 0.75rem; }
 
 #container ul {
 	overflow:hidden;
@@ -490,13 +488,11 @@ blockquote::before {
 }
 
 /* Card Content */
-.blog-item .content,
-.project .content {
+.blog-item .content {
   padding: 1.5rem;
 }
 
-.blog-item h3,
-.project h3 {
+.blog-item h3 {
   margin-top: 0;
   margin-bottom: 0.75rem;
 }
@@ -730,6 +726,10 @@ textarea {
   color: var(--accent);
 }
 
+#social-blog-buttons {
+  display:inline;
+}
+
 .scholar {
   background-image: url('../images/scholar.png');
   background-position: 0 0;
@@ -891,14 +891,12 @@ textarea {
    14. Container Queries (Progressive Enhancement)
    ------------------------------------------------- */
 @supports (container-type: inline-size) {
-  .blog-item,
-  .project {
+  .blog-item {
     container-type: inline-size;
   }
   
   @container (min-width: 400px) {
-    .blog-item h3,
-    .project h3 {
+    .blog-item h3 {
       font-size: 1.5rem;
     }
   }
