@@ -67,10 +67,8 @@
 <div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
 <div id="header-wrapper">
   <div id="header">
-    
     <div id="header-text">
       <h4>Timewarp - Projects - Āpta: Fault-tolerant CXL disaggregated memory for accelerating FaaS</h4>
-      <h6><a href="../index.html">Home</a> → Projects</h6>
     </div>
   </div>
 </div>
@@ -96,85 +94,84 @@
   <!--This is the START of the project-->
   <div class="project">
     <div id="description">
-      <h3>Āpta: Fault-tolerant object-granular CXL disaggregated memory for accelerating FaaS</h3> </br> 
-      <h4>
-&#x25BA; Appears in  International Conference on Dependable Systems and Networks - <a href="https://dsn2023.dei.uc.pt/">DSN 2023</a> </br/>
-&#x25BA; Artifact available on github <br/>
+      <h3>Āpta: Fault-tolerant object-granular CXL disaggregated memory for accelerating FaaS</h3>
+      <h4>Appears in 53rd IEEE/IFIP International Conference on Dependable Systems and Networks - <a href="https://dsn2023.dei.uc.pt/">DSN 2023</a> </br/>
       </h4>
-<br/>
-<strong>What is Āpta?</strong>
-<p>Āpta is a fault-tolerant CXL-based, shared disaggregated memory system that is specialized as an object-store to improve performance of function-as-a-service (FaaS) applications.</p>
-<br/>
-<strong>Features and Properties: </strong> <br/>
-<strong>What does it provide? </strong> <br/>
-<p> &#x25C9; Higher performance than Amazon S3, Amazon ElastiCache and RDMA-based in-memory object store. <br/>
-&#x25C9; Highest compute-server fault-tolerance, similar to as Amazon S3<br/>
-&#x25C9; Strongly consistent object store and strict recovery semantics<br/>
-&#x25C9; Flexible, dynamic schedulability of individual functions<br/>
-&#x25C9; Lowers tail latency for function executions<br/>
-<br/>
-<strong>How does it achieve it? </strong> <br/>
-&#x25A3; Uses CXL 3.0 shared disaggregated memory to hold shared FaaS objects in a memory server<br/>
-&#x25A3; Builds over the CXL.mem protocol to create object granularity read/write semantics and allow object caching in compute servers <br/>
-&#x25A3; Transforms the CXL.mem coherence protocol into a highly-available one using lazy (asynchronous) invalidations and coherence-aware scheduling <br/>
-&#x25A3; Architects data plane controllers on the memory and compute servers<br/>
-&#x25A3; Designs the control-plane software components<br/>
-<br/>
-<strong>Frequently asked questions (FAQs):</strong> <br/>
-&#x25C8; What is the motivation for designing a new coherence protocol? What is CXL lacking? <br/>
-A: There is no existing coherence protocol that satisfies strong consistency (enforcing SWMR invariant) and is fault tolerant in the presence of compute-server failures. Similarly, the latest CXL 3.0 protocol is also not completely fault-tolerant and does not define sufficient RAS capabilities to deal with compute server failures. Āpta’s novelty is a simple, straightforward transformation to the CXL.mem protocol to provide fault-tolerance, which increases the chance of it being adopted by CXL. <br/><br/>
-
-&#x25C8; Can these architecture design components can be adapted to broader application requirements and characteristics?<br/>
-A: The architecture design components we introduce – specifically, the Object Serving Controller (OSC) and the Object Persistency Controller (OPC) – are also applicable to other applications currently being investigated for CXL. The OPC is relevant for CXL-supported persistent memory, and the OSC is relevant for address translation support required in memory capacity expansion, near memory accelerators on CXL, and dynamic tiered memory. <br/><br/>
-
-&#x25C8; Can the hardware components be implemented by software layers to help reduce implementation cost and improve flexibility?<br/>
-A: Whereas the final Āpta design represents the most efficient hardware design, Āpta’s controllers can be realized in software at the expense of reduced performance. Our analysis already shows that: <br/>
-(i) employing software layers in place of OPC+PUT and OSC+GET controllers will incur an average of 32% and 89% higher latency for get and put respectively. <br/>
-(ii) forgoing object caching and coherence, thereby eliminating OTC+OIC controllers, will incur on 2%-100% higher latency for function execution time.<br/> <br/>
-
-&#x25C8; Does Āpta increase complexity of FaaS scheduling logic due to the asynchronous invalidation scheme?<br/>
-A: FaaS schedulers are complex frameworks that correctly andefficiently schedule functions on compute nodes. We see that Āpta’s scheduling objectives can easily fit into the existing stages of the Kubernetes scheduler. (Sec V-C has more details)<br/><br/>
-
-&#x25C8; Concerns over the use of write-through cache policy<br/>
-A: Not every write is written through. The writes in the compute phase of each function are retained in the cache. Only writes to cache lines that make up a put are written through at the end of each function. Note that the put write-through policy is inevitably necessary for maintaining availability and strong consistency in the presence of compute server failures. It is worth noting that existing works [ShardStore, Faa$t] have also employed a similar policy. <br/><br/>
-
-&#x25C8; Complexity/cost of the custom hardware features in the solution<br/>
-A baseline shared, pooled CXL DM configuration and several other proposed CXL configurations [Pond-ASPLOS23, Beacon-MICRO22, MemVerge] already require controllers for address translation, directory, invalidation and persistence. Āpta makes relatively small changes to these controllers for addingobject semantics and lazy invalidations. On the other hand, the introduced controllers arebroadly applicable to other applications currently being investigated for CXL. Specifically,the OPC is relevant for CXL-supported persistent memory [PAX-HotStorage17], and the OSC is relevant foraddress translation support required in memory capacity expansion [Pond-ASPLOS23], near memory accelerators on CXL [Beacon-MICRO22], and dynamic tiered memory [MemVerge]. So relatively minor cost for general benefit and wide applicability of the proposed hardware. <br/> <br/>
-
-<strong>Āpta Trivia:</strong> <br/>
-&#x25C8; Āpta is inspired by distributed system deployments where software often enforces consistency. We bring this insight into shared memory architecture and enable the software scheduler to enforce cache coherence and consistency.<br/>
-&#x25C8; Āpta's philosophy is rooted in the holistic design approach, leveraging the time-tested "end-to-end argument". We design the hardware architecture with the full understanding of the application and middleware. <br/>
-&#x25C8; The name of the project - Āpta - is derived from the Sankrit word (आप्त) which means "trustworthy" or "reliable", referring here to the enhanced reliability provided by our system.<br/>
-<p> 
- </p>
-<br/> <br/>
-
     </div>
-    <ul id="work">
-      <img src="../images/projects/apta/apta-thumb.png"/>
-      <br/>
-      <br/>
-      <li>Computer Architecure</li>
-      <li>CXL 3.0 Disaggregated Mem</li>
-      <li>Memory Reliability</li>
-      <li>CXL.mem coherence</li>
-      <li>Function-as-a-service</li>
-      <li>Object / key-value store</li>
-      <li>Research Paper</li>
-      <a href="../misc/apta-dsn23.pdf" class="button">Paper</a> <br/>
-      <a href="../misc/apta-dsn23-slides.pdf" class="button button-red">Slides</a> <br/>
-      <a target="_blank" href="https://youtu.be/ySpePGttJmM" class="button button-blue">Talk</a> <br/>
-      <a href="https://github.com/adarshpatil/apta" class="button button-black">Source <br/> (Github)</a><br/>
-    </ul>
-  </div>
+
+    <div>
+      <ul id="work">
+        <img src="../images/projects/apta/apta-thumb.png"/>
+        <br/>
+        <li>Computer Architecure</li>
+        <li>CXL 3.0 Disaggregated Mem</li>
+        <li>Memory Reliability</li>
+        <li>CXL.mem coherence</li>
+        <li>Function-as-a-service</li>
+        <li>Object / key-value store</li>
+        <li>Research Paper</li>
+        <a href="../misc/apta-dsn23.pdf" class="button">Paper</a> <br/>
+        <a href="../misc/apta-dsn23-slides.pdf" class="button button-red">Slides</a> <br/>
+        <a target="_blank" href="https://youtu.be/ySpePGttJmM" class="button button-blue">Talk</a> <br/>
+        <a href="https://github.com/adarshpatil/apta" class="button button-black">Source <br/> (Github)</a><br/>
+      </ul>
+    </div>      
+
+    <strong>What is Āpta?</strong>
+    <p>Āpta is a fault-tolerant CXL-based, shared disaggregated memory system that is specialized as an object-store to improve performance of function-as-a-service (FaaS) applications.</p>
+    <br/>
+    <strong>Features and Properties: </strong> <br/>
+    <strong>What does it provide? </strong> <br/>
+    <p> &#x25C9; Higher performance than Amazon S3, Amazon ElastiCache and RDMA-based in-memory object store. <br/>
+    &#x25C9; Highest compute-server fault-tolerance, similar to as Amazon S3<br/>
+    &#x25C9; Strongly consistent object store and strict recovery semantics<br/>
+    &#x25C9; Flexible, dynamic schedulability of individual functions<br/>
+    &#x25C9; Lowers tail latency for function executions<br/>
+    <br/>
+    <strong>How does it achieve it? </strong> <br/>
+    &#x25A3; Uses CXL 3.0 shared disaggregated memory to hold shared FaaS objects in a memory server<br/>
+    &#x25A3; Builds over the CXL.mem protocol to create object granularity read/write semantics and allow object caching in compute servers <br/>
+    &#x25A3; Transforms the CXL.mem coherence protocol into a highly-available one using lazy (asynchronous) invalidations and coherence-aware scheduling <br/>
+    &#x25A3; Architects data plane controllers on the memory and compute servers<br/>
+    &#x25A3; Designs the control-plane software components<br/>
+    <br/>
+    <strong>Frequently asked questions (FAQs):</strong> <br/>
+    &#x25C8; What is the motivation for designing a new coherence protocol? What is CXL lacking? <br/>
+    A: There is no existing coherence protocol that satisfies strong consistency (enforcing SWMR invariant) and is fault tolerant in the presence of compute-server failures. Similarly, the latest CXL 3.0 protocol is also not completely fault-tolerant and does not define sufficient RAS capabilities to deal with compute server failures. Āpta’s novelty is a simple, straightforward transformation to the CXL.mem protocol to provide fault-tolerance, which increases the chance of it being adopted by CXL. <br/><br/>
+
+    &#x25C8; Can these architecture design components can be adapted to broader application requirements and characteristics?<br/>
+    A: The architecture design components we introduce – specifically, the Object Serving Controller (OSC) and the Object Persistency Controller (OPC) – are also applicable to other applications currently being investigated for CXL. The OPC is relevant for CXL-supported persistent memory, and the OSC is relevant for address translation support required in memory capacity expansion, near memory accelerators on CXL, and dynamic tiered memory. <br/><br/>
+
+    &#x25C8; Can the hardware components be implemented by software layers to help reduce implementation cost and improve flexibility?<br/>
+    A: Whereas the final Āpta design represents the most efficient hardware design, Āpta’s controllers can be realized in software at the expense of reduced performance. Our analysis already shows that: <br/>
+    (i) employing software layers in place of OPC+PUT and OSC+GET controllers will incur an average of 32% and 89% higher latency for get and put respectively. <br/>
+    (ii) forgoing object caching and coherence, thereby eliminating OTC+OIC controllers, will incur on 2%-100% higher latency for function execution time.<br/> <br/>
+
+    &#x25C8; Does Āpta increase complexity of FaaS scheduling logic due to the asynchronous invalidation scheme?<br/>
+    A: FaaS schedulers are complex frameworks that correctly andefficiently schedule functions on compute nodes. We see that Āpta’s scheduling objectives can easily fit into the existing stages of the Kubernetes scheduler. (Sec V-C has more details)<br/><br/>
+
+    &#x25C8; Concerns over the use of write-through cache policy<br/>
+    A: Not every write is written through. The writes in the compute phase of each function are retained in the cache. Only writes to cache lines that make up a put are written through at the end of each function. Note that the put write-through policy is inevitably necessary for maintaining availability and strong consistency in the presence of compute server failures. It is worth noting that existing works [ShardStore, Faa$t] have also employed a similar policy. <br/><br/>
+
+    &#x25C8; Complexity/cost of the custom hardware features in the solution<br/>
+    A baseline shared, pooled CXL DM configuration and several other proposed CXL configurations [Pond-ASPLOS23, Beacon-MICRO22, MemVerge] already require controllers for address translation, directory, invalidation and persistence. Āpta makes relatively small changes to these controllers for addingobject semantics and lazy invalidations. On the other hand, the introduced controllers arebroadly applicable to other applications currently being investigated for CXL. Specifically,the OPC is relevant for CXL-supported persistent memory [PAX-HotStorage17], and the OSC is relevant foraddress translation support required in memory capacity expansion [Pond-ASPLOS23], near memory accelerators on CXL [Beacon-MICRO22], and dynamic tiered memory [MemVerge]. So relatively minor cost for general benefit and wide applicability of the proposed hardware. <br/> <br/>
+
+    <strong>Āpta Trivia:</strong> <br/>
+    &#x25C8; Āpta is inspired by distributed system deployments where software often enforces consistency. We bring this insight into shared memory architecture and enable the software scheduler to enforce cache coherence and consistency.<br/>
+    &#x25C8; Āpta's philosophy is rooted in the holistic design approach, leveraging the time-tested "end-to-end argument". We design the hardware architecture with the full understanding of the application and middleware. <br/>
+    &#x25C8; The name of the project - Āpta - is derived from the Sankrit word (आप्त) which means "trustworthy" or "reliable", referring here to the enhanced reliability provided by our system.<br/>
+    <p> 
+    </p>
+    <br/> <br/>
+
   <!--END of project-->
   <!--This is the START of the gallery-->
   <div class="spacer"></div>
-  <center>Other projects similar to this:</center>
+  <div class="text-center">Other projects similar to this:</div>
   <div class="project-summary">
     <div class="one-third"> 
       <a href=" hashcache.html">
-      <img src="../images/projects/hashcache/hashcache-thumb.png" width="220" height="132" alt="project1" />
+      <img src="../images/projects/hashcache/hashcache-thumb.png" />
       </a>
       <h6>December 2017</h6>
       <p>HAShCache: DRAM Cache for IHS processors (TACO '17)<a class="readmore" href="hashcache.html">read more →</a></p>
@@ -182,7 +179,7 @@ A baseline shared, pooled CXL DM configuration and several other proposed CXL co
    
     <div class="one-third-last"> 
        <a href="dve.html">
-      <img src="../images/projects/dve/dve-thumb.png" width="220" height="132" alt="project1" />
+      <img src="../images/projects/dve/dve-thumb.png"/>
       </a>
       <h6>June 2021</h6>
       <p>Dvé: Memory Replication for Reliability & Performance (ISCA '21)<a class="readmore" href="dve.html">read more →</a></p>
@@ -194,6 +191,10 @@ A baseline shared, pooled CXL DM configuration and several other proposed CXL co
 <!--END of content-->
 
 <p class="slide"><a href="#" class="btn-slide"></a></p>
+<!--This is the START of the footer-->
+<div w3-include-html="1projects-footer.html"></div>
+<script>w3.includeHTML();</script>
+<!--END of footer-->
 
 </body>
 </html>
