@@ -404,7 +404,7 @@ blockquote::before {
 .recent-summary .recent-item,
 .recent-summary .recent-item-last,
 .about .aboutimage {
-  flex: 1 1 200px;      /* share the row, but shrink/wrap if needed */
+  flex: 1 1 300px;      /* share the row, but shrink/wrap if needed */
 }
 
 /* Staggered animations */
