@@ -438,7 +438,8 @@ blockquote::before {
 #container li:hover,
 .blog-item:hover,
 .recent-item:hover,
-.recent-item-last:hover {
+.recent-item-last:hover,
+.aboutimage:hover {
   transform: translateY(-12px);
   box-shadow: var(--shadow-accent), var(--glow);
 }
@@ -461,7 +462,8 @@ blockquote::before {
 #container li:hover img,
 .blog-item:hover img,
 .recent-item:hover img,
-.recent-item-last:hover img {
+.recent-item-last:hover img,
+.aboutimage:hover img {
   transform: scale(1.08);
 }
 
