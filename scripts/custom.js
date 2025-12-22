@@ -5,6 +5,16 @@
  *
  * http://92five.net
  */
+function updateStickyOffset() {
+  const header = document.getElementById('header-wrapper');
+  if (!header) return;
+  const offset = header.getBoundingClientRect().height + 12; // extra breathing room
+  document.documentElement.style.setProperty('--sticky-offset', `${offset}px`);
+}
+
+window.addEventListener('load', updateStickyOffset);
+window.addEventListener('resize', updateStickyOffset);
+
  $(document).ready(function(){
 							
 function resolvePortraitPath(){

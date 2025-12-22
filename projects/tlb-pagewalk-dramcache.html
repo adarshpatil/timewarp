@@ -99,36 +99,36 @@
   <div class="project">
     <div id="description">
       <h3>TLB and Pagewalk performance in Multicore architectures with Die-Stacked DRAMCache </h3> </br> 
+      <h4>Presented at the annual <a target="_blank" href="https://web.archive.org/web/20201012152923/https://sites.google.com/site/csaperspectives2015/">IISc CSA Perspective Seminar 2015</a></h4>
+      <ul id="work">
+        <img src="../images/projects/tlb-pagewalk-dramcache/thumb.jpg" width="150px"/>
+        <li>Computer Architecure</li>
+        <li>x86 Address Translation</li>
+        <li>TLB, pagewalk</li>
+        <li>3D Die Stacked DRAMCache</li>
+        <li>MARSSx86, QEMU</li>
+        <li>Research Report</li>
+        <a target="_blank" href="https://arxiv.org/abs/2002.01073" class="button button-red">Paper (arXiv)</a> <br/>
+        <a target="_blank" href="../misc/csa-perspective-2015-slides.pdf" class="button">Slides</a> <br/>
+        <a target="_blank" href="https://github.com/adarshpatil/marss" class="button button-black">Source/github</a> <br/> <br/>
+      </ul>
+
       <p>
-<a target="_blank" href="https://arxiv.org/abs/2002.01073" class="button button-red">Tech Report (arXiv)<br/></a>
-<a target="_blank" href="../misc/csa-perspective-2015-slides.pdf" class="button">Slides</a>
-<a target="_blank" href="https://github.com/adarshpatil/marss" class="button button-black">Source</a> <br/> <br/>
-The complete report with results and simulation procedure was presented as a peer reviewed paper at the annual <a target="_blank" href="https://sites.google.com/site/csaperspectives2015/">CSA Perspective Seminar 2015</a>. <br/> <br/>
-<strong>Abstract: </strong>
-In this work we study the overheads of virtual-to-physical address translation in processor architectures, like x86-64, that implement paged virtual memory using a radix tree which are walked in hardware. <br/>
-Translation Lookaside Buffers are critical to system performance, particularly as applications demand larger memory footprints and with the adoption of virtualization; however the cost of a TLB miss potentially results in multiple memory accesses to retrieve the translation. Architectural support for superpages has been introduced to increase TLB hits but are limited by the operating systems ability to find contiguous memory. Numerous prior studies have proposed TLB designs to lower miss rates and reduce page walk overhead; however, these studies have modeled
-the behavior analytically. Further, to eschew the paging overhead for big-memory workloads and virtualization, Direct Segment maps part of a process' linear virtual address space with segment registers albeit requiring a few application and operating system modifications.
-The recently evolved die-stacked DRAM technology promises a high bandwidth and large last-level cache, in the order of Gigabytes, closer to the processors. With such large caches the amount of data that can be accessed without causing a TLB fault - the reach of a TLB, is inadequate. TLBs are on the critical path for data accesses and incurring an expensive page walk can hinder system performance, especially when the data being accessed is a
-cache hit in the LLC. <br/>
-Hence, we are interested in exploring novel address translation mechanisms, commensurate to the size and latency of stacked DRAM. By accurately simulating the multitude of multi-level address translation structures using the QEMU based MARSSx86 full system simulator, we perform de-
-tailed study of TLBs in conjunction with the large LLCs using multi-programmed and multi-threaded workloads.
-<br/> <br/>
+        <strong>Abstract: </strong>
+        <p>This work studies the overheads of virtual-to-physical address translation in x86 processor architectures that implement paged virtual memory using a radix tree which are walked in hardware. </p>
+        <p>Translation Lookaside Buffers (TLBs) are critical to system performance, particularly as applications demand larger memory footprints and with the adoption of virtualization; however the cost of a TLB miss potentially results in multiple memory accesses to retrieve the translation. Architectural support for superpages has been introduced to increase TLB hits but are limited by the operating systems ability to find contiguous memory. Numerous prior studies have proposed TLB designs to lower miss rates and reduce page walk overhead; however, these studies have modeled
+        the behavior analytically. Further, to eschew the paging overhead for big-memory workloads and virtualization, Direct Segment maps part of a process' linear virtual address space with segment registers albeit requiring a few application and operating system modifications.
+        The recently evolved die-stacked DRAM technology promises a high bandwidth and large last-level cache, in the order of Gigabytes, closer to the processors. With such large caches the amount of data that can be accessed without causing a TLB fault - the reach of a TLB, is inadequate. TLBs are on the critical path for data accesses and incurring an expensive page walk can hinder system performance, especially when the data being accessed is a
+        cache hit in the LLC. </p>
+        <p>Hence, we are interested in exploring novel address translation mechanisms, commensurate to the size and latency of stacked DRAM. By accurately simulating the multitude of multi-level address translation structures using the QEMU based MARSSx86 full system simulator, we perform de-
+        tailed study of TLBs in conjunction with the large LLCs using multi-programmed and multi-threaded workloads.</p>
       </p>
     </div>
-    <ul id="work">
-      <img src="../images/projects/tlb-pagewalk-dramcache/thumb.jpg" width="150px"/>
-      <li>Computer Architecure</li>
-      <li>x86 Address Translation</li>
-      <li>TLB, pagewalk</li>
-      <li>3D Die Stacked DRAMCache</li>
-      <li>MARSSx86, QEMU</li>
-      <li>Research Report</li>
-    </ul>
   </div>
   <!--END of project-->
   <!--This is the START of the gallery-->
   <div class="spacer"></div>
-  <center>Other projects similar to this:</center>
+  <div clas="text-center">Other projects similar to this:</div>
   <div class="project-summary">
     <div class="one-third"> 
       <a href="branch-pred-android.html">

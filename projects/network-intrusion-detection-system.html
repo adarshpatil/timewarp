@@ -30,6 +30,26 @@
 <!-- for html include -->
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 
+<!-- Style for button -->
+<style type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-red {background-color: #f44336;} /* Red */
+.button-black {background-color: #555555;} /* Black */
+</style>
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,29 +99,28 @@
   <div class="project">
     <div id="description">
       <h3>Intelligent Network Intrusion Detecion System (NIDS)</h3>
-      <p> <br/>
-	  &nbsp <strong> The paper based on this work was published in the International Conference on Emerging Trends in Electrical,
-Communication and Information Technologies (ICECIT 2012) proceedings journal <a href="http://www.elsevierst.com/ConferenceBookdetail.php?pid=46">ICECIT Vol. 1 - Elsevier Science and Technology</a>. The archive of the paper can be found <a href="../misc/NIDS.pdf">here</a>. </strong> <br/> <br/>
-	  There has been immense development in the field of intrusion detection, however most of it has been concentrated
-towards signature based intrusion detection systems. These signature based systems can handle only the
-known attacks. When it comes to new attacks these systems tend to fail due to their inherent limitations. With the rapidly changing face of the attacks we need systems which learn from these changes quickly and hence efficiently detect new attacks. The alternative is a anomaly based system which is the potential answer to this problem. Anomaly based systems can
-be efficiently used to detect novel attacks. In this project we seek to illustrate the implementation of an anomaly based
-system. In this implementation, the network traffic is mined for statistical data and is then fed to a statistical
-machine learning algorithm, Support Vector Machines. <br/>
-
-</p>
+      <ul id="work">
+        <li>Machine Learning/ Classification</li>
+        <li>Data Mining and Modelling</li>
+        <li>Packet capture and analysis</li>
+        <li>Optimized Reduce false positive</li>
+        <a href="../misc/NIDS.pdf" class="button">Paper (pdf)</a>
+      </ul>
+      <p>
+        Appears in the International Conference on Emerging Trends in Electrical, Communication and Information Technologies - <a href="http://www.elsevierst.com/ConferenceBookdetail.php?pid=46">ICECIT 2012</a> by Elsevier Science and Technology. <br/> <br/>
+        There has been immense development in the field of intrusion detection, however most of it has been concentrated
+        towards signature based intrusion detection systems. These signature based systems can handle only the
+        known attacks. When it comes to new attacks these systems tend to fail due to their inherent limitations. With the rapidly changing face of the attacks we need systems which learn from these changes quickly and hence efficiently detect new attacks. The alternative is a anomaly based system which is the potential answer to this problem. Anomaly based systems can
+        be efficiently used to detect novel attacks. In this project we seek to illustrate the implementation of an anomaly based
+        system. In this implementation, the network traffic is mined for statistical data and is then fed to a statistical
+        machine learning algorithm, Support Vector Machines. <br/>
+      </p>
     </div>
-    <ul id="work">
-      <li>Machine Learning/ Classification</li>
-      <li>Data Mining and Modelling</li>
-      <li>Packet capture and analysis</li>
-      <li>Optimized Reduce false positive</li>
-    </ul>
   </div>
   <!--END of project-->
   <!--This is the START of the gallery-->
   <div class="spacer"></div>
-  <center>Other projects similar to this:</center>
+  <div class="text-center">Other projects similar to this:</div>
   <div class="project-summary">
     <div class="one-third"> 
       <a href="line-birds.html">

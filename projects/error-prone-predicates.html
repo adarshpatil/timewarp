@@ -30,6 +30,26 @@
 <!-- for html include -->
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 
+<!-- Style for button -->
+<style type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-red {background-color: #f44336;} /* Red */
+.button-black {background-color: #555555;} /* Black */
+</style>
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -51,7 +71,7 @@
     
     <div id="header-text">
       <h4>Timewarp - Projects - IKEBANA : ESS Dimensions Reduction For Plan Bouquet</h4>
-      <h6><a href="../index.html">Home</a> → Sample Project</h6>
+      <h6><a href="../index.html">Home</a> → Projects</h6>
     </div>
   </div>
 </div>
@@ -78,26 +98,25 @@
   <div class="project">
     <div id="description">
       <h3>IKEBANA Algorithm : ESS Dimensions Reduction For Plan Bouquet</h3> 
+      <ul id="work">
+        <li>Database Management Systems</li>
+        <li>Plan Bouquet</li>
+        <li>DSL, IISc</li>
+        <li>Course Project</li>
+        <a href="../misc/Ikebana-report.pdf" class="button">project report</a> <br/>
+        <a href="../misc/Ikebana-presentation.pdf" class="button button-blue">presentation</a> <br/>
+        <a href="https://github.com/adarshpatil/ESS-Reduction" class="button button-red">Source (github)</a>
+      </ul>      
       <p>
-
-In SQL Query language we define an error-prone predicate as that whose estimation of selectivity is different from that returned by the query. Selectivity is the measure of percentage of columns returned for that predicate from the base relation. This selectivity is used by Database optimizers to choose effective plans to execute queries. If the selectivity estimation is incorrect sometimes the plan execution cost (time taken to execute query) can grow in terms of order of magnitude greater than the optimal query plan <br/> <br/>
-Selectivity of predicates in an SQL query can be done in several statistical ways (for example maintaining histograms, sampling, sketches, wavelets, parametric curve fitting etc.) and has been a well reserached field for the last decade. The DSL lab in IISc recently produced a paper <a href="https://dsl.cds.iisc.ac.in/publications/journal/planbouquet.pdf">Plan Bouquet</a> which eschews compile time estimation process and the actual selectivity is discovered incrementally at run time by executing a series of cost limited plans. This requires the accurate identification of error prone predicates and thier impact on the cost of the plan. We propose and implement some methods to achieve this. <br/> <br/>
-This project has concluded. The detailed <a href="../misc/Ikebana-report.pdf">report</a> and the <a href="../misc/Ikebana-presentation.pdf">presentation</a> are available on the links indicated. <br/>
-The code is available for inspection on my github repo <a href="https://github.com/adarshpatil/ESS-Reduction">https://github.com/adarshpatil/ESS-Reduction</a>
- 	
+        In SQL Query language we define an error-prone predicate as that whose estimation of selectivity is different from that returned by the query. Selectivity is the measure of percentage of columns returned for that predicate from the base relation. This selectivity is used by Database optimizers to choose effective plans to execute queries. If the selectivity estimation is incorrect sometimes the plan execution cost (time taken to execute query) can grow in terms of order of magnitude greater than the optimal query plan <br/> <br/>
+        Selectivity of predicates in an SQL query can be done in several statistical ways (for example maintaining histograms, sampling, sketches, wavelets, parametric curve fitting etc.) and has been a well reserached field for the last decade. The DSL lab in IISc recently produced a paper <a href="https://dsl.cds.iisc.ac.in/publications/journal/planbouquet.pdf">Plan Bouquet</a> which eschews compile time estimation process and the actual selectivity is discovered incrementally at run time by executing a series of cost limited plans. This requires the accurate identification of error prone predicates and thier impact on the cost of the plan. We propose and implement some methods to achieve this.
       </p>
     </div>
-    <ul id="work">
-      <li>Database Management Systems</li>
-      <li>Plan Bouquet</li>
-      <li>DSL, IISc</li>
-      <li>Course Project</li>
-    </ul>
   </div>
   <!--END of project-->
   <!--This is the START of the gallery-->
   <div class="spacer"></div>
-  <center>Other projects similar to this:</center>
+  <div class="text-center">Other projects similar to this:</div>
   <div class="project-summary">
     <div class="one-third"> 
       <a href="micro-arch-scale-out.html">

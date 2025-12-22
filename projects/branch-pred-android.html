@@ -30,6 +30,26 @@
 <!-- for html include -->
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 
+<!-- Style for button -->
+<style type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-red {background-color: #f44336;} /* Red */
+.button-black {background-color: #555555;} /* Black */
+</style>
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,41 +99,40 @@
   <div class="project">
     <div id="description">
       <h3>Branch Prediction in Android applications </h3> </br> 
+      <ul id="work">
+        <li>Computer Architecure</li>
+        <li>Branch Prediction</li>
+        <li>gem5</li>
+        <li>Android</li>
+        <li>Moby Benchmark</li>
+        <li>Course Project</li>
+        <a href="../misc/branch-prediction-android.pdf" class="button">Project Report</a> <br/>
+      </ul>
       <p>
 
-In this work I have attempted to study the hardware branch prediction accuracy of ARM processor in mobile devices (specifically the <a target="_blank" href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0344k/DDI0344K_cortex_a8_r3p2_trm.pdf">Cortex A8</a>) running Android.
-We simulate the processor using full system cycle accurate simulation mode of <a target="_blank" href="http://www.gem5.org/Main_Page">gem5</a> and run the <a target="_blank" href="https://ieeexplore.ieee.org/document/6844460">Moby application benchmark suite</a> to study the micro-architectural characteristics.
-We account for context switches made while running these applications and separate the branches into user mode and kernel mode branches. 
-We also study the number of instructions squashed from the pipeline due to the incorrect branch prediction and speculative execution along the incorrect path.
-The processor consists of a 2-level tournament predictor with a 2048 entry local and 8192 entry global predictor tables and a 2048 branch table buffer (BTB). <br/> <br/>
+        In this work I have attempted to study the hardware branch prediction accuracy of ARM processor in mobile devices (specifically the <a target="_blank" href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0344k/DDI0344K_cortex_a8_r3p2_trm.pdf">Cortex A8</a>) running Android.
+        We simulate the processor using full system cycle accurate simulation mode of <a target="_blank" href="http://www.gem5.org/Main_Page">gem5</a> and run the <a target="_blank" href="https://ieeexplore.ieee.org/document/6844460">Moby application benchmark suite</a> to study the micro-architectural characteristics.
+        We account for context switches made while running these applications and separate the branches into user mode and kernel mode branches. 
+        We also study the number of instructions squashed from the pipeline due to the incorrect branch prediction and speculative execution along the incorrect path.
+        The processor consists of a 2-level tournament predictor with a 2048 entry local and 8192 entry global predictor tables and a 2048 branch table buffer (BTB). <br/> <br/>
 
-<strong> OBESERVATIONS : </strong> 
-The number of context switches in Android applications is quite few (between 0.54 to 0.78 Million) and these are spaced far apart in the execution timeline of the applications.
-This leads us to the second result. As a consequence of the few and far spaced kerel mode executions, we find that although the overall branch prediction accuracy is pretty high (between 88% to 93%) the number of incorrect predictions in in user and kernel mode is disproportionate.
-The user mode doesn't suffer from too much from these incorrect predictions (1.53% to 6.83%) while the kernel mode suffers from a not only a high percentage of mis-predictions but also a wide range of mis-predictions rates (48.46 to 78.46%).
-The instructions squashed in the pipeline due to execution on mis-predicted path represents wasted cycles and power being a first rate design concern for mobile processors this worrisome. <br/> <br/>
+        <strong> OBESERVATIONS : </strong> 
+        The number of context switches in Android applications is quite few (between 0.54 to 0.78 Million) and these are spaced far apart in the execution timeline of the applications.
+        This leads us to the second result. As a consequence of the few and far spaced kerel mode executions, we find that although the overall branch prediction accuracy is pretty high (between 88% to 93%) the number of incorrect predictions in in user and kernel mode is disproportionate.
+        The user mode doesn't suffer from too much from these incorrect predictions (1.53% to 6.83%) while the kernel mode suffers from a not only a high percentage of mis-predictions but also a wide range of mis-predictions rates (48.46 to 78.46%).
+        The instructions squashed in the pipeline due to execution on mis-predicted path represents wasted cycles and power being a first rate design concern for mobile processors this worrisome. <br/> <br/>
 
-Modern mobile OS are much more capable and allow for multi-tasking between applications and background application refreshes. This results is increased number of context switches between the user and kernel mode. However the decrease in mis-prediction rate with increase in kernel mode burst length and number of context switches is only linear which is insufficient for handling these modern OS. <br/> <br/>
+        Modern mobile OS are much more capable and allow for multi-tasking between applications and background application refreshes. This results is increased number of context switches between the user and kernel mode. However the decrease in mis-prediction rate with increase in kernel mode burst length and number of context switches is only linear which is insufficient for handling these modern OS. <br/> <br/>
 
-We hope that future hardware designers take into account these findings and use OS aware branch prediction techniques as proposed in ”Understanding and improving operating
-system effects in control flow prediction.” by Sivasubramaniam, Li et al. in ASPLOS 2002 <a target="_blank" href="http://csl.cse.psu.edu/publications/asplos02.pdf"> here </a>. <br/> <br/>
-
-The complete report with results and simulation procedure is available <a target="_blank" href="../misc/branch-prediction-android.pdf"> here	</a>
+        We hope that future hardware designers take into account these findings and use OS aware branch prediction techniques as proposed in ”Understanding and improving operating
+        system effects in control flow prediction.” by Sivasubramaniam, Li et al. in ASPLOS 2002 <a target="_blank" href="http://csl.cse.psu.edu/publications/asplos02.pdf"> here </a>.
       </p>
     </div>
-    <ul id="work">
-      <li>Computer Architecure</li>
-      <li>Branch Prediction</li>
-      <li>gem5</li>
-      <li>Android</li>
-	  <li>Moby Benchmark</li>
-      <li>Course Project</li>
-    </ul>
   </div>
   <!--END of project-->
   <!--This is the START of the gallery-->
   <div class="spacer"></div>
-  <center>Other projects similar to this:</center>
+  <div class="text-center">Other projects similar to this:</div>
   <div class="project-summary">
     <div class="one-third"> 
       <a href="dynamic-scoping-for-clang-compiler.html">

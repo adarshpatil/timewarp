@@ -47,6 +47,8 @@
   --radius-lg: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --sticky-offset: 0px;
 }
 
 /* Dark Mode Support 
@@ -75,8 +77,9 @@
   padding: 0;
 }
 
-html { 
+html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--sticky-offset);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

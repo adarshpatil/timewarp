@@ -96,38 +96,34 @@
   <div class="project">
     <div id="description">
       <h3>Improving Reliability and Performance of Datacenter Systems via Coherence</h3> </br> 
-      <h4>
-&#x25BA; This presentation was given at the ARM / University of Edinburgh, Autumn 2021 Conference </br/>
-&#x25BA; 7th October 2021, <a href="https://blogs.ed.ac.uk/arm-ed/">https://blogs.ed.ac.uk/arm-ed/</a>
-      </h4>
-<br/>
-<strong>Abstract</strong> <br/>
-<p> In this talk, I will present 2 works, where we aim to design tailored coherence protocols for improving reliability and performance of modern datacenter shared memory hardware. </p> <br/> <br/>
+      <ul id="work">
+        <li>Computer Architecure</li>
+        <li>Memory Reliability</li>
+        <li>Memory Coherence</li>
+        <li>Research Talk</li> <br/>
+        <a target="_blank" href="../misc/arm-uoe-slides.pdf" class="button button-red">Slides</a> <br/>
+        <a target="_blank" href="https://youtu.be/XITjuw7U3X4" class="button button-blue">Talk (13 mins)</a> <br/>    
+      </ul>
+      <h4> Presented at the ARM / University of Edinburgh, Autumn 2021 Conference: <a href="https://blogs.ed.ac.uk/arm-ed/">https://blogs.ed.ac.uk/arm-ed/</a> </h4>
+      <br/>
+      <strong>Abstract</strong> <br/>
+      <p> This talk will present 2 works, where we aim to design tailored coherence protocols for improving reliability and performance of modern datacenter shared memory hardware. </p> <br/> <br/>
 
-<p style="color: black">&#x25C9; In the first work, we aim to combat increased memory system failure rates. </p>
-<p>
-We propose Dvé, a hardware-driven replication mechanism where data blocks are replicated in 2 different sockets across a cache-coherent NUMA system. Each data block is also accompanied by a code with strong error detection capabilities so that when an error is detected, correction is performed using the replica. Such an organization has the advantage of offering two independent points of access to data which enables: (a) strong error correction that can recover from a range of faults affecting any of the components in the memory, upto and including the memory controller, and    (b) higher performance by providing another nearer point of memory access. Dvé realizes both of these benefits via Coherent Replication, a  technique that builds on top of existing cache coherence protocols for not only keeping the replicas in sync for reliability, but also to provide coherent access to the replicas during fault-free operation for performance. Dvé can flexibly provide these benefits on-demand by simply using the provisioned memory capacity which, as reported in recent studi es, is often underutilized in today’s systems. Thus, Dvé introduces a unique design point that offers higher reliability and performance for workloads that do not require the entire memory capacity. 
-</p> <br/>
+      <p style="color: black">&#x25C9; In the first work, we aim to combat increased memory system failure rates. </p>
+      <p>
+      We propose Dvé, a hardware-driven replication mechanism where data blocks are replicated in 2 different sockets across a cache-coherent NUMA system. Each data block is also accompanied by a code with strong error detection capabilities so that when an error is detected, correction is performed using the replica. Such an organization has the advantage of offering two independent points of access to data which enables: (a) strong error correction that can recover from a range of faults affecting any of the components in the memory, upto and including the memory controller, and    (b) higher performance by providing another nearer point of memory access. Dvé realizes both of these benefits via Coherent Replication, a  technique that builds on top of existing cache coherence protocols for not only keeping the replicas in sync for reliability, but also to provide coherent access to the replicas during fault-free operation for performance. Dvé can flexibly provide these benefits on-demand by simply using the provisioned memory capacity which, as reported in recent studi es, is often underutilized in today’s systems. Thus, Dvé introduces a unique design point that offers higher reliability and performance for workloads that do not require the entire memory capacity. 
+      </p> <br/>
 
-<p style="color: black">&#x25C9; In the second work, we aim to provide improved performance and availability for Function-as-a-Sevice deployments. </p>
-<p> For this, we propose to employ a disaggregated memory backend to share memory segments between multiple servers that host function instances. We enable such a shared memory organization by providing suitable address mapping and translation services. The resulting organization already provides the ability to employ existing low-latency hardware caches and provides automatic/implicit data transfer without any software intervention. Our goal is to further improve performance with a bespoke inter-node coherence protocol specifically for FaaS application sharing characteristics. We also aim to provide suitable memory consistency and availability guarantees during  partial failures.</p>
-<br/> <br/>
-</p>
-<br/> <br/>
-
+      <p style="color: black">&#x25C9; In the second work, we aim to provide improved performance and availability for Function-as-a-Sevice deployments. </p>
+      <p> For this, we propose to employ a disaggregated memory backend to share memory segments between multiple servers that host function instances. We enable such a shared memory organization by providing suitable address mapping and translation services. The resulting organization already provides the ability to employ existing low-latency hardware caches and provides automatic/implicit data transfer without any software intervention. Our goal is to further improve performance with a bespoke inter-node coherence protocol specifically for FaaS application sharing characteristics. We also aim to provide suitable memory consistency and availability guarantees during  partial failures.</p>
+      <br/> <br/>
+      </p>
     </div>
-    <ul id="work">
-      <li>Computer Architecure</li>
-      <li>Memory Reliability</li>
-      <li>Memory Coherence</li>
-      <li>Research Talk</li> <br/>
-      <a target="_blank" href="../misc/arm-uoe-slides.pdf" class="button button-red">Slides</a> <br/>
-      <a target="_blank" href="https://youtu.be/XITjuw7U3X4" class="button button-blue">Talk (13 mins)</a> <br/>    </ul>
   </div>
   <!--END of project-->
   <!--This is the START of the gallery-->
   <div class="spacer"></div>
-  <center>Other projects similar to this:</center>
+  <div class="text-center">Other projects similar to this:</div>
   <div class="project-summary">
     <div class="one-third"> 
       <a href=" hashcache.html">
