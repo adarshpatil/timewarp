@@ -8,15 +8,15 @@
 function updateStickyOffset() {
   const header = document.getElementById('header-wrapper');
   if (!header) return;
-  const offset = header.getBoundingClientRect().height + 12; // extra breathing room
+  const offset = header.getBoundingClientRect().height + 20; // extra breathing room
   document.documentElement.style.setProperty('--sticky-offset', `${offset}px`);
 }
 
+document.addEventListener('DOMContentLoaded', updateStickyOffset);
 window.addEventListener('load', updateStickyOffset);
 window.addEventListener('resize', updateStickyOffset);
 
- $(document).ready(function(){
-							
+$(document).ready(function(){
 function resolvePortraitPath(){
 	var cssHref = $('link[href*="css/style.css"]').first().attr('href') || 'css/style.css';
 	var basePath = cssHref.split('css/style.css')[0];
@@ -38,6 +38,35 @@ $('#header').each(function(){
 		$header.append($pic);
 	}
 });
+
+// for mobile displays of menu. Expand menu items on tap.
+var $menuWrapper = $('#menu-wrapper');
+var $mainMenu = $('#main-menu');
+
+if($menuWrapper.length && $mainMenu.length && !$menuWrapper.prev('.menu-toggle').length){
+	var $toggle = $('<button>',{
+		class: 'menu-toggle',
+		type: 'button',
+		'aria-expanded': 'false',
+		'aria-controls': 'main-menu',
+		'aria-label': 'Toggle navigation menu'
+	}).append('<span class="bars" aria-hidden="true"></span><span class="label">Menu</span>');
+
+	$menuWrapper.before($toggle);
+
+	$toggle.bind('click', function(){
+		var isOpen = $mainMenu.hasClass('open');
+		$mainMenu.toggleClass('open');
+		$toggle.attr('aria-expanded', (!isOpen).toString());
+	});
+
+	$('#main-menu a').bind('click', function(){
+		if(window.matchMedia('(max-width: 720px)').matches){
+			$mainMenu.removeClass('open');
+			$toggle.attr('aria-expanded', 'false');
+		}
+	});
+}
 							
 $('.single_image').hover(
 function(){
