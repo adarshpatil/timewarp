@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
 <!-- Load jQuery library -->
 <script type="text/javascript" src="../scripts/jquery-1.6.2.min.js"></script>
-<!-- Load custom js
+<!-- Load custom js -->
 <script type="text/javascript" src="../scripts/panelslide.js"></script>
 <script type="text/javascript" src="../scripts/custom.js"></script>
 <!-- Load topcontrol js -->
@@ -57,8 +57,16 @@
     </div>
   </div>
   <!--This is the START of the menu-->
-  <div w3-include-html="1blog-main-menu.html"></div>
-  <script>w3.includeHTML();</script>
+  <div id="menu-wrapper">
+    <div w3-include-html="1blog-main-menu.html"></div>
+    <script>
+      w3.includeHTML(function(){
+        if(window.initializeHeaderEnhancements){
+          window.initializeHeaderEnhancements();
+        }
+      });
+    </script>
+  </div>
   <!--END of menu-->
 </div>
 <!--END of header-->

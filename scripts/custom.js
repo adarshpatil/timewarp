@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', updateStickyOffset);
 window.addEventListener('load', updateStickyOffset);
 window.addEventListener('resize', updateStickyOffset);
 
-$(document).ready(function(){
+function initializeHeaderEnhancements(){
 function resolvePortraitPath(){
 	var cssHref = $('link[href*="css/style.css"]').first().attr('href') || 'css/style.css';
 	var basePath = cssHref.split('css/style.css')[0];
@@ -67,6 +67,10 @@ if($menuWrapper.length && $mainMenu.length && !$menuWrapper.prev('.menu-toggle')
 		}
 	});
 }
+}
+
+$(document).ready(function(){
+	initializeHeaderEnhancements();
 							
 $('.single_image').hover(
 function(){

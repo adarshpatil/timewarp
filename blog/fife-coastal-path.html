@@ -12,9 +12,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
 <!-- Load jQuery library -->
 <script type="text/javascript" src="../scripts/jquery-1.6.2.min.js"></script>
-<!-- Load custom js
+<!-- Load custom js -->
 <script type="text/javascript" src="../scripts/panelslide.js"></script>
-<script type="text/javascript" src="../scripts/custom.js"></script> -->
+<script type="text/javascript" src="../scripts/custom.js"></script>
 <!-- Load topcontrol js -->
 <script type="text/javascript" src="../scripts/scrolltopcontrol.js"></script>
 <!-- Load NIVO Slider -->
@@ -52,18 +52,24 @@
 <div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
 <div id="header-wrapper">
   <div id="header">
-    
     <div id="header-text">
-      <h4>TimeWarp - Blogpost</h4>
+      <h4>Timewarp - Blogpost</h4>
     </div>
   </div>
+  <!--This is the START of the menu-->
+  <div id="menu-wrapper">
+    <div w3-include-html="1blog-main-menu.html"></div>
+    <script>
+      w3.includeHTML(function(){
+        if(window.initializeHeaderEnhancements){
+          window.initializeHeaderEnhancements();
+        }
+      });
+    </script>
+  </div>
+  <!--END of menu-->
 </div>
 <!--END of header-->
-
-<!--This is the START of the menu-->
-<div w3-include-html="1blog-main-menu.html"></div>
-<script>w3.includeHTML();</script>
-<!--END of menu-->
 
 <!--This is the START of the content-->
 <div id="content">
@@ -354,14 +360,13 @@ After almost 200km of walking along this county's beautiful coasts, an arch mark
     </div>
   </div>
 
-
   <!--END of blog section-->
 </div>
 <!--END of content-->
 
 <p class="slide"><a href="#" class="btn-slide"></a></p>
 <!--This is the START of the footer-->
-<div w3-include-html="1projects-footer.html"></div>
+<div w3-include-html="1blog-footer.html"></div>
 <script>w3.includeHTML();</script>
 <!--END of footer-->
 
