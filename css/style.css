@@ -181,7 +181,7 @@ img {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
 }
