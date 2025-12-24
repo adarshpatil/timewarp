@@ -58,9 +58,17 @@
     </div>
   </div>
   <!--This is the START of the menu-->
-  <div w3-include-html="1blog-main-menu.html"></div>
-  <script>w3.includeHTML();</script>
-  <!--END of menu-->  
+  <div id="menu-wrapper">
+    <div w3-include-html="1blog-main-menu.html"></div>
+    <script>
+      w3.includeHTML(function(){
+        if(window.initializeHeaderEnhancements){
+          window.initializeHeaderEnhancements();
+        }
+      });
+    </script>
+  </div>
+  <!--END of menu-->
 </div>
 <!--END of header-->
 
