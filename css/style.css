@@ -779,7 +779,7 @@ textarea {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 1rem;
+  gap: 0rem;
   padding: 1rem 5%;
 }
 
@@ -803,6 +803,12 @@ textarea {
   height: 32px;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+#social-box .footer-copyright {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-lighter);
 }
 
 #social-blog-buttons {
