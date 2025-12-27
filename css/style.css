@@ -798,50 +798,33 @@ textarea {
 
 #social-box a,
 #footer a {
-  opacity: 0.8;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-#social-box a:hover,
-#footer a:hover {
-  opacity: 1;
-  transform: translateY(-3px);
-  color: var(--accent);
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #social-blog-buttons {
   display:inline;
 }
 
-.scholar {
-  background-image: url('../images/scholar.png');
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding-left: 28px;
-}
-.github {
-  background-image: url('../images/github.png');
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding-left: 28px;
-}
+.scholar,
+.github,
 .linkedin {
-  background-image: url('../images/linkedin.png');
-  background-position: 0 0;
   background-repeat: no-repeat;
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding-left: 28px;
+  background-position: center;
+  background-size: contain;
+}
+
+.scholar { background-image: url('../images/scholar.png'); }
+.github { background-image: url('../images/github.png'); }
+.linkedin { background-image: url('../images/linkedin.png'); }
+
+.scholar:hover,
+.github:hover,
+.linkedin:hover {
+  background-size: contain;
 }
 /* -------------------------------------------------
    10. Utility Classes
