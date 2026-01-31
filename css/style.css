@@ -27,6 +27,7 @@
   --bg: #ffffff;
   --light: #f8fafc;
   --border: #e2e8f0;
+  --card-bg: #ffffff;
   
   /* Gradients */
   --accent-gradient: linear-gradient(135deg, #e64a19 0%, #ff6b35 100%);
@@ -51,7 +52,7 @@
   --sticky-offset: 0px;
 }
 
-/* Dark Mode Support 
+/* Dark Mode Support
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #f1f5f9;
@@ -60,13 +61,14 @@
     --bg: #0f172a;
     --light: #1e293b;
     --border: #334155;
+    --card-bg: #1e293b;
     --glass: rgba(30, 41, 59, 0.85);
     --glass-border: rgba(51, 65, 85, 0.5);
     --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
   }
-} */
+}*/
 
 /* -------------------------------------------------
    3. Reset & Base Styles
@@ -438,7 +440,8 @@ blockquote::before {
 .recent-item,
 .recent-item-last,
 .aboutimage {
-  background: white;
+  background: var(--card-bg);
+  color: var(--text);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -678,7 +681,7 @@ blockquote::before {
 .button,
 #comment-button,
 .submitbtn {
-  background: var(--accent-gradient);
+  background-color: var(--accent);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -692,9 +695,8 @@ blockquote::before {
   display: inline-flex;
   position: relative;
   overflow: hidden;
-  /*box-shadow: 0 4px 15px rgba(230, 74, 25, 0.3);*/
+  /*box-shadow: 0 4px 15px rgba(230, 74, 25, 0.3); */
   background-image: none;
-  background-size: 100% 100%;
 }
 
 .button::before,
@@ -715,7 +717,7 @@ blockquote::before {
 .button:hover,
 #comment-button:hover,
 .submitbtn:hover {
-  background: var(--accent-dark);
+  background-color: var(--accent-dark);
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(230, 74, 25, 0.4);
 }
