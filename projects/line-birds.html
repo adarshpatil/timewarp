@@ -72,21 +72,28 @@
   <div id="header">
     
     <div id="header-text">
-      <h4>Timewarp - Projects - Line Birds (OpenGL)</h4>
+      <h4>Project - Line Birds (OpenGL)</h4>
       <h6><a href="../index.html">Home</a> → Sample Project</h6>
     </div>
   </div>
+  <!--This is the START of the menu-->
+  <div id="menu-wrapper">
+    <div w3-include-html="1projects-main-menu.html"></div>
+    <script>
+      w3.includeHTML(function(){
+        if(window.initializeHeaderEnhancements){
+          window.initializeHeaderEnhancements();
+        }
+      });
+    </script>
+  </div>
+  <!--END of menu-->  
 </div>
 <!--END of header-->
 
-<!--This is the START of the menu-->
-<div w3-include-html="1projects-main-menu.html"></div>
-<script>w3.includeHTML();</script>
-<!--END of menu-->
-
 <!--This is the START of the content-->
 <div id="content">
-  <h6> <a href="../portfolio.html"> ← Back to Projects</a> </h6>
+  <h6> <a href="../portfolio.html#projects"> ← Back to Projects</a> </h6>
   <!--This is the START of the NIVO slider-->
   <div class="slider-wrapper theme-effe">
     <div id="slider" class="nivoSlider"> 
